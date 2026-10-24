@@ -1,0 +1,27 @@
+name: "ok-nte"
+uac: true
+icon: "icons/icon.png"
+website: "https://ok-script.com/ok-nte"
+packaging: packaging
+
+# fork 不发布 Mirror酱 资源; 保留结构但指向不存在的资源, 避免启动器从上游
+# ok-nte-zip 拉到无拍卖功能的官方版本.
+mirrorchyan:
+  resource_id: ok-nte-fork-zip
+  stable_channel: stable
+
+profiles:
+  - name: "China"
+    git_url: "https://github.com/syxxjgh/ok-nte-update.git"
+    admin: true
+    main_script: "main.py"
+    requires_python: "3.12"
+    requirements: "requirements.txt"
+    use_pythonw: true
+    pip_args: "--no-deps"
+    show_add_defender: true
+
+  - name: "Global"
+    git_url: "https://github.com/syxxjgh/ok-nte-update.git"
+    main_script: "main.py"
+    requirements: "requirements.txt"

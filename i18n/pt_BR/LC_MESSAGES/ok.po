@@ -1,0 +1,1363 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: you@example.com\n"
+"Last-Translator: you@example.com\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Arc Key"
+msgstr "Tecla do Arco"
+
+msgid "Check Monthly Card"
+msgstr "Verificar Passe Mensal"
+
+msgid "Check for monthly card to avoid interruption of tasks"
+msgstr "Verificar passe mensal para evitar interrupção das tarefas"
+
+msgid "Game Hotkey Config"
+msgstr "Configuração de Teclas de Atalho"
+
+msgid "In Game Hotkey for Skills"
+msgstr "Teclas de Atalho para Habilidades no Jogo"
+
+msgid "Monthly Card Config"
+msgstr "Configuração do Passe Mensal"
+
+msgid "Monthly Card Time"
+msgstr "Horário do Passe Mensal"
+
+msgid "Skill Key"
+msgstr "Tecla de Habilidade"
+
+msgid "Turn on to avoid interruption by monthly card when executing tasks"
+msgstr "Ative para evitar interrupção pelo passe mensal ao executar tarefas"
+
+msgid "Ultimate Key"
+msgstr "Tecla do Ultimate"
+
+msgid "内置代码"
+msgstr "Código Interno"
+
+msgid "{combo}: {} 删除成功"
+msgstr "{combo}: {} excluído com sucesso"
+
+msgid "{combo}: {} 绑定成功"
+msgstr "{combo}: {} vinculado com sucesso"
+
+msgid "{combo}语法错误"
+msgstr "Erro de sintaxe em {combo}"
+
+msgid "{} 号位"
+msgstr "Espaço {}"
+
+msgid "任务跳过对话"
+msgstr "Tarefa: Pular Diálogo"
+
+msgid ""
+"供非中/英语用户自定义传送文字, 逗号分隔\n"
+"例: Teleport, 传送"
+msgstr ""
+"Para usuários que não falam chinês/inglês personalizarem o texto de teletransporte, separado por vírgulas\n"
+"Ex: Teleport, 传送"
+
+msgid "保存成功"
+msgstr "Salvo com sucesso"
+
+msgid "停用"
+msgstr "Desativar"
+
+msgid "出招表"
+msgstr "Lista de Combos"
+
+msgid "初次使用请先至 [{team_mgmt}] 进行设置"
+msgstr "Para primeiro uso, vá em [{team_mgmt}] para configurar."
+
+msgid "删除"
+msgstr "Excluir"
+
+msgid "删除成功"
+msgstr "Excluído com sucesso"
+
+msgid "删除角色"
+msgstr "Excluir Personagem"
+
+msgid "刷新列表"
+msgstr "Atualizar Lista"
+
+msgid "匹配成功: {}"
+msgstr "Detectado: {}"
+
+msgid "置信度: {:.2f}"
+msgstr "Confiança: {:.2f}"
+
+msgid "特征已加入"
+msgstr "Característica adicionada"
+
+msgid "加入特征"
+msgstr "Adicionar característica"
+
+msgid "匹配文字"
+msgstr "Corresponder Texto"
+
+msgid "适用于大世界、轨外之境、999夜等各类场景与副本"
+msgstr "Adequado para vários cenários e masmorras como mundo aberto, Beyond the Rails, 999 Nights, etc."
+
+msgid "可用指令"
+msgstr "Comandos Disponíveis"
+
+msgid "启用"
+msgstr "Ativar"
+
+msgid "固定队伍"
+msgstr "Equipe Fixa"
+
+msgid "地图中自动点击传送"
+msgstr "Clique automático em teletransporte no mapa"
+
+msgid "填入扫描"
+msgstr "Preencher Escaneamento"
+
+msgid "完成每日活跃度"
+msgstr "Completar Atividade Diária"
+
+msgid "导入失败"
+msgstr "Falha ao importar"
+
+msgid "导入成功"
+msgstr "Importação bem-sucedida"
+
+msgid "导入数据"
+msgstr "Importar Dados"
+
+msgid "导出数据"
+msgstr "Exportar Dados"
+
+msgid "已导入 {} 个文件"
+msgstr "{} arquivos importados"
+
+msgid "已成功删除角色: {} 以及关联的特征图"
+msgstr ""
+"Personagem excluído com sucesso: {} e mapas de características associados"
+
+msgid "已解除 {} 的{combo}绑定"
+msgstr "{combo} desvinculado de {}"
+
+msgid "应用更改"
+msgstr "Aplicar Alterações"
+
+msgid "当前未绑定任何{combo}.\n遇到此角色将默认使用基础通用脚本(BaseChar)."
+msgstr "Nenhum {combo} está vinculado no momento.\nEste personagem usará o script genérico básico (BaseChar) por padrão."
+
+msgid "循环次数"
+msgstr "Contagem de Ciclos"
+
+msgid "快速传送"
+msgstr "Viagem Rápida"
+
+msgid "扫描中..."
+msgstr "Escaneando..."
+
+msgid "扫描队伍"
+msgstr "Escanear Equipe"
+
+msgid "控条模式"
+msgstr "Modo Barra de Controle"
+
+msgid "搜索角色"
+msgstr "Buscar Personagem"
+
+msgid "无画面"
+msgstr "Sem Imagem"
+
+msgid "日常任务"
+msgstr "Tarefas Diárias"
+
+msgid "未启用"
+msgstr "Desativado"
+
+msgid "未能识别该特征"
+msgstr "Não reconhecido"
+
+msgid "未获取到特征"
+msgstr "Característica não obtida"
+
+msgid "关联特征"
+msgstr "Vincular característica"
+
+msgid "此为 Python 脚本, 不可在此修改.\n请在对应的源文件中直接修改代码."
+msgstr "Este é um script Python e não pode ser modificado aqui.\nPor favor, modifique o código diretamente no arquivo-fonte correspondente."
+
+msgid "没有找到匹配的指令。"
+msgstr "Nenhum comando correspondente encontrado."
+
+msgid "点击时将短暂控制物理鼠标"
+msgstr "Controla brevemente o mouse físico ao clicar"
+
+msgid "点按"
+msgstr "Toque"
+
+msgid "点按时长倍率"
+msgstr "Multiplicador de Duração do Toque"
+
+msgid "点按模式专用。用于微调每次按键的持续时间"
+msgstr ""
+"Apenas para o modo Toque. Usado para ajustar a duração de cada "
+"pressionamento de tecla."
+
+msgid "自动完成一轮或多轮钓鱼"
+msgstr "Completar automaticamente uma ou mais rodadas de pesca"
+
+msgid "自动战斗"
+msgstr "Combate Automático"
+
+msgid "自动消息"
+msgstr "Mensagem Automática"
+
+msgid "自动目标"
+msgstr "Alvo Automático"
+
+msgid "自动钓鱼"
+msgstr "Pesca Automática"
+
+msgid "角色中心"
+msgstr "Centro Pers."
+
+msgid "角色名称无效或已存在"
+msgstr "Nome de personagem inválido ou já existe"
+
+msgid "角色已重命名为: {}"
+msgstr "Personagem renomeado para: {}"
+
+msgid "角色管理"
+msgstr "Gerenciamento Pers."
+
+msgid "解除绑定"
+msgstr "Desvincular"
+
+msgid "请在左侧选择一个角色以管理特征和{combo}"
+msgstr ""
+"Selecione um personagem à esquerda para gerenciar características e {combo}"
+
+msgid "跳过剧情"
+msgstr "Pular História"
+
+msgid "运行一次测试"
+msgstr "Executar um teste"
+
+msgid "下拉选择, 或直接输入名称以创建新{combo}"
+msgstr "Selecione no menu suspenso ou insira um nome para criar um novo {combo}"
+
+msgid "重命名失败"
+msgstr "Falha ao renomear"
+
+msgid "长按"
+msgstr "Pressionar e Segurar"
+
+msgid ""
+"长按：平滑流畅, 易过冲\n"
+"点按: 安全较慢, 防过冲"
+msgstr ""
+"Pressionar e Segurar: Suave e fluido, propenso a excesso\n"
+"Toque: Mais seguro e lento, previne excesso"
+
+msgid "队伍不存在"
+msgstr "Equipe não existe"
+
+msgid "队伍人数少于2人"
+msgstr "Tamanho da equipe inferior a 2"
+
+msgid "队伍管理"
+msgstr "Gestão de Equipe"
+
+msgid "关闭时仅在中键选中敌人且画面识别到关键特征时开启战斗"
+msgstr "Quando desativado, o combate inicia apenas se um inimigo for clicado com o botão do meio e características-chave forem detectadas na tela"
+
+msgid ""
+"开启后优先通过 ESC 键关闭成功界面，避免后台抢占鼠标。\n"
+"若游戏运行不流畅，可能因按键响应延迟导致误退出钓鱼场景"
+msgstr ""
+"Quando ativado, prioriza fechar telas de sucesso com ESC para evitar que o fundo roube o foco do mouse.\n"
+"Se o jogo estiver lento, o atraso na resposta das teclas pode causar saída acidental da cena de pesca."
+
+msgid "Counter Attack Threshold"
+msgstr "Limiar de Contra-ataque"
+
+msgid ""
+"Counter attack sound recognition threshold (0.0-1.0, lower is more "
+"sensitive)"
+msgstr ""
+"Limiar de reconhecimento de som de contra-ataque (0,0-1,0, quanto menor, "
+"mais sensível)"
+
+msgid "Dodge Threshold"
+msgstr "Limiar de Esquiva"
+
+msgid "Dodge sound recognition threshold (0.0-1.0, lower is more sensitive)"
+msgstr ""
+"Limiar de reconhecimento de som de esquiva (0,0-1,0, quanto menor, mais "
+"sensível)"
+
+msgid "Enable Sound Trigger"
+msgstr "Ativar Gatilho de Som"
+
+msgid "Enable sound recognition for automatic dodge and counter attacks"
+msgstr ""
+"Ativar reconhecimento de som para esquivas e contra-ataques automáticos"
+
+msgid "Sound Trigger Config"
+msgstr "Configuração do Gatilho de Som"
+
+msgid "Sound-based dodge and counter trigger settings"
+msgstr "Configurações de gatilho de esquiva e contra-ataque baseadas em som"
+
+msgid "Dodge All Attacks"
+msgstr "Esquivar de Todos os Ataques"
+
+msgid "Dodge all attacks without performing counter attacks"
+msgstr "Esquivar de todos os ataques sem realizar contra-ataques"
+
+msgid "任务完成后自动切换至下一个项目"
+msgstr ""
+"Alternar automaticamente para o próximo item após a conclusão da tarefa"
+
+msgid "任务类型"
+msgstr "Tipo de Tarefa"
+
+msgid "具体奖励目标"
+msgstr "Objetivo de Recompensa Específico"
+
+msgid "异能升级材料"
+msgstr "Material de Melhoria de Habilidade"
+
+msgid "异能材料序号"
+msgstr "Índice de Material de Habilidade"
+
+msgid "异象界域"
+msgstr "Zona de Anomalias"
+
+msgid "弧盘材料序号"
+msgstr "Índice de Material do Disco de Arco"
+
+msgid "弧盘突破材料"
+msgstr "Material de Ascensão do Disco de Arco"
+
+msgid "弧盘经验"
+msgstr "Experiência do Disco de Arco"
+
+msgid "甲硬币"
+msgstr "Moedas Besouro"
+
+msgid "空幕"
+msgstr "Console"
+
+msgid "空幕序号"
+msgstr "Índice do Console"
+
+msgid "经验与甲硬币"
+msgstr "EXP e Moedas Besouro"
+
+msgid "自动进行异象界域任务"
+msgstr "Realizar automaticamente tarefas da Zona de Anomalias"
+
+msgid "角色经验"
+msgstr "Experiência do Personagem"
+
+msgid "选择经验与甲硬币任务的具体奖励目标"
+msgstr ""
+"Selecionar o objetivo de recompensa específico para tarefas de EXP e Moedas "
+"Besouro"
+
+msgid "选择要进行的任务类型"
+msgstr "Selecionar o tipo de tarefa a ser realizada"
+
+msgid "选择列表中的第几个项目 ({}-{})"
+msgstr "Selecionar qual item da lista ({}-{})"
+
+msgid "使用滚轮加速拾取"
+msgstr "Usar rolagem do mouse para acelerar a coleta"
+
+msgid "切换角色快速奔跑"
+msgstr "Alternar personagens para corrida rápida"
+
+msgid "切换角色数量"
+msgstr "Número de Personagens para Alternância"
+
+msgid "快速奔跑角色数量"
+msgstr "Número de Personagens para Corrida Rápida"
+
+msgid "按住Shift生效"
+msgstr "Efetivo ao segurar Shift"
+
+msgid "粉爪大劫案"
+msgstr "Grande Roubo da Garra Rosa"
+
+msgid "粉爪大劫案便利性功能"
+msgstr "Funções de Conveniência do Grande Roubo da Garra Rosa"
+
+msgid "触发按键"
+msgstr "Tecla de Ativação"
+
+msgid "触发连点将同步生效"
+msgstr "A ativação de cliques automáticos terá efeito simultaneamente"
+
+msgid "触发连点的按键 (按住生效)"
+msgstr "Tecla de Cliques Automáticos (Ativo ao segurar)"
+
+msgid "自动补饵卖鱼"
+msgstr "Recarga Automática de Isca e Venda de Peixes"
+
+msgid "抛竿失败时，补充默认鱼饵并出售鱼获后重试"
+msgstr ""
+"Se a arremessada falhar, reabastece a isca padrão, vende a captura e tenta "
+"novamente"
+
+msgid "4列对应的键盘按键"
+msgstr "Teclas do teclado para 4 colunas"
+
+msgid "单曲超时时间(秒)"
+msgstr "Tempo limite por música (s)"
+
+msgid "异环鼓组音游自动打击与重试"
+msgstr "Jogo Rítmico NTE - Toque Automático e Repetição"
+
+msgid "自动音游"
+msgstr "Jogo Rítmico Automático"
+
+msgid "调试日志"
+msgstr "Log de Depuração"
+
+msgid "超时秒数"
+msgstr "Tempo limite (s)"
+
+msgid "输出调试日志"
+msgstr "Exibir logs de depuração"
+
+msgid "输入或选择绑定的{combo} (可选)"
+msgstr "Digite ou selecione o {combo} vinculado (opcional)"
+
+msgid "输入或选择关联的角色名称"
+msgstr "Digite ou selecione o nome do personagem associado"
+
+msgid "键位"
+msgstr "Teclas"
+
+msgid "目标消耗体力"
+msgstr "Consumo de vigor alvo"
+
+msgid "声音闪避反击"
+msgstr "Esquiva e contra-ataque por som"
+
+msgid "未处于自动战斗时, 响应声音闪避或反击"
+msgstr ""
+"Quando o combate automático não está ativo, responde a esquivas ou contra-"
+"ataques por som"
+
+msgid ""
+"All letter/number keys, including every hotkey above, are replaced by US QWERTY\n"
+"physical positions, not your current layout's printed keys."
+msgstr ""
+"Todas as teclas de letras/números, incluindo todas as teclas de atalho acima, são substituídas pelas posições físicas do QWERTY dos EUA,\n"
+"não pelas teclas impressas no layout atual."
+
+msgid "Use QWERTY Physical Keys"
+msgstr "Usar teclas físicas QWERTY"
+
+msgid "店长特供"
+msgstr "Seleção do dono"
+
+msgid "抢钱流"
+msgstr "Build de roubo"
+
+msgid "游戏启动后自动登录游戏"
+msgstr "Entrar automaticamente após iniciar o jogo"
+
+msgid "自动循环进出关卡（需配合游戏内挂机流派使用）"
+msgstr ""
+"Repetir automaticamente a entrada e saída de fases (requer uma build AFK "
+"dentro do jogo)"
+
+msgid "自动登录游戏"
+msgstr "Login automático"
+
+msgid "一咖舍任务"
+msgstr "Tarefas do café"
+
+msgid "选择日常任务中的一咖舍处理方式"
+msgstr "Escolha como lidar com as tarefas diárias do café"
+
+msgid "不执行"
+msgstr "Não executar"
+
+msgid "Launcher Path"
+msgstr "Caminho do launcher"
+
+msgid "Start Game"
+msgstr "Iniciar jogo"
+
+msgid "清空已记录的操作"
+msgstr "Limpar operações gravadas"
+
+msgid "自动执行黑暗赛车,请在大世界开始执行"
+msgstr "Executar Corrida Sombria automaticamente; inicie no mundo aberto"
+
+msgid "重置记录"
+msgstr "Redefinir gravação"
+
+msgid "黑暗赛车"
+msgstr "Corrida Sombria"
+
+msgid "Record has been reset"
+msgstr "A gravação foi redefinida"
+
+msgid "Updated successfully"
+msgstr "Atualizado com sucesso"
+
+msgid "都市闲趣"
+msgstr "Hobbies"
+
+msgid "日常/周常"
+msgstr "Diárias/semanais"
+
+msgid "※ 列表可直接输入并创建"
+msgstr "※ Você pode digitar diretamente na lista para criar entradas"
+
+msgid "输入或选择角色"
+msgstr "Digite ou selecione um personagem"
+
+msgid "启动失败"
+msgstr "Falha ao iniciar"
+
+msgid "MIDI 分析失败"
+msgstr "Falha na análise MIDI"
+
+msgid "MIDI 播放失败"
+msgstr "Falha na reprodução MIDI"
+
+msgid ""
+"No recorded operations were found. Please wait for the recording prompt, then follow the instructions carefully to record your actions.\n"
+"DO NOT manually switch windows!\n"
+"Wait patiently for the software to bring the game window to the foreground."
+msgstr ""
+"Nenhuma operação gravada foi encontrada. Aguarde o aviso de gravação e siga as instruções com atenção para gravar suas ações.\n"
+"NÃO altere as janelas manualmente!\n"
+"Aguarde pacientemente até que o software traga a janela do jogo para o primeiro plano."
+
+msgid "影院约会"
+msgstr "Encontro no Cinema"
+
+msgid "约会目标"
+msgstr "Alvo do Encontro"
+
+msgid "自动小旋风"
+msgstr "Redemoinho Automático"
+
+msgid "可交互「小旋风」下按开始"
+msgstr "Pressione iniciar sob o 'Redemoinho' interativo"
+
+msgid "难度选项"
+msgstr "Opção de Dificuldade"
+
+msgid "异象家具"
+msgstr "Móveis de Anomalia"
+
+msgid "每2小时重新登入"
+msgstr "Fazer login novamente a cada 2 horas"
+
+msgid "除了选择内建存在的 [{combo}] 外,您也可以自己输入名称来建立自己的 [{combo}]。"
+msgstr "Além de selecionar um [{combo}] integrado, você também pode inserir um nome para criar seu próprio [{combo}]."
+
+msgid ""
+"<b>外置代码用法:</b><br>"
+"在 [{data_manager}] 中点击 [{show_builtin}], 选中内置角色后点击 [{copy_external}] 创建可编辑副本。<br>"
+"回到此页, 选择 {external_code} 脚本, 修改 Python 代码后点击 [{apply}] 保存并绑定到当前角色。<br>"
+"也可在 [{data_manager}] 中点击 [{open_folder}] 手动编辑 .py 文件, 保存后点击 [{refresh}] 重新加载。"
+"每个文件须且仅须定义一个 BaseChar 子类。<br>"
+"外置代码会以本软件相同权限运行, 请仅使用可信来源。"
+msgstr ""
+"<b>Como usar código externo:</b><br>"
+"Em [{data_manager}], clique em [{show_builtin}], selecione um personagem integrado e clique em [{copy_external}] para criar uma cópia editável.<br>"
+"Volte a esta página, selecione um script {external_code}, edite o código Python e clique em [{apply}] para salvá-lo e vinculá-lo ao personagem atual.<br>"
+"Você também pode abrir [{open_folder}] em [{data_manager}] e editar arquivos .py manualmente. Depois de salvar, clique em [{refresh}] para recarregá-los. Cada arquivo deve definir exatamente uma subclasse de BaseChar.<br>"
+"O código externo é executado com as mesmas permissões deste aplicativo. Use apenas código confiável."
+
+msgid "九百九十九夜"
+msgstr "999 Nights"
+
+msgid "巧克力火山-底层最左边的篝火"
+msgstr "Vulcão de Chocolate - Fogueira da extrema esquerda do andar inferior"
+
+msgid "挂机刷经验"
+msgstr "Farm de EXP AFK"
+
+msgid "位置"
+msgstr "Localização"
+
+msgid "赤龙古堡-龙之高塔室外篝火"
+msgstr "Castelo do Dragão Vermelho - Fogueira externa da Torre do Dragão"
+
+msgid "使用终结技"
+msgstr "Usar Ultimate"
+
+msgid "设置为0则一直运行"
+msgstr "Definir como 0 para executar indefinidamente"
+
+msgid "Background Audio Routing"
+msgstr "Roteamento de áudio em segundo plano"
+
+msgid "Enable Background Audio Routing"
+msgstr "Habilitar roteamento de áudio em segundo plano"
+
+msgid "SoundVolumeCommandLine Path"
+msgstr "Caminho do SoundVolumeCommandLine"
+
+msgid "Background Output Device"
+msgstr "Dispositivo de saída em segundo plano"
+
+msgid "Open SoundVolumeCommandLine Download Page"
+msgstr "Abrir página de descarga do SoundVolumeCommandLine"
+
+msgid "Optionally route the game to a selected Windows output device while it is in the background. SoundVolumeCommandLine is not bundled; select your own downloaded copy."
+msgstr "Opcionalmente, roteia o áudio do jogo para um dispositivo de saída do Windows selecionado enquanto estiver em segundo plano. O SoundVolumeCommandLine não está incluído; selecione sua própria cópia baixada."
+
+msgid "Switch game audio output when the game window leaves the foreground"
+msgstr "Alternar a saída de áudio do jogo quando a janela do jogo sair do primeiro plano"
+
+msgid "Select svcl.exe downloaded from NirSoft"
+msgstr "Selecionar o svcl.exe baixado do NirSoft"
+
+msgid "Output device used while the game is in the background"
+msgstr "Dispositivo de saída usado enquanto o jogo está em segundo plano"
+
+msgid "Open the official NirSoft SoundVolumeCommandLine page"
+msgstr "Abrir a página oficial do NirSoft SoundVolumeCommandLine"
+
+msgid "SoundVolumeCommandLine (svcl.exe);;Executable Files (*.exe);;All Files (*)"
+msgstr "SoundVolumeCommandLine (svcl.exe);;Arquivos executáveis (*.exe);;Todos os arquivos (*)"
+
+msgid "Select svcl.exe"
+msgstr "Selecionar svcl.exe"
+
+msgid "Open Download Page"
+msgstr "Abrir página de download"
+
+msgid ""
+"即将运行: {mode}\n"
+"\n"
+"此任务会频繁控制鼠标。\n"
+"停止方法: 按热键暂停 ok-nte, 再手动停止任务。\n"
+"\n"
+"当前热键: {hotkey}\n"
+"如不确定热键, 请点击取消, 确认后再运行。"
+msgstr ""
+"⚠️ Prestes a executar: {mode}\n"
+"\n"
+"Esta tarefa controlará o mouse com frequência.\n"
+"Para parar: pressione a tecla de atalho para pausar o ok-nte e depois pare a tarefa manualmente.\n"
+"\n"
+"Tecla de atalho atual: {hotkey}\n"
+"Se não souber qual é a tecla de atalho, clique em Cancelar, confirme-a e depois execute a tarefa."
+
+msgid "赤龙古堡-残丝长巷篝火"
+msgstr "Castelo do Dragão Vermelho - Fogueira do Beco da Seda"
+
+msgid "战斗时长上限"
+msgstr "Duração máxima do combate"
+
+msgid "战斗时不切人"
+msgstr "Não trocar de personagem durante o combate"
+
+msgid "主界面检测失败。建议操作: \n1. 关闭显卡滤镜与锐化功能；\n2. 尝试开启 Windows “自动管理应用的颜色”设置。"
+msgstr "Falha ao detectar a interface principal. Ações sugeridas: \n1. Desative os filtros e a nitidez da placa de vídeo;\n2. Tente ativar a configuração do Windows \"Gerenciar cores automaticamente para aplicativos\"."
+
+msgid "大世界检测失败: 请检查游戏内 UI 透明度是否已设置为 1.0。"
+msgstr "Falha ao detectar o mundo aberto: verifique se a opacidade da interface do usuário no jogo foi definida como 1.0."
+
+msgid "当前 CPU 不支持 AVX2, 无法运行 OpenVINO 2026 CPU 推理；自动战斗的目标检测将不可用，交战流畅度将受到影响。"
+msgstr "A CPU atual não suporta AVX2, portanto a inferência de CPU do OpenVINO 2026 não pode ser executada; a detecção de alvos para combate automático ficará indisponível e a fluidez do combate será afetada."
+
+msgid "战斗后等待至时长上限"
+msgstr "Aguardar até o tempo limite após o combate"
+
+msgid "羁遇赠礼"
+msgstr "Presentes de vínculo"
+
+msgid "新增角色"
+msgstr "Adicionar personagem"
+
+msgid "更新当前角色"
+msgstr "Atualizar personagem atual"
+
+msgid "删除当前角色"
+msgstr "Excluir personagem atual"
+
+msgid "开始赠礼"
+msgstr "Iniciar presentes"
+
+msgid "继续赠礼"
+msgstr "Continuar presentes"
+
+msgid "停止"
+msgstr "Parar"
+
+msgid "在游戏赠礼页点击{}。点击礼物卡片可设定优先级，再次点击取消。"
+msgstr "Clique em {} na página de presentes do jogo. Clique em um cartão de presente para definir a prioridade, clique novamente para cancelar."
+
+msgid "赠礼状态"
+msgstr "Status de presentes"
+
+msgid "已启用"
+msgstr "Ativado"
+
+msgid "名称"
+msgstr "Nome"
+
+msgid "角色显示名称"
+msgstr "Nome de exibição do personagem"
+
+msgid "赠送次数"
+msgstr "Quantidade de presentes"
+
+msgid "角色名称"
+msgstr "Nome do personagem"
+
+msgid "礼物优先级"
+msgstr "Prioridade do presente"
+
+msgid "不赠送"
+msgstr "Não presentear"
+
+msgid "优先级 {}"
+msgstr "Prioridade {}"
+
+msgid "不可赠送"
+msgstr "Não presenteável"
+
+msgid "未命名角色"
+msgstr "Personagem sem nome"
+
+msgid "捕获失败"
+msgstr "Falha na captura"
+
+msgid "保存失败"
+msgstr "Falha ao salvar"
+
+msgid "无法开始"
+msgstr "Não é possível iniciar"
+
+msgid "赠礼任务未注册"
+msgstr "Tarefa de presentes não registrada"
+
+msgid "no_screen"
+msgstr "Nenhuma tela do jogo disponível"
+
+msgid "没有可用的游戏画面"
+msgstr "Nenhuma tela do jogo disponível"
+
+msgid "请先捕获、选择礼物并启用至少一个角色。"
+msgstr "Por favor, capture, selecione presentes e ative pelo menos um personagem primeiro."
+
+msgid "使用录制功能"
+msgstr "Usar recurso de gravação"
+
+msgid "启用后录制并回放选择目标关卡的操作"
+msgstr "Quando ativado, grava e reproduz as ações usadas para selecionar a fase alvo"
+
+msgid "异象追猎"
+msgstr "Caça às Anomalias"
+
+msgid "追猎目标"
+msgstr "Alvo da Caça"
+
+msgid "自动进行异象追猎任务"
+msgstr "Executa automaticamente as tarefas de Caça às Anomalias"
+
+msgid "领取奖励次数"
+msgstr "Vezes para resgatar recompensa"
+
+msgid "设置为0则领取当前体力可领取的全部奖励"
+msgstr "Defina como 0 para resgatar todas as recompensas disponíveis com a energia atual"
+
+msgid "音霸魔王"
+msgstr "Beat King"
+
+msgid "无首铁驭"
+msgstr "Headless Rider"
+
+msgid "塞润尼缇"
+msgstr "Serenetti"
+
+msgid "黑之书"
+msgstr "Black Tome"
+
+msgid "海囚"
+msgstr "Sea Prisoner"
+
+msgid "围巢鸟"
+msgstr "Nestbound Bird"
+
+msgid "斑蝶"
+msgstr "Swallowtail"
+
+msgid "自动战斗检测诊断"
+msgstr "Diagnósticos de detecção de combate automático"
+
+msgid "持续检测诊断 Lv, 锁定目标标记(白色菱形)和红色血条; 请手动停止以查看完整报告"
+msgstr "Diagnostica continuamente a detecção de Lv, marcador de alvo fixado (losango branco) e barra de vida vermelha; por favor, pare manualmente para visualizar o relatório completo."
+
+msgid "喷泉签到"
+msgstr "Check-in da Fonte"
+
+msgid "防止 NTE 移动鼠标"
+msgstr "Evitar que o NTE mova o cursor"
+
+msgid "后台运行时，在 NTE 将鼠标移动到屏幕中心后，自动恢复鼠标位置。"
+msgstr "Ao rodar em segundo plano, restaura automaticamente a posição do cursor após o NTE movê-lo para o centro da tela."
+
+msgid ""
+"关联角色特征后，即可自动识别角色并使用绑定的出招表；游戏内换人/换队无需手动调整。\n"
+"未关联时，将使用通用脚本。"
+msgstr "Após vincular os recursos do personagem, ele será identificado automaticamente e usará a tabela de combos vinculada; trocas de personagem/equipe no jogo não exigem ajuste manual.\nSem vínculo, o script genérico será usado."
+
+msgid ""
+"{fixed_team}会优先使用已填写槽位；未填写的槽位仍会自动识别。\n"
+"如果游戏内切换队伍，已填写槽位需要在软件里手动修改。"
+msgstr "{fixed_team} priorizará os slots preenchidos; os slots não preenchidos ainda serão reconhecidos automaticamente.\nSe você alternar de equipe no jogo, os slots preenchidos precisarão ser alterados manualmente no software."
+
+msgid "循环模式"
+msgstr "Modo de Ciclo"
+
+msgid "循环序列"
+msgstr "Sequência de Ciclo"
+
+msgid "自动循环序号/目标"
+msgstr "Ciclo automático índice/alvo"
+
+msgid "自定义循环"
+msgstr "Ciclo Personalizado"
+
+msgid "副本类型"
+msgstr "Tipo de Masmorra"
+
+msgid "签到方式"
+msgstr "Modo de check-in"
+
+msgid "签到"
+msgstr "Check-in"
+
+msgid "捞币"
+msgstr "Pegar moedas"
+
+msgid "资料管理"
+msgstr "Gerenciamento de Dados"
+
+msgid "关闭"
+msgstr "Fechar"
+
+msgid "外置代码"
+msgstr "Código externo"
+
+msgid "打开外置代码目录"
+msgstr "Abrir pasta de código externo"
+
+msgid "日常领取"
+msgstr "Resgate Diário"
+
+msgid "领取每日邮件和奖励"
+msgstr "Resgatar correios e recompensas diárias"
+
+msgid "模式"
+msgstr "Modo"
+
+msgid "邮件"
+msgstr "Correio"
+
+msgid "活跃度奖励"
+msgstr "Recompensas de Atividade"
+
+msgid "环期任务奖励"
+msgstr "Recompensas de Tarefa de Período"
+
+msgid "一咖舍"
+msgstr "Cafeteria"
+
+msgid "领取/补货"
+msgstr "Resgatar/Reabastecer"
+
+msgid "全选"
+msgstr "Selecionar Tudo"
+
+msgid "取消全选"
+msgstr "Deselecionar Tudo"
+
+msgid "全部折叠"
+msgstr "Recolher Tudo"
+
+msgid "全部展开"
+msgstr "Expandir Tudo"
+
+msgid "排球之星"
+msgstr "Estrela do Vôlei"
+
+msgid "刷经验"
+msgstr "Farmar EXP"
+
+msgid "点按G"
+msgstr "Pressionar G"
+
+msgid "挑战玛门"
+msgstr "Desafiar Mammon"
+
+msgid "自动闯关"
+msgstr "Desafio Automático"
+
+msgid "{} 个空槽位"
+msgstr "{} espaços vazios"
+
+msgid "固定"
+msgstr "Fixar"
+
+msgid "已从列表移除"
+msgstr "Removido da lista"
+
+msgid "已删除"
+msgstr "Excluído"
+
+msgid "已填入"
+msgstr "Preenchido"
+
+msgid "已应用"
+msgstr "Aplicado"
+
+msgid "已更新 {} 位角色的出招表"
+msgstr "Combo atualizado para {} personagens"
+
+msgid "应用方案"
+msgstr "Aplicar Predefinição"
+
+msgid "扫描失败"
+msgstr "Falha no Escaneamento"
+
+msgid "搜索方案"
+msgstr "Pesquisar Predefinições"
+
+msgid "新建方案"
+msgstr "Nova Predefinição"
+
+msgid "方案中不能重复选择角色"
+msgstr "Não é possível selecionar personagens duplicados em uma predefinição"
+
+msgid "方案列表"
+msgstr "Lista de Predefinições"
+
+msgid "方案名称重复或内容无效"
+msgstr "Nome de predefinição duplicado ou conteúdo inválido"
+
+msgid "无法保存"
+msgstr "Não foi possível salvar"
+
+msgid "无法填入"
+msgstr "Não foi possível preencher"
+
+msgid "没有可填入的角色"
+msgstr "Nenhum personagem disponível para preencher"
+
+msgid "等待扫描..."
+msgstr "Aguardando escaneamento..."
+
+msgid "输入或选择出招表"
+msgstr "Insira ou selecione o combo"
+
+msgid "队伍方案"
+msgstr "Predefinições de Equipe"
+
+msgid "队伍识别"
+msgstr "Reconhecimento de Equipe"
+
+msgid "提示"
+msgstr "Dicas"
+
+msgid "<p><b style=\"color: #d83b01;\">注意：</b>此面板 <b style=\"color: #d83b01;\">不会</b> 在进入战斗或更换阵容时实时自动刷新或同步显示。<br>这是个用于向数据库关联或添加 [角色特征] 的工具面板。<br>点击 [{scan_team}] 后点击 [关联或添加] 特征, 自动战斗时就会识别对应的角色。<br>如果不想管理 [角色特征], 可以直接使用 [{fixed_team}] 功能。</p>"
+msgstr "<p><b style=\"color: #d83b01;\">Nota:</b> Este painel <b style=\"color: #d83b01;\">NÃO</b> atualiza ou sincroniza automaticamente em tempo real ao entrar em combate ou trocar de formação.<br>Este é um painel de ferramentas para associar ou adicionar [Características de Personagem] ao banco de dados.<br>Clique em [{scan_team}] e depois em [Associar ou Adicionar] característica para que o combate automático reconheça os personagens correspondentes.<br>Se não quiser gerenciar [Características de Personagem], você pode usar diretamente a função [{fixed_team}].</p>"
+
+msgid "<p>用于配置并保存常用的 4 人队伍阵容与出招表, 修改后立即生效。<br>方案中的 1~4 号位仅用于 [{fixed_preset}] 功能; 已绑定特征的角色放在哪个号位都可以, 不影响识别。<br>点击 [{apply_preset}] 可一键更新应用方案中各角色的出招表 (未选择出招表则保持原配置不变)。<br>开启 [{fixed_preset}] 后自动战斗将直接采用此阵容, 无需等待特征识别 (未录入特征的角色亦可直接战斗)。<br>点击 [{fill_scan}] 可将上方特征扫描识别出的队伍角色快速填入当前方案。</p>"
+msgstr "<p>Configure e salve formações e combos de equipe de 4 personagens, com efeito imediato após a modificação.<br>As posições 1–4 deste preset são usadas apenas pela função [{fixed_preset}]. Se um personagem já tiver uma característica vinculada, ele pode ocupar qualquer posição sem afetar o reconhecimento.<br>Clique em [{apply_preset}] para aplicar os combos de cada personagem neste modelo predefinido (espaços sem combo selecionado manterão a configuração original).<br>Ative [{fixed_preset}] para que o combate automático adote diretamente esta equipe sem esperar pelo reconhecimento de características (personagens sem características registradas podem combater diretamente).<br>Clique em [{fill_scan}] para preencher rapidamente no modelo atual os personagens reconhecidos no escaneamento acima.</p>"
+
+msgid "OpenVINO 单次推理超时，已自动关闭目标检测；重启程序后会重新尝试启用。"
+msgstr "O tempo de inferência única do OpenVINO esgotou, a detecção de alvos foi desativada automaticamente. Será tentada a reativação ao reiniciar o programa."
+
+msgid "批量删除"
+msgstr "Exclusão em Lote"
+
+msgid "显示内置"
+msgstr "Mostrar Embutidos"
+
+msgid "复制为外置"
+msgstr "Copiar para Externo"
+
+msgid "复制成功"
+msgstr "Copiado com Sucesso"
+
+msgid "复制失败"
+msgstr "Falha ao Copiar"
+
+msgid "已成功创建外置代码: {}"
+msgstr "Código externo criado com sucesso: {}"
+
+msgid "复制为外置代码"
+msgstr "Copiar como Código Externo"
+
+msgid "目录"
+msgstr "Diretório"
+
+msgid "脚本文件名 (.py)"
+msgstr "Nome do Arquivo de Script (.py)"
+
+msgid "将在 external_chars/ 目录下生成独立的 Python 脚本供您编辑与调试."
+msgstr "Um script Python independente será gerado no diretório external_chars/ para edição e depuração."
+
+msgid "无法读取 Python 脚本."
+msgstr "Não foi possível ler o script Python."
+
+msgid "外置代码应用失败"
+msgstr "Falha ao Aplicar Código Externo"
+
+msgid "已应用外置代码: {}"
+msgstr "Código externo aplicado: {}"
+
+msgid "角色"
+msgstr "Personagem"
+
+msgid "指令"
+msgstr "Comando"
+
+msgid "请先应用外置代码更改后再运行测试."
+msgstr "Por favor, aplique as alterações do código externo antes de executar o teste."
+
+msgid "角色工具任务未注册"
+msgstr "A tarefa de ferramentas de personagem não está registrada"
+
+msgid "角色工具任务不可用"
+msgstr "A tarefa de ferramentas de personagem não está disponível"
+
+msgid "询问AI"
+msgstr "Perguntar à IA"
+
+msgid "AI提示模版已复制。请粘贴到AI聊天机器人中。"
+msgstr "Modelo de prompt de IA copiado. Cole-o em um chatbot de IA."
+
+msgid "{SOURCE}\n\n我想实现: \n\n请修改上面完整的 {class_name} 角色自动化代码。\n\n只返回整个文件完整修改后的 Python 代码，不要返回补丁或解释。\n保持类名为 {class_name}。保留仍然需要的 import。\n\n在思考辅助方法、任务 API、状态、切人、冷却和战斗流程时, 请参考: \nBaseChar 角色基类: {BASE_CHAR_URL}\nCombat Planner 开发指南: {COMBAT_PLANNER_URL}"
+msgstr "{SOURCE}\n\nQuero realizar: \n\nModifique o código completo de automação do personagem {class_name} acima.\n\nRetorne apenas o código Python totalmente modificado de todo o arquivo, sem patches ou explicações.\nMantenha o nome da classe como {class_name}. Mantenha os imports necessários.\n\nAo considerar métodos auxiliares, APIs de tarefas, estados, troca de personagens, recargas e fluxo de combate, consulte: \nClasse base de personagem BaseChar: {BASE_CHAR_URL}\nGuia de desenvolvimento do Combat Planner: {COMBAT_PLANNER_URL}"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "设置"
+msgstr "Configurações"
+
+msgid "上传"
+msgstr "Upload"
+
+msgid "作者"
+msgstr "Autor"
+
+msgid "全部作者"
+msgstr "Todos os autores"
+
+msgid "全部角色"
+msgstr "Todos os personagens"
+
+msgid "内置"
+msgstr "Integrado"
+
+msgid "刷新"
+msgstr "Atualizar"
+
+msgid "加载失败: {}"
+msgstr "Falha ao carregar: {}"
+
+msgid "取消"
+msgstr "Cancelar"
+
+msgid "外置"
+msgstr "Externo"
+
+msgid "外置代码目录"
+msgstr "Diretório de código externo"
+
+msgid "外置代码目录名称无效"
+msgstr "O nome do diretório de código externo é inválido"
+
+msgid "外置代码目录“{}”已存在, 请修改目录名称后重试。"
+msgstr "O diretório de código externo \"{}\" já existe. Altere o nome e tente novamente."
+
+msgid "大小"
+msgstr "Tamanho"
+
+msgid "导入"
+msgstr "Importar"
+
+msgid "导入完成"
+msgstr "Importação concluída"
+
+msgid "导出"
+msgstr "Exportar"
+
+msgid "导出完成"
+msgstr "Exportação concluída"
+
+msgid "导出社区方案"
+msgstr "Exportar predefinição da comunidade"
+
+msgid "导出队伍"
+msgstr "Exportar equipe"
+
+msgid "工坊"
+msgstr "Oficina"
+
+msgid "工坊会显示来自公开仓库的 ZIP 方案."
+msgstr "A oficina exibe predefinições ZIP do repositório público."
+
+msgid "已创建方案: {}"
+msgstr "Predefinição criada: {}"
+
+msgid "已加载 {} 个方案"
+msgstr "{} predefinições carregadas"
+
+msgid "当前方案没有可导出的出招表."
+msgstr "A predefinição atual não tem uma tabela de combos para exportar."
+
+msgid "成员"
+msgstr "Membros"
+
+msgid "描述"
+msgstr "Descrição"
+
+msgid "搜索名称, 说明, 作者或角色"
+msgstr "Pesquisar nome, descrição, autor ou personagem"
+
+msgid "操作失败"
+msgstr "Operação falhou"
+
+msgid "方案说明"
+msgstr "Descrição da predefinição"
+
+msgid "无法导出"
+msgstr "Não é possível exportar"
+
+msgid "更新时间"
+msgstr "Atualizado em"
+
+msgid "本地方案名称"
+msgstr "Nome da predefinição local"
+
+msgid "正在加载工坊..."
+msgstr "Carregando a oficina..."
+
+msgid "没有说明."
+msgstr "Sem descrição."
+
+msgid "版本"
+msgstr "Versão"
+
+msgid "社区方案"
+msgstr "Predefinição da comunidade"
+
+msgid "社区方案含外置代码; 导入后会以本软件权限运行, 请仅导入可信来源."
+msgstr "As predefinições da comunidade podem conter código externo; após a importação, ele será executado com as permissões deste software. Importe apenas de fontes confiáveis."
+
+msgid "角色阵容"
+msgstr "Formação da equipe"
+
+msgid "调整筛选条件或稍后刷新工坊."
+msgstr "Ajuste os filtros ou atualize a oficina mais tarde."
+
+msgid "返回"
+msgstr "Voltar"
+
+msgid "选择一个方案"
+msgstr "Selecione uma predefinição"
+
+msgid "队伍配置"
+msgstr "Configuração da equipe"
+
+msgid "不是该角色?"
+msgstr "Não é este personagem?"
+
+msgid "删除方案"
+msgstr "Excluir predefinição"
+
+msgid "检测到该方案包含外置代码，是否同时删除对应的代码文件?"
+msgstr "Esta predefinição contém código externo. Deseja também excluir os arquivos de código correspondentes?"
+
+msgid "全部删除"
+msgstr "Excluir tudo"
+
+msgid "仅删除方案"
+msgstr "Excluir apenas predefinição"
+
+msgid "方案已删除"
+msgstr "Predefinição excluída"
+
+msgid "部分外置代码删除失败: {}"
+msgstr "Falha ao excluir parte do código externo: {}"
+
+msgid "启用开战优先级"
+msgstr "Ativar prioridade de início de combate"
+
+msgid "关闭时不按角色执行开战首切"
+msgstr "Quando desativado, a troca inicial de personagem no início do combate não é realizada"
+
+msgid "鼠标占用警告"
+msgstr "Aviso de controle do mouse"
+
+msgid "数据备份"
+msgstr "Backup de Dados"
+
+msgid "用户数据"
+msgstr "Dados do Usuário"
+
+msgid "ZIP 格式备份; 导入将覆盖当前数据"
+msgstr "Backup em formato ZIP; a importação substituirá os dados atuais"
+
+msgid "手动修改 Python 代码后, 需点击 [{refresh}] 生效"
+msgstr "Depois de modificar o código Python manualmente, clique em [{refresh}] para aplicar."
+
+msgid "编写指南"
+msgstr "Guia de Criação"
+
+msgid "噗卡乐园 - 命中幸运星"
+msgstr "Puka Land - Acertar a Estrela da Sorte"
+
+msgid "在可进行NPC交互的位置启动任务"
+msgstr "Inicie a tarefa em um local onde a interação com NPC esteja disponível"
+
+msgid "从工坊填入"
+msgstr "Preencher da Oficina"
+
+msgid "选择方案与版本, 填入名称、描述、作者和版本."
+msgstr "Selecione a predefinição e versão, preencha o nome, descrição, autor e versão."
+
+msgid "填入信息"
+msgstr "Preencher Informações"
+
+msgid "模型生成的最大Token数量"
+msgstr "Número máximo de tokens gerados pelo modelo"
+
+msgid "模型生成Token上限"
+msgstr "Limite de tokens de geração do modelo"
+
+msgid "存在失败时发送 BOT 通知"
+msgstr "Enviar notificação do BOT em caso de falha"
+
+msgid ""
+"开启仅失败或中断时通知, 关闭每次都通知。\n"
+"需在通知设置中启用接收渠道。"
+msgstr ""
+"Quando ativado, notifica apenas em caso de falha ou interrupção; quando desativado, notifica sempre.\n"
+"É necessário ativar os canais de recebimento nas configurações de notificação."
+
+msgid "自动周赛"
+msgstr "Torneio Semanal Automático"
+
+msgid "复读接球/传球"
+msgstr "Repetir recepção/passe"
+
+msgid "脱战旋转索敌"
+msgstr "Varredura fora de combate"
+
+msgid "自动乐器"
+msgstr "Instrumentos"
+
+msgid "乐器与键位设置"
+msgstr "Instrumento e teclas"
+
+msgid "当前乐器使用 36 键半音布局"
+msgstr "Layout cromático de 36 teclas para este instrumento"
+
+msgid "乐器"
+msgstr "Instrumento"
+
+msgid "钢琴"
+msgstr "Piano"
+
+msgid "吉他"
+msgstr "Guitarra"
+
+msgid "选择与游戏当前演奏界面一致的乐器"
+msgstr "Escolha o instrumento exibido no jogo"
+
+msgid "文件列表已变化, 无法自动更新, 请重新导入."
+msgstr "A lista de arquivos mudou. Importe o pacote novamente."
+
+msgid "本地源码已修改, 已跳过自动更新."
+msgstr "O código local foi alterado. A atualização automática foi ignorada."
+
+msgid "本地安装文件缺失, 请重新导入."
+msgstr "Faltam arquivos instalados. Importe o pacote novamente."
+
+msgid "无法读取工坊安装记录, 请检查 workshop_installs.json."
+msgstr "Não foi possível ler o registro de instalações. Verifique workshop_installs.json."
+
+msgid "下载的方案与更新信息不一致, 请刷新工坊后重试."
+msgstr "O pacote baixado não corresponde à atualização. Atualize a oficina e tente novamente."
+
+msgid "一鍵更新"
+msgstr "Atualizar"
+
+msgid "更新"
+msgstr "Atualizar"
+
+msgid "更新到 {}"
+msgstr "Atualizar para {}"
+
+msgid "已是最新"
+msgstr "Atualizado"
+
+msgid "正在更新出招表..."
+msgstr "Atualizando combos..."
+
+msgid "已更新 {} 份方案, {} 项失败"
+msgstr "{} pacotes atualizados, {} falharam"
+
+msgid "更新失败"
+msgstr "Falha na atualização"
+
+msgid "请等待当前导入或导出完成后再更新."
+msgstr "Aguarde a importação ou exportação atual terminar antes de atualizar."
+
+msgid "加载失败"
+msgstr "Falha ao carregar"
+
+msgid "方案"
+msgstr "Predefinição"
+
+msgid "重命名"
+msgstr "Renomear"
+
+msgid ""
+"角色: {character}\n"
+"出招表: {combo}\n"
+"出错位置: {location}\n"
+"{error_type}: {detail}\n"
+"可能与接口或依赖不兼容, 请至工坊更新方案或将此信息反馈给方案作者."
+msgstr ""
+"Personagem: {character}\n"
+"Lista de Combos: {combo}\n"
+"Local do erro: {location}\n"
+"{error_type}: {detail}\n"
+"Pode haver uma incompatibilidade de API ou dependências. Atualize a predefinição na Oficina ou envie estas informações ao autor."
+
+msgid "找不到模块加载器"
+msgstr "Carregador de módulo não encontrado"
+
+msgid "外置角色模块必须且只能定义一个 BaseChar 子类"
+msgstr "O módulo de personagem externo deve definir exatamente uma subclasse de BaseChar"
+
+msgid "角色实现标识重复: {impl_id}"
+msgstr "ID de implementação de personagem duplicado: {impl_id}"

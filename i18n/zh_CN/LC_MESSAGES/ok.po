@@ -1,0 +1,1595 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: you@example.com\n"
+"Last-Translator: you@example.com\n"
+"Language-Team: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Arc Key"
+msgstr "弧盘技快捷键"
+
+msgid "Check Monthly Card"
+msgstr "检查月卡"
+
+msgid "Check for monthly card to avoid interruption of tasks"
+msgstr "检查月卡以避免任务中断"
+
+msgid "Game Hotkey Config"
+msgstr "游戏热键配置"
+
+msgid "In Game Hotkey for Skills"
+msgstr "游戏内技能热键"
+
+msgid "Monthly Card Config"
+msgstr "月卡配置"
+
+msgid "Monthly Card Time"
+msgstr "月卡时间"
+
+msgid "Skill Key"
+msgstr "变轨技快捷键"
+
+msgid "Turn on to avoid interruption by monthly card when executing tasks"
+msgstr "执行任务时开启以避免月卡中断"
+
+msgid "Ultimate Key"
+msgstr "极轨技快捷键"
+
+msgid "Your computer's local time when the monthly card will popup, hour in (1-24)"
+msgstr "月卡弹出时的电脑本地时间，小时 (1-24)"
+
+msgid "内置代码"
+msgstr ""
+
+msgid "{combo}: {} 删除成功"
+msgstr ""
+
+msgid "{combo}: {} 绑定成功"
+msgstr ""
+
+msgid "{combo}语法错误"
+msgstr ""
+
+msgid "{} 号位"
+msgstr ""
+
+msgid "任务跳过对话"
+msgstr ""
+
+msgid "保存成功"
+msgstr ""
+
+msgid "停用"
+msgstr ""
+
+msgid "出招表"
+msgstr ""
+
+msgid "初次使用请先至 [{team_mgmt}] 进行设置"
+msgstr ""
+
+msgid "删除"
+msgstr ""
+
+msgid "删除成功"
+msgstr ""
+
+msgid "删除角色"
+msgstr ""
+
+msgid "刷新列表"
+msgstr ""
+
+msgid "匹配成功: {}"
+msgstr ""
+
+msgid "置信度: {:.2f}"
+msgstr ""
+
+msgid "特征已加入"
+msgstr ""
+
+msgid "加入特征"
+msgstr ""
+
+msgid "匹配文字"
+msgstr ""
+
+msgid "适用于大世界、轨外之境、999夜等各类场景与副本"
+msgstr ""
+
+msgid "可用指令"
+msgstr ""
+
+msgid "启用"
+msgstr ""
+
+msgid "固定队伍"
+msgstr ""
+
+msgid "地图中自动点击传送"
+msgstr ""
+
+msgid "填入扫描"
+msgstr ""
+
+msgid "完成每日活跃度"
+msgstr ""
+
+msgid "导入失败"
+msgstr ""
+
+msgid "导入成功"
+msgstr ""
+
+msgid "导入数据"
+msgstr ""
+
+msgid "导出数据"
+msgstr ""
+
+msgid "已导入 {} 个文件"
+msgstr ""
+
+msgid "已成功删除角色: {} 以及关联的特征图"
+msgstr ""
+
+msgid "已解除 {} 的{combo}绑定"
+msgstr ""
+
+msgid "应用更改"
+msgstr ""
+
+msgid "循环次数"
+msgstr ""
+
+msgid "快速传送"
+msgstr ""
+
+msgid "扫描中..."
+msgstr ""
+
+msgid "扫描队伍"
+msgstr ""
+
+msgid "控条模式"
+msgstr ""
+
+msgid "搜索角色"
+msgstr ""
+
+msgid "无画面"
+msgstr ""
+
+msgid "日常任务"
+msgstr ""
+
+msgid "未启用"
+msgstr ""
+
+msgid "未能识别该特征"
+msgstr ""
+
+msgid "未获取到特征"
+msgstr ""
+
+msgid "关联特征"
+msgstr ""
+
+msgid "此为 Python 脚本, 不可在此修改.\n请在对应的源文件中直接修改代码."
+msgstr ""
+
+msgid "没有找到匹配的指令。"
+msgstr ""
+
+msgid "点击时将短暂控制物理鼠标"
+msgstr ""
+
+msgid "点按"
+msgstr ""
+
+msgid "点按时长倍率"
+msgstr ""
+
+msgid "点按模式专用。用于微调每次按键的持续时间"
+msgstr ""
+
+msgid "自动完成一轮或多轮钓鱼"
+msgstr ""
+
+msgid "自动战斗"
+msgstr ""
+
+msgid "自动消息"
+msgstr ""
+
+msgid "自动目标"
+msgstr ""
+
+msgid "自动钓鱼"
+msgstr ""
+
+msgid "角色中心"
+msgstr ""
+
+msgid "角色名称无效或已存在"
+msgstr ""
+
+msgid "角色已重命名为: {}"
+msgstr ""
+
+msgid "角色管理"
+msgstr ""
+
+msgid "解除绑定"
+msgstr ""
+
+msgid "请在左侧选择一个角色以管理特征和{combo}"
+msgstr ""
+
+msgid "跳过剧情"
+msgstr ""
+
+msgid "运行一次测试"
+msgstr ""
+
+msgid "下拉选择, 或直接输入名称以创建新{combo}"
+msgstr ""
+
+msgid "重命名失败"
+msgstr ""
+
+msgid "长按"
+msgstr ""
+
+msgid ""
+"长按：平滑流畅, 易过冲\n"
+"点按: 安全较慢, 防过冲"
+msgstr ""
+
+msgid "队伍不存在"
+msgstr ""
+
+msgid "队伍人数少于2人"
+msgstr ""
+
+msgid "队伍管理"
+msgstr ""
+
+msgid "关闭时仅在中键选中敌人且画面识别到关键特征时开启战斗"
+msgstr ""
+
+msgid ""
+"开启后优先通过 ESC 键关闭成功界面，避免后台抢占鼠标。\n"
+"若游戏运行不流畅，可能因按键响应延迟导致误退出钓鱼场景"
+msgstr ""
+
+msgid "Counter Attack Threshold"
+msgstr "反击触发阈值"
+
+msgid "Counter attack sound recognition threshold (0.0-1.0, lower is more sensitive)"
+msgstr "反击声音识别阈值（0.0-1.0，越低越灵敏）"
+
+msgid "Dodge Threshold"
+msgstr "闪避触发阈值"
+
+msgid "Dodge sound recognition threshold (0.0-1.0, lower is more sensitive)"
+msgstr "闪避声音识别阈值（0.0-1.0，越低越灵敏）"
+
+msgid "Enable Sound Trigger"
+msgstr "启用声音触发"
+
+msgid "Enable sound recognition for automatic dodge and counter attacks"
+msgstr "启用声音识别以实现自动闪避和反击"
+
+msgid "Sound Trigger Config"
+msgstr "声音触发配置"
+
+msgid "Sound-based dodge and counter trigger settings"
+msgstr "基于声音的闪避和反击触发设置"
+
+msgid "Dodge All Attacks"
+msgstr "闪避所有攻击"
+
+msgid "Dodge all attacks without performing counter attacks"
+msgstr "闪避所有攻击，不执行反击"
+
+msgid "任务完成后自动切换至下一个项目"
+msgstr ""
+
+msgid "任务类型"
+msgstr ""
+
+msgid "具体奖励目标"
+msgstr ""
+
+msgid "异能升级材料"
+msgstr ""
+
+msgid "异能材料序号"
+msgstr ""
+
+msgid "异象界域"
+msgstr ""
+
+msgid "弧盘材料序号"
+msgstr ""
+
+msgid "弧盘突破材料"
+msgstr ""
+
+msgid "弧盘经验"
+msgstr ""
+
+msgid "甲硬币"
+msgstr ""
+
+msgid "空幕"
+msgstr ""
+
+msgid "空幕序号"
+msgstr ""
+
+msgid "经验与甲硬币"
+msgstr ""
+
+msgid "自动进行异象界域任务"
+msgstr ""
+
+msgid "角色经验"
+msgstr ""
+
+msgid "选择经验与甲硬币任务的具体奖励目标"
+msgstr ""
+
+msgid "选择要进行的任务类型"
+msgstr ""
+
+msgid "选择列表中的第几个项目 ({}-{})"
+msgstr ""
+
+msgid "使用滚轮加速拾取"
+msgstr ""
+
+msgid "切换角色快速奔跑"
+msgstr ""
+
+msgid "切换角色数量"
+msgstr ""
+
+msgid "快速奔跑角色数量"
+msgstr ""
+
+msgid "按住Shift生效"
+msgstr ""
+
+msgid "粉爪大劫案"
+msgstr ""
+
+msgid "粉爪大劫案便利性功能"
+msgstr ""
+
+msgid "触发按键"
+msgstr ""
+
+msgid "触发连点将同步生效"
+msgstr ""
+
+msgid "触发连点的按键 (按住生效)"
+msgstr ""
+
+msgid "自动补饵卖鱼"
+msgstr ""
+
+msgid "4列对应的键盘按键"
+msgstr ""
+
+msgid "单曲超时时间(秒)"
+msgstr ""
+
+msgid "异环鼓组音游自动打击与重试"
+msgstr ""
+
+msgid "自动音游"
+msgstr ""
+
+msgid "调试日志"
+msgstr ""
+
+msgid "超时秒数"
+msgstr ""
+
+msgid "输出调试日志"
+msgstr ""
+
+msgid "输入或选择绑定的{combo} (可选)"
+msgstr ""
+
+msgid "输入或选择关联的角色名称"
+msgstr ""
+
+msgid "键位"
+msgstr ""
+
+msgid "Start Game"
+msgstr "启动游戏"
+
+msgid "Launcher Path"
+msgstr "启动器路径"
+
+msgid "目标消耗体力"
+msgstr ""
+
+msgid "声音闪避反击"
+msgstr ""
+
+msgid "未处于自动战斗时, 响应声音闪避或反击"
+msgstr ""
+
+msgid ""
+"All letter/number keys, including every hotkey above, are replaced by US QWERTY\n"
+"physical positions, not your current layout's printed keys."
+msgstr ""
+"所有字母/数字按键，包括上方所有热键，都会按照美式 QWERTY\n"
+"物理位置替换，而不是当前键盘布局上印刷的按键。"
+
+msgid "Use QWERTY Physical Keys"
+msgstr "使用 QWERTY 物理按键"
+
+msgid "店长特供"
+msgstr ""
+
+msgid "抢钱流"
+msgstr ""
+
+msgid "游戏启动后自动登录游戏"
+msgstr ""
+
+msgid "自动循环进出关卡（需配合游戏内挂机流派使用）"
+msgstr ""
+
+msgid "自动登录游戏"
+msgstr ""
+
+msgid "一咖舍任务"
+msgstr ""
+
+msgid "选择日常任务中的一咖舍处理方式"
+msgstr ""
+
+msgid "不执行"
+msgstr "不执行"
+
+msgid "抛竿失败时，补充默认鱼饵并出售鱼获后重试"
+msgstr ""
+
+msgid "清空已记录的操作"
+msgstr ""
+
+msgid "自动执行黑暗赛车,请在大世界开始执行"
+msgstr ""
+
+msgid "重置记录"
+msgstr ""
+
+msgid "黑暗赛车"
+msgstr ""
+
+msgid "Record has been reset"
+msgstr "记录已重置"
+
+msgid "Updated successfully"
+msgstr "更新成功"
+
+msgid "都市闲趣"
+msgstr ""
+
+msgid "日常/周常"
+msgstr ""
+
+msgid "※ 列表可直接输入并创建"
+msgstr ""
+
+msgid "输入或选择角色"
+msgstr ""
+
+msgid "启动失败"
+msgstr ""
+
+msgid "21键自然音布局 (已禁用)"
+msgstr ""
+
+msgid "36键半音布局 (12x3)"
+msgstr ""
+
+msgid "中音"
+msgstr ""
+
+msgid "低音"
+msgstr ""
+
+msgid "全部歌曲"
+msgstr ""
+
+msgid "单曲循环"
+msgstr ""
+
+msgid "可以弹奏"
+msgstr ""
+
+msgid "右下按键中心: "
+msgstr ""
+
+msgid "定时关闭"
+msgstr ""
+
+msgid "导入 MIDI"
+msgstr ""
+
+msgid "尚未载入音轨"
+msgstr ""
+
+msgid "左上按键中心: "
+msgstr ""
+
+msgid "已收藏"
+msgstr ""
+
+msgid "当前乐器使用 36 键半音布局"
+msgstr ""
+
+msgid "打印键位映射"
+msgstr ""
+
+msgid "打开 mid_lib"
+msgstr ""
+
+msgid "乐器与键位设置"
+msgstr ""
+
+msgid "搜索歌曲"
+msgstr ""
+
+msgid "播放"
+msgstr ""
+
+msgid "播放模式"
+msgstr ""
+
+msgid "播放设置"
+msgstr ""
+
+msgid "播放速度"
+msgstr ""
+
+msgid "收藏歌曲"
+msgstr ""
+
+msgid "无法弹奏"
+msgstr ""
+
+msgid "智能音域压缩"
+msgstr ""
+
+msgid "未选择歌曲"
+msgstr ""
+
+msgid "每个测试音间隔约 1 秒，请用调音器确认实际发音。"
+msgstr ""
+
+msgid "测试中音行"
+msgstr ""
+
+msgid "测试全部键"
+msgstr ""
+
+msgid "自动乐器"
+msgstr ""
+
+msgid "自动音高"
+msgstr ""
+
+msgid "试听选中音轨"
+msgstr ""
+
+msgid "调试校准"
+msgstr ""
+
+msgid "选择 MIDI 档案"
+msgstr ""
+
+msgid "随机播放"
+msgstr ""
+
+msgid "音轨选择"
+msgstr ""
+
+msgid "音高与音域分析"
+msgstr ""
+
+msgid "音高调整 (半音):"
+msgstr ""
+
+msgid "顺序播放"
+msgstr ""
+
+msgid "高音"
+msgstr ""
+
+msgid "MIDI 分析失败"
+msgstr ""
+
+msgid "MIDI 播放失败"
+msgstr ""
+
+msgid "键盘布局"
+msgstr ""
+
+msgid "de_DE"
+msgstr "Deutsch"
+
+msgid "en_US"
+msgstr "English"
+
+msgid "es_ES"
+msgstr "Español"
+
+msgid "fr_FR"
+msgstr "Français"
+
+msgid "ja_JP"
+msgstr "日本語"
+
+msgid "ru_RU"
+msgstr "Русский"
+
+msgid "zh_CN"
+msgstr "简体中文"
+
+msgid "zh_TW"
+msgstr "繁體中文"
+
+msgid "文案生成模型调用地址, 需兼容OpenAI接口请求格式"
+msgstr ""
+
+msgid "模型调用超时时间(s)"
+msgstr ""
+
+msgid "文案生成调用模型的超时时间, 超时将回退使用本地词库, 留空使用30s"
+msgstr ""
+
+msgid "关闭后将降级使用本地词库抽取发帖回复文案"
+msgstr ""
+
+msgid "发帖内容生成提示词"
+msgstr ""
+
+msgid "发帖内容生成提示词, 请先调试好提示词再使用"
+msgstr ""
+
+msgid "发帖标题生成提示词"
+msgstr ""
+
+msgid "发帖标题生成提示词, 请先调试好提示词再使用"
+msgstr ""
+
+msgid "呗果智能体"
+msgstr ""
+
+msgid "回复生成提示词"
+msgstr ""
+
+msgid "回复生成提示词, 请先调试好提示词再使用"
+msgstr ""
+
+msgid "开启助手模式后, 将只会辅助生成文案"
+msgstr ""
+
+msgid "所调用模型名称"
+msgstr ""
+
+msgid "文案助手模式"
+msgstr ""
+
+msgid "智能体模式选项"
+msgstr ""
+
+msgid "自动回帖会同时点赞"
+msgstr ""
+
+msgid "未设置请留空, 请勿泄露API_Key!"
+msgstr ""
+
+msgid "需要支持视觉输入的视觉语言模型"
+msgstr ""
+
+msgid "模型调用API_Key"
+msgstr ""
+
+msgid "模型调用地址"
+msgstr ""
+
+msgid "游戏语言"
+msgstr ""
+
+msgid "请选择游戏所设置的语言"
+msgstr ""
+
+msgid "自动发帖"
+msgstr ""
+
+msgid "自动回帖"
+msgstr ""
+
+msgid "自动按赞"
+msgstr ""
+
+msgid "请详阅使用说明"
+msgstr ""
+
+msgid "调用模型"
+msgstr ""
+
+msgid "过滤水贴"
+msgstr ""
+
+msgid "1"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "4"
+msgstr ""
+
+msgid "使用任何路径前请先阅读使用说明"
+msgstr ""
+
+msgid "设置为0则一直运行"
+msgstr ""
+
+msgid "战斗角色"
+msgstr ""
+
+msgid "自动粉爪大劫案"
+msgstr ""
+
+msgid "跑图角色"
+msgstr ""
+
+msgid "路径"
+msgstr ""
+
+msgid "路径1(路线参考自B站UP: 早柚大魔王丶)"
+msgstr ""
+
+msgid "路径2(在路径1基础上优化了大厅到办公层的路线)"
+msgstr ""
+
+msgid "选0~1个"
+msgstr ""
+
+msgid "选1~2个"
+msgstr ""
+
+msgid "选1个"
+msgstr ""
+
+msgid "避战方法"
+msgstr ""
+
+msgid "避战角色"
+msgstr ""
+
+msgid "长按shift"
+msgstr ""
+
+msgid "长按攻击"
+msgstr ""
+
+msgid ""
+"No recorded operations were found. Please wait for the recording prompt, then follow the instructions carefully to record your actions.\n"
+"DO NOT manually switch windows!\n"
+"Wait patiently for the software to bring the game window to the foreground."
+msgstr ""
+"未找到已录制的操作。请等待录制提示出现，然后按照指引，仔细完成操作录制。\n"
+"切勿手动切换窗口！\n"
+"耐心等待软件将游戏窗口唤起至前台。"
+
+msgid "影院约会"
+msgstr ""
+
+msgid "约会目标"
+msgstr ""
+
+msgid "自动小旋风"
+msgstr ""
+
+msgid "可交互「小旋风」下按开始"
+msgstr ""
+
+msgid "难度选项"
+msgstr ""
+
+msgid "异象家具"
+msgstr ""
+
+msgid "每2小时重新登入"
+msgstr ""
+
+msgid "除了选择内建存在的 [{combo}] 外,您也可以自己输入名称来建立自己的 [{combo}]。"
+msgstr ""
+
+msgid ""
+"<b>外置代码用法:</b><br>"
+"在 [{data_manager}] 中点击 [{show_builtin}], 选中内置角色后点击 [{copy_external}] 创建可编辑副本。<br>"
+"回到此页, 选择 {external_code} 脚本, 修改 Python 代码后点击 [{apply}] 保存并绑定到当前角色。<br>"
+"也可在 [{data_manager}] 中点击 [{open_folder}] 手动编辑 .py 文件, 保存后点击 [{refresh}] 重新加载。"
+"每个文件须且仅须定义一个 BaseChar 子类。<br>"
+"外置代码会以本软件相同权限运行, 请仅使用可信来源。"
+msgstr ""
+
+msgid "九百九十九夜"
+msgstr ""
+
+msgid "巧克力火山-底层最左边的篝火"
+msgstr ""
+
+msgid "挂机刷经验"
+msgstr ""
+
+msgid "位置"
+msgstr ""
+
+msgid "赤龙古堡-龙之高塔室外篝火"
+msgstr ""
+
+msgid "使用终结技"
+msgstr ""
+
+msgid "Background Audio Routing"
+msgstr "后台音频路由"
+
+msgid "Enable Background Audio Routing"
+msgstr "启用后台音频路由"
+
+msgid "SoundVolumeCommandLine Path"
+msgstr "SoundVolumeCommandLine 路径"
+
+msgid "Background Output Device"
+msgstr "后台输出设备"
+
+msgid "Open SoundVolumeCommandLine Download Page"
+msgstr "打开 SoundVolumeCommandLine 下载页面"
+
+msgid "Optionally route the game to a selected Windows output device while it is in the background. SoundVolumeCommandLine is not bundled; select your own downloaded copy."
+msgstr "当游戏处于后台时，可选择性地将游戏音频路由到选定的 Windows 输出设备。本软件未内置 SoundVolumeCommandLine，请选择您自己下载的版本。"
+
+msgid "Switch game audio output when the game window leaves the foreground"
+msgstr "当游戏窗口离开前台时，切换游戏音频输出"
+
+msgid "Select svcl.exe downloaded from NirSoft"
+msgstr "选择从 NirSoft 下载的 svcl.exe"
+
+msgid "Output device used while the game is in the background"
+msgstr "游戏处于后台时使用的输出设备"
+
+msgid "Open the official NirSoft SoundVolumeCommandLine page"
+msgstr "打开 NirSoft SoundVolumeCommandLine 官方页面"
+
+msgid "SoundVolumeCommandLine (svcl.exe);;Executable Files (*.exe);;All Files (*)"
+msgstr "SoundVolumeCommandLine (svcl.exe);;可执行文件 (*.exe);;所有文件 (*)"
+
+msgid "Select svcl.exe"
+msgstr "选择 svcl.exe"
+
+msgid "Open Download Page"
+msgstr "打开下载页面"
+
+msgid ""
+"即将运行: {mode}\n"
+"\n"
+"此任务会频繁控制鼠标。\n"
+"停止方法: 按热键暂停 ok-nte, 再手动停止任务。\n"
+"\n"
+"当前热键: {hotkey}\n"
+"如不确定热键, 请点击取消, 确认后再运行。"
+msgstr ""
+
+msgid "赤龙古堡-残丝长巷篝火"
+msgstr ""
+
+msgid "战斗时长上限"
+msgstr ""
+
+msgid "战斗时不切人"
+msgstr ""
+
+msgid ""
+"主界面检测失败。建议操作: \n"
+"1. 关闭显卡滤镜与锐化功能；\n"
+"2. 尝试开启 Windows “自动管理应用的颜色”设置。"
+msgstr ""
+
+msgid "大世界检测失败: 请检查游戏内 UI 透明度是否已设置为 1.0。"
+msgstr ""
+
+msgid "当前 CPU 不支持 AVX2, 无法运行 OpenVINO 2026 CPU 推理；自动战斗的目标检测将不可用，交战流畅度将受到影响。"
+msgstr ""
+
+msgid "战斗后等待至时长上限"
+msgstr ""
+
+msgid "羁遇赠礼"
+msgstr ""
+
+msgid "新增角色"
+msgstr ""
+
+msgid "更新当前角色"
+msgstr ""
+
+msgid "删除当前角色"
+msgstr ""
+
+msgid "开始赠礼"
+msgstr ""
+
+msgid "继续赠礼"
+msgstr ""
+
+msgid "停止"
+msgstr ""
+
+msgid "在游戏赠礼页点击{}。点击礼物卡片可设定优先级，再次点击取消。"
+msgstr ""
+
+msgid "赠礼状态"
+msgstr ""
+
+msgid "已启用"
+msgstr ""
+
+msgid "名称"
+msgstr ""
+
+msgid "角色显示名称"
+msgstr ""
+
+msgid "赠送次数"
+msgstr ""
+
+msgid "角色名称"
+msgstr ""
+
+msgid "礼物优先级"
+msgstr ""
+
+msgid "不赠送"
+msgstr ""
+
+msgid "优先级 {}"
+msgstr ""
+
+msgid "不可赠送"
+msgstr ""
+
+msgid "未命名角色"
+msgstr ""
+
+msgid "捕获失败"
+msgstr ""
+
+msgid "保存失败"
+msgstr ""
+
+msgid "无法开始"
+msgstr ""
+
+msgid "赠礼任务未注册"
+msgstr ""
+
+msgid "没有可用的游戏画面"
+msgstr ""
+
+msgid "请先捕获、选择礼物并启用至少一个角色。"
+msgstr ""
+
+msgid "使用录制功能"
+msgstr ""
+
+msgid "启用后录制并回放选择目标关卡的操作"
+msgstr ""
+
+msgid "异象追猎"
+msgstr ""
+
+msgid "追猎目标"
+msgstr ""
+
+msgid "自动进行异象追猎任务"
+msgstr ""
+
+msgid "领取奖励次数"
+msgstr ""
+
+msgid "设置为0则领取当前体力可领取的全部奖励"
+msgstr ""
+
+msgid "音霸魔王"
+msgstr ""
+
+msgid "无首铁驭"
+msgstr ""
+
+msgid "塞润尼缇"
+msgstr ""
+
+msgid "黑之书"
+msgstr ""
+
+msgid "海囚"
+msgstr ""
+
+msgid "围巢鸟"
+msgstr ""
+
+msgid "斑蝶"
+msgstr ""
+
+msgid "自动战斗检测诊断"
+msgstr ""
+
+msgid "持续检测诊断 Lv, 锁定目标标记(白色菱形)和红色血条; 请手动停止以查看完整报告"
+msgstr ""
+
+msgid "喷泉签到"
+msgstr ""
+
+msgid "防止 NTE 移动鼠标"
+msgstr ""
+
+msgid "后台运行时，在 NTE 将鼠标移动到屏幕中心后，自动恢复鼠标位置。"
+msgstr ""
+
+msgid ""
+"关联角色特征后，即可自动识别角色并使用绑定的出招表；游戏内换人/换队无需手动调整。\n"
+"未关联时，将使用通用脚本。"
+msgstr ""
+
+msgid ""
+"{fixed_team}会优先使用已填写槽位；未填写的槽位仍会自动识别。\n"
+"如果游戏内切换队伍，已填写槽位需要在软件里手动修改。"
+msgstr ""
+
+msgid "循环模式"
+msgstr ""
+
+msgid "循环序列"
+msgstr ""
+
+msgid "自动循环序号/目标"
+msgstr ""
+
+msgid "自定义循环"
+msgstr ""
+
+msgid "副本类型"
+msgstr ""
+
+msgid "签到方式"
+msgstr ""
+
+msgid "签到"
+msgstr ""
+
+msgid "捞币"
+msgstr ""
+
+msgid "资料管理"
+msgstr ""
+
+msgid "关闭"
+msgstr ""
+
+msgid "外置代码"
+msgstr ""
+
+msgid "打开外置代码目录"
+msgstr ""
+
+msgid "日常领取"
+msgstr ""
+
+msgid "领取每日邮件和奖励"
+msgstr ""
+
+msgid "模式"
+msgstr ""
+
+msgid "邮件"
+msgstr ""
+
+msgid "活跃度奖励"
+msgstr ""
+
+msgid "环期任务奖励"
+msgstr ""
+
+msgid "一咖舍"
+msgstr ""
+
+msgid "领取/补货"
+msgstr ""
+
+msgid "全选"
+msgstr ""
+
+msgid "取消全选"
+msgstr ""
+
+msgid "全部折叠"
+msgstr ""
+
+msgid "全部展开"
+msgstr ""
+
+msgid "排球之星"
+msgstr ""
+
+msgid "刷经验"
+msgstr ""
+
+msgid "点按G"
+msgstr ""
+
+msgid "挑战玛门"
+msgstr ""
+
+msgid "自动闯关"
+msgstr ""
+
+msgid "{} 个空槽位"
+msgstr "{} 个空槽位"
+
+msgid "固定"
+msgstr "固定"
+
+msgid "已从列表移除"
+msgstr "已从列表移除"
+
+msgid "已删除"
+msgstr ""
+
+msgid "已填入"
+msgstr "已填入"
+
+msgid "已应用"
+msgstr "已应用"
+
+msgid "已更新 {} 位角色的出招表"
+msgstr "已更新 {} 位角色的出招表"
+
+msgid "应用方案"
+msgstr "应用方案"
+
+msgid "扫描失败"
+msgstr "扫描失败"
+
+msgid "搜索方案"
+msgstr "搜索方案"
+
+msgid "新建方案"
+msgstr "新建方案"
+
+msgid "方案中不能重复选择角色"
+msgstr "方案中不能重复选择角色"
+
+msgid "方案列表"
+msgstr "方案列表"
+
+msgid "方案名称重复或内容无效"
+msgstr "方案名称重复或内容无效"
+
+msgid "无法保存"
+msgstr "无法保存"
+
+msgid "无法填入"
+msgstr "无法填入"
+
+msgid "没有可填入的角色"
+msgstr "没有可填入的角色"
+
+msgid "等待扫描..."
+msgstr "等待扫描..."
+
+msgid "输入或选择出招表"
+msgstr "输入或选择出招表"
+
+msgid "队伍方案"
+msgstr "队伍方案"
+
+msgid "队伍识别"
+msgstr "队伍识别"
+
+msgid "提示"
+msgstr "提示"
+
+msgid "<p><b style=\"color: #d83b01;\">注意：</b>此面板 <b style=\"color: #d83b01;\">不会</b> 在进入战斗或更换阵容时实时自动刷新或同步显示。<br>这是个用于向数据库关联或添加 [角色特征] 的工具面板。<br>点击 [{scan_team}] 后点击 [关联或添加] 特征, 自动战斗时就会识别对应的角色。<br>如果不想管理 [角色特征], 可以直接使用 [{fixed_team}] 功能。</p>"
+msgstr "<p><b style=\"color: #d83b01;\">注意：</b>此面板 <b style=\"color: #d83b01;\">不会</b> 在进入战斗或更换阵容时实时自动刷新或同步显示。<br>这是个用于向数据库关联或添加 [角色特征] 的工具面板。<br>点击 [{scan_team}] 后点击 [关联或添加] 特征, 自动战斗时就会识别对应的角色。<br>如果不想管理 [角色特征], 可以直接使用 [{fixed_team}] 功能。</p>"
+
+msgid "<p>用于配置并保存常用的 4 人队伍阵容与出招表, 修改后立即生效。<br>方案中的 1~4 号位仅用于 [{fixed_preset}] 功能; 已绑定特征的角色放在哪个号位都可以, 不影响识别。<br>点击 [{apply_preset}] 可一键更新应用方案中各角色的出招表 (未选择出招表则保持原配置不变)。<br>开启 [{fixed_preset}] 后自动战斗将直接采用此阵容, 无需等待特征识别 (未录入特征的角色亦可直接战斗)。<br>点击 [{fill_scan}] 可将上方特征扫描识别出的队伍角色快速填入当前方案。</p>"
+msgstr "<p>用于配置并保存常用的 4 人队伍阵容与出招表, 修改后立即生效。<br>方案中的 1~4 号位仅用于[{fixed_preset}] 功能; 已绑定特征的角色放在哪个号位都可以, 不影响识别。<br>点击 [{apply_preset}] 可一键更新应用方案中各角色的出招表 (未选择出招表则保持原配置不变)。<br>开启 [{fixed_preset}] 后自动战斗将直接采用此阵容, 无需等待特征识别 (未录入特征的角色亦可直接战斗)。<br>点击 [{fill_scan}] 可将上方特征扫描识别出的队伍角色快速填入当前方案。</p>"
+
+msgid "OpenVINO 单次推理超时，已自动关闭目标检测；重启程序后会重新尝试启用。"
+msgstr ""
+
+msgid "批量删除"
+msgstr ""
+
+msgid "当前未绑定任何{combo}.\n遇到此角色将默认使用基础通用脚本(BaseChar)."
+msgstr ""
+
+msgid "显示内置"
+msgstr "显示内置"
+
+msgid "复制为外置"
+msgstr "复制为外置"
+
+msgid "复制成功"
+msgstr "复制成功"
+
+msgid "复制失败"
+msgstr "复制失败"
+
+msgid "已成功创建外置代码: {}"
+msgstr "已成功创建外置代码: {}"
+
+msgid "复制为外置代码"
+msgstr "复制为外置代码"
+
+msgid "目录"
+msgstr "目录"
+
+msgid "脚本文件名 (.py)"
+msgstr "脚本文件名 (.py)"
+
+msgid "将在 external_chars/ 目录下生成独立的 Python 脚本供您编辑与调试."
+msgstr "将在 external_chars/ 目录下生成独立的 Python 脚本供您编辑与调试."
+
+msgid "无法读取 Python 脚本."
+msgstr "无法读取 Python 脚本."
+
+msgid "外置代码应用失败"
+msgstr "外置代码应用失败"
+
+msgid "已应用外置代码: {}"
+msgstr "已应用外置代码: {}"
+
+msgid "角色"
+msgstr "角色"
+
+msgid "指令"
+msgstr "指令"
+
+msgid "请先应用外置代码更改后再运行测试."
+msgstr "请先应用外置代码更改后再运行测试."
+
+msgid "角色工具任务未注册"
+msgstr "角色工具任务未注册"
+
+msgid "角色工具任务不可用"
+msgstr "角色工具任务不可用"
+
+msgid "询问AI"
+msgstr ""
+
+msgid "AI提示模版已复制。请粘贴到AI聊天机器人中。"
+msgstr ""
+
+msgid "{SOURCE}\n\n我想实现: \n\n请修改上面完整的 {class_name} 角色自动化代码。\n\n只返回整个文件完整修改后的 Python 代码，不要返回补丁或解释。\n保持类名为 {class_name}。保留仍然需要的 import。\n\n在思考辅助方法、任务 API、状态、切人、冷却和战斗流程时, 请参考: \nBaseChar 角色基类: {BASE_CHAR_URL}\nCombat Planner 开发指南: {COMBAT_PLANNER_URL}"
+msgstr ""
+
+msgid "OK"
+msgstr "确认"
+
+msgid "设置"
+msgstr ""
+
+msgid "上传"
+msgstr "上传"
+
+msgid "作者"
+msgstr "作者"
+
+msgid "全部作者"
+msgstr "全部作者"
+
+msgid "全部角色"
+msgstr "全部角色"
+
+msgid "内置"
+msgstr "内置"
+
+msgid "刷新"
+msgstr "刷新"
+
+msgid "加载失败: {}"
+msgstr "加载失败: {}"
+
+msgid "取消"
+msgstr "取消"
+
+msgid "外置"
+msgstr "外置"
+
+msgid "外置代码目录"
+msgstr "外置代码目录"
+
+msgid "外置代码目录名称无效"
+msgstr "外置代码目录名称无效"
+
+msgid "外置代码目录“{}”已存在, 请修改目录名称后重试。"
+msgstr "外置代码目录“{}”已存在, 请修改目录名称后重试。"
+
+msgid "大小"
+msgstr "大小"
+
+msgid "导入"
+msgstr "导入"
+
+msgid "导入完成"
+msgstr "导入完成"
+
+msgid "导出"
+msgstr "导出"
+
+msgid "导出完成"
+msgstr "导出完成"
+
+msgid "导出社区方案"
+msgstr "导出社区方案"
+
+msgid "导出队伍"
+msgstr "导出队伍"
+
+msgid "工坊"
+msgstr "工坊"
+
+msgid "工坊会显示来自公开仓库的 ZIP 方案."
+msgstr "工坊会显示来自公开仓库的 ZIP 方案."
+
+msgid "已创建方案: {}"
+msgstr "已创建方案: {}"
+
+msgid "已加载 {} 个方案"
+msgstr "已加载 {} 个方案"
+
+msgid "当前方案没有可导出的出招表."
+msgstr "当前方案没有可导出的出招表."
+
+msgid "成员"
+msgstr "成员"
+
+msgid "描述"
+msgstr "描述"
+
+msgid "搜索名称, 说明, 作者或角色"
+msgstr "搜索名称, 说明, 作者或角色"
+
+msgid "操作失败"
+msgstr "操作失败"
+
+msgid "方案说明"
+msgstr "方案说明"
+
+msgid "无法导出"
+msgstr "无法导出"
+
+msgid "更新时间"
+msgstr "更新时间"
+
+msgid "本地方案名称"
+msgstr "本地方案名称"
+
+msgid "正在加载工坊..."
+msgstr "正在加载工坊..."
+
+msgid "没有说明."
+msgstr "没有说明."
+
+msgid "版本"
+msgstr "版本"
+
+msgid "社区方案"
+msgstr "社区方案"
+
+msgid "社区方案含外置代码; 导入后会以本软件权限运行, 请仅导入可信来源."
+msgstr "社区方案含外置代码; 导入后会以本软件权限运行, 请仅导入可信来源."
+
+msgid "角色阵容"
+msgstr "角色阵容"
+
+msgid "调整筛选条件或稍后刷新工坊."
+msgstr "调整筛选条件或稍后刷新工坊."
+
+msgid "返回"
+msgstr "返回"
+
+msgid "选择一个方案"
+msgstr "选择一个方案"
+
+msgid "队伍配置"
+msgstr "队伍配置"
+
+msgid "不是该角色?"
+msgstr "不是该角色?"
+
+msgid "删除方案"
+msgstr ""
+
+msgid "检测到该方案包含外置代码，是否同时删除对应的代码文件?"
+msgstr ""
+
+msgid "全部删除"
+msgstr ""
+
+msgid "仅删除方案"
+msgstr ""
+
+msgid "方案已删除"
+msgstr ""
+
+msgid "部分外置代码删除失败: {}"
+msgstr ""
+
+msgid "启用开战优先级"
+msgstr ""
+
+msgid "关闭时不按角色执行开战首切"
+msgstr ""
+
+msgid "鼠标占用警告"
+msgstr ""
+
+msgid "数据备份"
+msgstr "数据备份"
+
+msgid "用户数据"
+msgstr "用户数据"
+
+msgid "ZIP 格式备份; 导入将覆盖当前数据"
+msgstr "ZIP 格式备份; 导入将覆盖当前数据"
+
+msgid "手动修改 Python 代码后, 需点击 [{refresh}] 生效"
+msgstr "手动修改 Python 代码后, 需点击 [{refresh}] 生效"
+
+msgid "编写指南"
+msgstr "编写指南"
+
+msgid "噗卡乐园 - 命中幸运星"
+msgstr ""
+
+msgid "在可进行NPC交互的位置启动任务"
+msgstr ""
+
+msgid "从工坊填入"
+msgstr ""
+
+msgid "选择方案与版本, 填入名称、描述、作者和版本."
+msgstr ""
+
+msgid "填入信息"
+msgstr ""
+
+msgid "模型生成的最大Token数量"
+msgstr ""
+
+msgid "模型生成Token上限"
+msgstr ""
+
+msgid "存在失败时发送 BOT 通知"
+msgstr ""
+
+msgid ""
+"开启仅失败或中断时通知, 关闭每次都通知。\n"
+"需在通知设置中启用接收渠道。"
+msgstr ""
+
+msgid "自动周赛"
+msgstr ""
+
+msgid "复读接球/传球"
+msgstr ""
+
+msgid "脱战旋转索敌"
+msgstr ""
+
+msgid "乐器"
+msgstr ""
+
+msgid "钢琴"
+msgstr ""
+
+msgid "吉他"
+msgstr ""
+
+msgid "选择与游戏当前演奏界面一致的乐器"
+msgstr ""
+
+msgid "文件列表已变化, 无法自动更新, 请重新导入."
+msgstr "文件列表已变化, 无法自动更新, 请重新导入."
+
+msgid "本地源码已修改, 已跳过自动更新."
+msgstr "本地源码已修改, 已跳过自动更新."
+
+msgid "本地安装文件缺失, 请重新导入."
+msgstr "本地安装文件缺失, 请重新导入."
+
+msgid "无法读取工坊安装记录, 请检查 workshop_installs.json."
+msgstr "无法读取工坊安装记录, 请检查 workshop_installs.json."
+
+msgid "下载的方案与更新信息不一致, 请刷新工坊后重试."
+msgstr "下载的方案与更新信息不一致, 请刷新工坊后重试."
+
+msgid "一鍵更新"
+msgstr "一键更新"
+
+msgid "更新"
+msgstr "更新"
+
+msgid "更新到 {}"
+msgstr "更新到 {}"
+
+msgid "已是最新"
+msgstr "已是最新"
+
+msgid "正在更新出招表..."
+msgstr "正在更新出招表..."
+
+msgid "已更新 {} 份方案, {} 项失败"
+msgstr "已更新 {} 份方案, {} 项失败"
+
+msgid "更新失败"
+msgstr "更新失败"
+
+msgid "请等待当前导入或导出完成后再更新."
+msgstr "请等待当前导入或导出完成后再更新."
+
+msgid "加载失败"
+msgstr "加载失败"
+
+msgid "方案"
+msgstr "方案"
+
+msgid "重命名"
+msgstr "重命名"
+
+msgid ""
+"角色: {character}\n"
+"出招表: {combo}\n"
+"出错位置: {location}\n"
+"{error_type}: {detail}\n"
+"可能与接口或依赖不兼容, 请至工坊更新方案或将此信息反馈给方案作者."
+msgstr ""
+"角色: {character}\n"
+"出招表: {combo}\n"
+"出错位置: {location}\n"
+"{error_type}: {detail}\n"
+"可能与接口或依赖不兼容, 请至工坊更新方案或将此信息反馈给方案作者."
+
+msgid "找不到模块加载器"
+msgstr "找不到模块加载器"
+
+msgid "外置角色模块必须且只能定义一个 BaseChar 子类"
+msgstr "外置角色模块必须且只能定义一个 BaseChar 子类"
+
+msgid "角色实现标识重复: {impl_id}"
+msgstr "角色实现标识重复: {impl_id}"

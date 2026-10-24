@@ -1,0 +1,1620 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: you@example.com\n"
+"Last-Translator: you@example.com\n"
+"Language-Team: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Arc Key"
+msgstr "아크 키"
+
+msgid "Check Monthly Card"
+msgstr "월정액 카드 확인"
+
+msgid "Check for monthly card to avoid interruption of tasks"
+msgstr "작업 중단을 피하기 위해 월정액 카드를 확인합니다"
+
+msgid "Game Hotkey Config"
+msgstr "게임 단축키 설정"
+
+msgid "In Game Hotkey for Skills"
+msgstr "스킬용 게임 내 단축키"
+
+msgid "Monthly Card Config"
+msgstr "월정액 카드 설정"
+
+msgid "Monthly Card Time"
+msgstr "월정액 카드 시간"
+
+msgid "Skill Key"
+msgstr "스킬 키"
+
+msgid "Turn on to avoid interruption by monthly card when executing tasks"
+msgstr "작업 실행 시 월정액 카드로 인한 중단을 피하기 위해 켭니다"
+
+msgid "Ultimate Key"
+msgstr "궁극기 키"
+
+msgid "Your computer's local time when the monthly card will popup, hour in (1-24)"
+msgstr "월정액 카드가 팝업될 컴퓨터의 로컬 시간(1-24시)"
+
+msgid "内置代码"
+msgstr "내장 코드"
+
+msgid "{combo}: {} 删除成功"
+msgstr "{combo}: {} 삭제 성공"
+
+msgid "{combo}: {} 绑定成功"
+msgstr "{combo}: {} 바인딩 성공"
+
+msgid "{combo}语法错误"
+msgstr "{combo} 구문 오류"
+
+msgid "{} 号位"
+msgstr "{} 번 슬롯"
+
+msgid "任务跳过对话"
+msgstr "대화 건너뛰기 작업"
+
+msgid "保存成功"
+msgstr "저장 성공"
+
+msgid "停用"
+msgstr "비활성화"
+
+msgid "出招表"
+msgstr "콤보 목록"
+
+msgid "初次使用请先至 [{team_mgmt}] 进行设置"
+msgstr "처음 사용 시 [{team_mgmt}]에서 먼저 설정해 주세요"
+
+msgid "删除"
+msgstr "삭제"
+
+msgid "删除成功"
+msgstr "삭제 성공"
+
+msgid "删除角色"
+msgstr "캐릭터 삭제"
+
+msgid "刷新列表"
+msgstr "목록 새로고침"
+
+msgid "匹配成功: {}"
+msgstr "매칭 성공: {}"
+
+msgid "置信度: {:.2f}"
+msgstr "신뢰도: {:.2f}"
+
+msgid "特征已加入"
+msgstr "특징이 추가됨"
+
+msgid "加入特征"
+msgstr "특징 추가"
+
+msgid "匹配文字"
+msgstr "텍스트 매칭"
+
+msgid "适用于大世界、轨外之境、999夜等各类场景与副本"
+msgstr "오픈 월드, 궤외지경, 999 Nights 등 다양한 장면과 던전에 적용"
+
+msgid "可用指令"
+msgstr "사용 가능한 명령"
+
+msgid "启用"
+msgstr "활성화"
+
+msgid "固定队伍"
+msgstr "고정 팀"
+
+msgid "地图中自动点击传送"
+msgstr "지도에서 자동 순간이동 클릭"
+
+msgid "填入扫描"
+msgstr "스캔 결과 입력"
+
+msgid "完成每日活跃度"
+msgstr "일일 활성도 완료"
+
+msgid "导入失败"
+msgstr "가져오기 실패"
+
+msgid "导入成功"
+msgstr "가져오기 성공"
+
+msgid "导入数据"
+msgstr "데이터 가져오기"
+
+msgid "导出数据"
+msgstr "데이터 내보내기"
+
+msgid "已导入 {} 个文件"
+msgstr "{}개 파일 가져옴"
+
+msgid "已成功删除角色: {} 以及关联的特征图"
+msgstr "캐릭터: {} 및 관련 특징 맵을 성공적으로 삭제했습니다"
+
+msgid "已解除 {} 的{combo}绑定"
+msgstr "{}의 {combo} 바인딩 해제됨"
+
+msgid "应用更改"
+msgstr "변경 사항 적용"
+
+msgid "循环次数"
+msgstr "반복 횟수"
+
+msgid "快速传送"
+msgstr "빠른 이동"
+
+msgid "扫描中..."
+msgstr "스캔 중..."
+
+msgid "扫描队伍"
+msgstr "팀 스캔"
+
+msgid "控条模式"
+msgstr "게이지 제어 모드"
+
+msgid "搜索角色"
+msgstr "캐릭터 검색"
+
+msgid "无画面"
+msgstr "화면 없음"
+
+msgid "日常任务"
+msgstr "일일 임무"
+
+msgid "未启用"
+msgstr "비활성화됨"
+
+msgid "未能识别该特征"
+msgstr "특징을 인식하지 못했습니다"
+
+msgid "未获取到特征"
+msgstr "특징을 가져오지 못했습니다"
+
+msgid "关联特征"
+msgstr "특징 연결"
+
+msgid "此为 Python 脚本, 不可在此修改.\n请在对应的源文件中直接修改代码."
+msgstr "이것은 Python 스크립트이므로 여기서 수정할 수 없습니다.\n해당 소스 파일에서 직접 코드를 수정해 주세요."
+
+msgid "没有找到匹配的指令。"
+msgstr "일치하는 명령을 찾을 수 없습니다."
+
+msgid "点击时将短暂控制物理鼠标"
+msgstr "클릭 시 실제 마우스를 잠시 제어합니다"
+
+msgid "点按"
+msgstr "탭"
+
+msgid "点按时长倍率"
+msgstr "탭 시간 배율"
+
+msgid "点按模式专用。用于微调每次按键的持续时间"
+msgstr "탭 모드 전용. 각 키 입력의 지속 시간을 미세 조정하는 데 사용됩니다"
+
+msgid "自动完成一轮或多轮钓鱼"
+msgstr "낚시 한 라운드 또는 여러 라운드를 자동으로 완료합니다"
+
+msgid "自动战斗"
+msgstr "자동 전투"
+
+msgid "自动消息"
+msgstr "자동 메시"
+
+msgid "自动目标"
+msgstr "자동 대상"
+
+msgid "自动钓鱼"
+msgstr "자동 낚시"
+
+msgid "角色中心"
+msgstr "캐릭 센터"
+
+msgid "角色名称无效或已存在"
+msgstr "캐릭터 이름이 유효하지 않거나 이미 존재합니다"
+
+msgid "角色已重命名为: {}"
+msgstr "캐릭터 이름이 {}로 변경되었습니다"
+
+msgid "角色管理"
+msgstr "캐릭 관리"
+
+msgid "解除绑定"
+msgstr "바인딩 해제"
+
+msgid "请在左侧选择一个角色以管理特征和{combo}"
+msgstr "왼쪽에서 캐릭터를 선택하여 특징과 {combo}를 관리하세요"
+
+msgid "跳过剧情"
+msgstr "스토리 건너뛰기"
+
+msgid "运行一次测试"
+msgstr "테스트 1회 실행"
+
+msgid "下拉选择, 或直接输入名称以创建新{combo}"
+msgstr "드롭다운에서 선택하거나, 이름을 입력하여 새 {combo}를 생성하세요"
+
+msgid "重命名失败"
+msgstr "이름 변경 실패"
+
+msgid "长按"
+msgstr "길게 누르기"
+
+msgid ""
+"长按：平滑流畅, 易过冲\n"
+"点按: 安全较慢, 防过冲"
+msgstr ""
+"길게 누르기: 부드럽고 매끄러움, 오버슈트 가능성 있음\n"
+"탭: 안전하지만 느림, 오버슈트 방지"
+
+msgid "队伍不存在"
+msgstr "팀이 존재하지 않습니다"
+
+msgid "队伍人数少于2人"
+msgstr "팀 인원이 2명 미만입니다"
+
+msgid "队伍管理"
+msgstr "팀 관리"
+
+msgid "关闭时仅在中键选中敌人且画面识别到关键特征时开启战斗"
+msgstr "비활성화 시 마우스 중간 버튼으로 적을 선택하고 화면에서 주요 특징이 감지될 때만 전투를 시작합니다"
+
+msgid ""
+"开启后优先通过 ESC 键关闭成功界面，避免后台抢占鼠标。\n"
+"若游戏运行不流畅，可能因按键响应延迟导致误退出钓鱼场景"
+msgstr ""
+"활성화 시 ESC 키를 우선 사용하여 성공 화면을 닫고 백그라운드 마우스 점유를 방지합니다.\n"
+"게임 실행이 원활하지 않을 경우 키 응답 지연으로 인해 낚시 장면에서 실수로 나갈 수 있습니다"
+
+msgid "Counter Attack Threshold"
+msgstr "반격 임계값"
+
+msgid "Counter attack sound recognition threshold (0.0-1.0, lower is more sensitive)"
+msgstr "반격 사운드 인식 임계값 (0.0-1.0, 낮을수록 더 민감함)"
+
+msgid "Dodge Threshold"
+msgstr "회피 임계값"
+
+msgid "Dodge sound recognition threshold (0.0-1.0, lower is more sensitive)"
+msgstr "회피 사운드 인식 임계값 (0.0-1.0, 낮을수록 더 민감함)"
+
+msgid "Enable Sound Trigger"
+msgstr "사운드 트리거 활성화"
+
+msgid "Enable sound recognition for automatic dodge and counter attacks"
+msgstr "자동 회피 및 반격을 위한 사운드 인식 활성화"
+
+msgid "Sound Trigger Config"
+msgstr "사운드 트리거 설정"
+
+msgid "Sound-based dodge and counter trigger settings"
+msgstr "사운드 기반 회피 및 반격 트리거 설정"
+
+msgid "Dodge All Attacks"
+msgstr "모든 공격 회피"
+
+msgid "Dodge all attacks without performing counter attacks"
+msgstr "반격을 수행하지 않고 모든 공격을 회피합니다"
+
+msgid "任务完成后自动切换至下一个项目"
+msgstr "작업 완료 후 자동으로 다음 항목으로 전환"
+
+msgid "任务类型"
+msgstr "작업 유형"
+
+msgid "具体奖励目标"
+msgstr "구체적인 보상 목표"
+
+msgid "异能升级材料"
+msgstr "이능 업그레이드"
+
+msgid "异能材料序号"
+msgstr "이능 업그레이드 번호"
+
+msgid "异象界域"
+msgstr "아노말리 존"
+
+msgid "弧盘材料序号"
+msgstr "아크 어센션 번호"
+
+msgid "弧盘突破材料"
+msgstr "아크 어센션"
+
+msgid "弧盘经验"
+msgstr "아크 디스크 경험치"
+
+msgid "甲硬币"
+msgstr "비틀 코인"
+
+msgid "空幕"
+msgstr "콘솔"
+
+msgid "空幕序号"
+msgstr "콘솔 번호"
+
+msgid "经验与甲硬币"
+msgstr "EXP 및 비틀 코인"
+
+msgid "自动进行异象界域任务"
+msgstr "자동으로 아노말리 존 작업 수행"
+
+msgid "角色经验"
+msgstr "캐릭터 경험치"
+
+msgid "选择经验与甲硬币任务的具体奖励目标"
+msgstr "EXP 및 비틀 코인 작업의 구체적인 보상 목표 선택"
+
+msgid "选择要进行的任务类型"
+msgstr "수행할 작업 유형 선택"
+
+msgid "选择列表中的第几个项目 ({}-{})"
+msgstr "목록의 몇 번째 항목을 선택할지 ({}-{})"
+
+msgid "使用滚轮加速拾取"
+msgstr "마우스 휠로 획득 가속"
+
+msgid "切换角色快速奔跑"
+msgstr "캐릭터 전환으로 빠른 달리기"
+
+msgid "切换角色数量"
+msgstr "전환 캐릭터 수"
+
+msgid "快速奔跑角色数量"
+msgstr "빠른 달리기 캐릭터 수"
+
+msgid "按住Shift生效"
+msgstr "Shift 키를 누르면 활성화"
+
+msgid "粉爪大劫案"
+msgstr "핑크 포 하이스트"
+
+msgid "粉爪大劫案便利性功能"
+msgstr "핑크 포 하이스트 편의 기능"
+
+msgid "触发按键"
+msgstr "트리거 키"
+
+msgid "触发连点将同步生效"
+msgstr "연타 트리거를 동기화하여 적용"
+
+msgid "触发连点的按键 (按住生效)"
+msgstr "연타 트리거 키 (누르고 있으면 활성)"
+
+msgid "自动补饵卖鱼"
+msgstr "자동 미끼 보충 및 물고기 판매"
+
+msgid "抛竿失败时，补充默认鱼饵并出售鱼获后重试"
+msgstr "낚시대 던지기 실패 시 기본 미끼를 보충하고 어획물을 판매한 뒤 재시도합니다"
+
+msgid "4列对应的键盘按键"
+msgstr "4열 대응 키보드 키"
+
+msgid "单曲超时时间(秒)"
+msgstr "곡당 제한 시간(초)"
+
+msgid "异环鼓组音游自动打击与重试"
+msgstr "NTE 리듬 게임 자동 연주 및 재시도"
+
+msgid "自动音游"
+msgstr "자동 리듬 게임"
+
+msgid "调试日志"
+msgstr "디버그 로그"
+
+msgid "超时秒数"
+msgstr "제한 시간(초)"
+
+msgid "输出调试日志"
+msgstr "디버그 로그 출력"
+
+msgid "键位"
+msgstr "키 설정"
+
+msgid "Start Game"
+msgstr "게임 시작"
+
+msgid "Launcher Path"
+msgstr "런처 경로"
+
+msgid "目标消耗体力"
+msgstr "목표 스태미나 소모량"
+
+msgid "声音闪避反击"
+msgstr "소리 회피 반격"
+
+msgid "未处于自动战斗时, 响应声音闪避或反击"
+msgstr "자동 전투 중이 아닐 때 소리 회피 또는 반격에 반응"
+
+msgid ""
+"All letter/number keys, including every hotkey above, are replaced by US QWERTY\n"
+"physical positions, not your current layout's printed keys."
+msgstr ""
+"위의 모든 단축키를 포함한 모든 문자/숫자 키는 현재 배열에 인쇄된 키가 아니라\n"
+"미국 QWERTY 물리 위치로 대체됩니다."
+
+msgid "Use QWERTY Physical Keys"
+msgstr "QWERTY 물리 키 사용"
+
+msgid "店长特供"
+msgstr "오너 셀렉션"
+
+msgid "抢钱流"
+msgstr "강도 빌드"
+
+msgid "游戏启动后自动登录游戏"
+msgstr "게임 실행 후 자동 로그인"
+
+msgid "自动循环进出关卡（需配合游戏内挂机流派使用）"
+msgstr "스테이지 입퇴장을 자동 반복 (게임 내 방치 빌드와 함께 사용 필요)"
+
+msgid "自动登录游戏"
+msgstr "자동 로그인"
+
+msgid "一咖舍任务"
+msgstr "카페 작업"
+
+msgid "选择日常任务中的一咖舍处理方式"
+msgstr "일일 작업에서 카페 처리 방식을 선택"
+
+msgid "不执行"
+msgstr "실행하지 않음"
+
+msgid "输入或选择关联的角色名称"
+msgstr "연결된 캐릭터 이름 입력 또는 선택"
+
+msgid "输入或选择绑定的{combo} (可选)"
+msgstr "연결된 {combo} 입력 또는 선택(선택)"
+
+msgid "清空已记录的操作"
+msgstr "기록된 작업 지우기"
+
+msgid "自动执行黑暗赛车,请在大世界开始执行"
+msgstr "다크 레이스를 자동으로 실행합니다. 오픈 월드에서 시작하세요"
+
+msgid "重置记录"
+msgstr "기록 초기화"
+
+msgid "黑暗赛车"
+msgstr "다크 레이스"
+
+msgid "Record has been reset"
+msgstr "기록이 초기화되었습니다"
+
+msgid "Updated successfully"
+msgstr "성공적으로 업데이트되었습니다"
+
+msgid "都市闲趣"
+msgstr "취미"
+
+msgid "日常/周常"
+msgstr "일일/주간"
+
+msgid "※ 列表可直接输入并创建"
+msgstr "※ 목록에 직접 입력하여 생성할 수 있습니다"
+
+msgid "输入或选择角色"
+msgstr "캐릭터를 입력하거나 선택"
+
+msgid "启动失败"
+msgstr "시작하지 못했습니다"
+
+msgid "21键自然音布局 (已禁用)"
+msgstr "21키 온음계 레이아웃 (비활성화됨)"
+
+msgid "36键半音布局 (12x3)"
+msgstr "36키 반음계 레이아웃 (12x3)"
+
+msgid "中音"
+msgstr "중음"
+
+msgid "低音"
+msgstr "저음"
+
+msgid "全部歌曲"
+msgstr "모든 노래"
+
+msgid "单曲循环"
+msgstr "한 곡 반복"
+
+msgid "可以弹奏"
+msgstr "연주 가능"
+
+msgid "右下按键中心: "
+msgstr "우측 하단 버튼 중심:"
+
+msgid "定时关闭"
+msgstr "예약 종료"
+
+msgid "导入 MIDI"
+msgstr "MIDI 가져오기"
+
+msgid "尚未载入音轨"
+msgstr "트랙이 로드되지 않음"
+
+msgid "左上按键中心: "
+msgstr "좌측 상단 버튼 중심:"
+
+msgid "已收藏"
+msgstr "즐겨찾기"
+
+msgid "当前乐器使用 36 键半音布局"
+msgstr "현재 악기는 36키 반음계 레이아웃을 사용합니다"
+
+msgid "打印键位映射"
+msgstr "키 매핑 출력"
+
+msgid "打开 mid_lib"
+msgstr "mid_lib 열기"
+
+msgid "乐器与键位设置"
+msgstr "악기 및 키 설정"
+
+msgid "搜索歌曲"
+msgstr "노래 검색"
+
+msgid "播放"
+msgstr "재생"
+
+msgid "播放模式"
+msgstr "재생 모드"
+
+msgid "播放设置"
+msgstr "재생 설정"
+
+msgid "播放速度"
+msgstr "재생 속도"
+
+msgid "收藏歌曲"
+msgstr "즐겨찾기에 추가"
+
+msgid "无法弹奏"
+msgstr "연주 불가"
+
+msgid "智能音域压缩"
+msgstr "스마트 음역 압축"
+
+msgid "未选择歌曲"
+msgstr "노래가 선택되지 않음"
+
+msgid "每个测试音间隔约 1 秒，请用调音器确认实际发音。"
+msgstr "각 테스트 음 간격은 약 1초입니다. 튜너를 사용하여 실제 음을 확인하세요."
+
+msgid "测试中音行"
+msgstr "중음 열 테스트"
+
+msgid "测试全部键"
+msgstr "모든 키 테스트"
+
+msgid "自动乐器"
+msgstr "자동 악기"
+
+msgid "自动音高"
+msgstr "자동 피치"
+
+msgid "试听选中音轨"
+msgstr "선택한 트랙 미리 듣기"
+
+msgid "调试校准"
+msgstr "디버그 캘리브레이션"
+
+msgid "选择 MIDI 档案"
+msgstr "MIDI 파일 선택"
+
+msgid "随机播放"
+msgstr "셔플"
+
+msgid "音轨选择"
+msgstr "트랙 선택"
+
+msgid "音高与音域分析"
+msgstr "피치 및 음역 분석"
+
+msgid "音高调整 (半音):"
+msgstr "피치 조절 (반음):"
+
+msgid "顺序播放"
+msgstr "순차 재생"
+
+msgid "高音"
+msgstr "고음"
+
+msgid "MIDI 分析失败"
+msgstr "MIDI 분석 실패"
+
+msgid "MIDI 播放失败"
+msgstr "MIDI 재생 실패"
+
+msgid "键盘布局"
+msgstr "키보드 레이아웃"
+
+msgid "de_DE"
+msgstr "Deutsch"
+
+msgid "en_US"
+msgstr "English"
+
+msgid "es_ES"
+msgstr "Español"
+
+msgid "fr_FR"
+msgstr "Français"
+
+msgid "ja_JP"
+msgstr "日本語"
+
+msgid "ru_RU"
+msgstr "Русский"
+
+msgid "zh_CN"
+msgstr "简体中文"
+
+msgid "zh_TW"
+msgstr "繁體中文"
+
+msgid "文案生成模型调用地址, 需兼容OpenAI接口请求格式"
+msgstr "텍스트 생성 모델 API 주소 (OpenAI 호환 형식)"
+
+msgid "模型调用超时时间(s)"
+msgstr "모델 호출 시간 초과(s)"
+
+msgid "文案生成调用模型的超时时间, 超时将回退使用本地词库, 留空使用30s"
+msgstr "텍스트 생성 모델 호출 시간 초과. 시간 초과 시 로컬 단어장으로 대체됩니다. 비워두면 30초."
+
+msgid "关闭后将降级使用本地词库抽取发帖回复文案"
+msgstr "비활성화 시 로컬 사전에서 문구를 추출합니다"
+
+msgid "发帖内容生成提示词"
+msgstr "게시글 내용 생성 프롬프트"
+
+msgid "发帖内容生成提示词, 请先调试好提示词再使用"
+msgstr "게시글 내용 생성 프롬프트 (사용 전 테스트 권장)"
+
+msgid "发帖标题生成提示词"
+msgstr "게시글 제목 생성 프롬프트"
+
+msgid "发帖标题生成提示词, 请先调试好提示词再使用"
+msgstr "게시글 제목 생성 프롬프트 (사용 전 테스트 권장)"
+
+msgid "呗果智能体"
+msgstr "베이글(Bagel) AI 에이전트"
+
+msgid "回复生成提示词"
+msgstr "댓글 생성 프롬프트"
+
+msgid "回复生成提示词, 请先调试好提示词再使用"
+msgstr "댓글 생성 프롬프트 (사용 전 테스트 권장)"
+
+msgid "开启助手模式后, 将只会辅助生成文案"
+msgstr "어시스턴트 모드 활성화 시 문구 생성 보조만 수행합니다"
+
+msgid "所调用模型名称"
+msgstr "사용할 모델명"
+
+msgid "文案助手模式"
+msgstr "라이팅 어시스턴트 모드"
+
+msgid "智能体模式选项"
+msgstr "AI 에이전트 설정"
+
+msgid "自动回帖会同时点赞"
+msgstr "자동 댓글 및 좋아요"
+
+msgid "未设置请留空, 请勿泄露API_Key!"
+msgstr "미설정 시 공란으로 두세요. API Key 유출에 주의하세요!"
+
+msgid "需要支持视觉输入的视觉语言模型"
+msgstr "시각적 입력(이미지 인식)이 가능한 VLM 모델이 필요합니다"
+
+msgid "模型调用API_Key"
+msgstr "모델 API Key"
+
+msgid "模型调用地址"
+msgstr "모델 API 주소"
+
+msgid "游戏语言"
+msgstr "게임 언어"
+
+msgid "请选择游戏所设置的语言"
+msgstr "게임 내 설정된 언어를 선택하세요"
+
+msgid "自动发帖"
+msgstr "자동 게시물 작성"
+
+msgid "自动回帖"
+msgstr "자동 댓글"
+
+msgid "自动按赞"
+msgstr "자동 좋아요"
+
+msgid "请详阅使用说明"
+msgstr "사용 설명서를 확인하세요"
+
+msgid "调用模型"
+msgstr "모델 사용"
+
+msgid "过滤水贴"
+msgstr "스팸 필터링"
+
+msgid "1"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "4"
+msgstr ""
+
+msgid "使用任何路径前请先阅读使用说明"
+msgstr "경로를 사용하기 전에 사용 설명서를 읽어주세요"
+
+msgid "设置为0则一直运行"
+msgstr "0으로 설정 시 무한 실행"
+
+msgid "战斗角色"
+msgstr "전투 캐릭터 (Combat Team)"
+
+msgid "自动粉爪大劫案"
+msgstr "자동 핑크 발톱 강도 사건"
+
+msgid "跑图角色"
+msgstr "탐사 캐릭터 (Exploration)"
+
+msgid "路径"
+msgstr "경로 (Route)"
+
+msgid "路径1(路线参考自B站UP: 早柚大魔王丶)"
+msgstr "경로 1 (Route 1) (B리리 UP: 早柚大魔王丶 경로 참고)"
+
+msgid "路径2(在路径1基础上优化了大厅到办公层的路线)"
+msgstr "경로 2 (Route 2) (경로 1 기준 로비에서 사무실까지 경로 최적화)"
+
+msgid "选0~1个"
+msgstr "0~1개 선택"
+
+msgid "选1~2个"
+msgstr "1~2개 선택"
+
+msgid "选1个"
+msgstr "1개 선택"
+
+msgid "避战方法"
+msgstr "회피 방법 (Stealth Method)"
+
+msgid "避战角色"
+msgstr "회피 캐릭터 (Stealth Character)"
+
+msgid "长按shift"
+msgstr "Shift 길게 누르기 (Hold Shift)"
+
+msgid "长按攻击"
+msgstr "공격 길게 누르기 (Hold Attack)"
+
+msgid ""
+"No recorded operations were found. Please wait for the recording prompt, then follow the instructions carefully to record your actions.\n"
+"DO NOT manually switch windows!\n"
+"Wait patiently for the software to bring the game window to the foreground."
+msgstr ""
+"기록된 작업을 찾을 수 없습니다. 기록 안내가 표시될 때까지 기다린 뒤, 지시에 따라 신중하게 동작을 기록하세요.\n"
+"창을 수동으로 전환하지 마세요!\n"
+"소프트웨어가 게임 창을 포그라운드로 가져올 때까지 차분히 기다려 주십시오."
+
+msgid "影院约会"
+msgstr "영화관 데이트"
+
+msgid "约会目标"
+msgstr "데이트 대상"
+
+msgid "自动小旋风"
+msgstr "자동 회오리"
+
+msgid "可交互「小旋风」下按开始"
+msgstr "상호작용 가능한 「회오리」 아래에서 시작 누르기"
+
+msgid "难度选项"
+msgstr "난이도 옵션"
+
+msgid "异象家具"
+msgstr "아노말리 가구"
+
+msgid "每2小时重新登入"
+msgstr "2시간마다 재로그인"
+
+msgid "除了选择内建存在的 [{combo}] 外,您也可以自己输入名称来建立自己的 [{combo}]。"
+msgstr "기본 내장된 [{combo}]를 선택하는 것 외에도, 이름을 입력하여 나만의 [{combo}]를 만들 수 있습니다."
+
+msgid ""
+"<b>外置代码用法:</b><br>"
+"在 [{data_manager}] 中点击 [{show_builtin}], 选中内置角色后点击 [{copy_external}] 创建可编辑副本。<br>"
+"回到此页, 选择 {external_code} 脚本, 修改 Python 代码后点击 [{apply}] 保存并绑定到当前角色。<br>"
+"也可在 [{data_manager}] 中点击 [{open_folder}] 手动编辑 .py 文件, 保存后点击 [{refresh}] 重新加载。"
+"每个文件须且仅须定义一个 BaseChar 子类。<br>"
+"外置代码会以本软件相同权限运行, 请仅使用可信来源。"
+msgstr ""
+"<b>외부 코드 사용 방법:</b><br>"
+"[{data_manager}]에서 [{show_builtin}]을 클릭하고 내장 캐릭터를 선택한 다음 [{copy_external}]을 클릭해 편집 가능한 복사본을 만드세요.<br>"
+"이 페이지로 돌아와 {external_code} 스크립트를 선택하고 Python 코드를 수정한 뒤 [{apply}]를 클릭해 저장하고 현재 캐릭터에 연결하세요.<br>"
+"[{data_manager}]의 [{open_folder}]에서 .py 파일을 직접 편집할 수도 있습니다. 저장한 뒤 [{refresh}]를 클릭해 다시 불러오세요. 각 파일에는 BaseChar 하위 클래스가 하나만 있어야 합니다.<br>"
+"외부 코드는 이 앱과 동일한 권한으로 실행됩니다. 신뢰할 수 있는 코드만 사용하세요."
+
+msgid "九百九十九夜"
+msgstr "구백구십구야"
+
+msgid "巧克力火山-底层最左边的篝火"
+msgstr "초콜릿 화산 - 최하층 가장 왼쪽 모닥불"
+
+msgid "挂机刷经验"
+msgstr "자동 경험치 파밍"
+
+msgid "位置"
+msgstr "위치"
+
+msgid "赤龙古堡-龙之高塔室外篝火"
+msgstr "적룡의 고성 - 용의 고탑 실외 모닥불"
+
+msgid "使用终结技"
+msgstr "궁극기 사용"
+
+msgid "Background Audio Routing"
+msgstr "백그라운드 오디오 라우팅"
+
+msgid "Enable Background Audio Routing"
+msgstr "백그라운드 오디오 라우팅 활성화"
+
+msgid "SoundVolumeCommandLine Path"
+msgstr "SoundVolumeCommandLine 경로"
+
+msgid "Background Output Device"
+msgstr "백그라운드 출력 장치"
+
+msgid "Open SoundVolumeCommandLine Download Page"
+msgstr "SoundVolumeCommandLine 다운로드 페이지 열기"
+
+msgid "Optionally route the game to a selected Windows output device while it is in the background. SoundVolumeCommandLine is not bundled; select your own downloaded copy."
+msgstr "게임이 백그라운드에 있을 때 선택한 Windows 출력 장치로 게임 오디오를 라우팅할 수 있습니다. SoundVolumeCommandLine는 내장되어 있지 않으므로 직접 다운로드한 복사본을 선택하세요."
+
+msgid "Switch game audio output when the game window leaves the foreground"
+msgstr "게임 창이 활성화 상태를 벗어날 때 게임 오디오 출력 전환"
+
+msgid "Select svcl.exe downloaded from NirSoft"
+msgstr "NirSoft에서 다운로드한 svcl.exe 선택"
+
+msgid "Output device used while the game is in the background"
+msgstr "게임이 백그라운드에 있을 때 사용할 출력 장치"
+
+msgid "Open the official NirSoft SoundVolumeCommandLine page"
+msgstr "공식 NirSoft SoundVolumeCommandLine 페이지 열기"
+
+msgid "SoundVolumeCommandLine (svcl.exe);;Executable Files (*.exe);;All Files (*)"
+msgstr "SoundVolumeCommandLine (svcl.exe);;실행 파일 (*.exe);;모든 파일 (*)"
+
+msgid "Select svcl.exe"
+msgstr "svcl.exe 선택"
+
+msgid "Open Download Page"
+msgstr "다운로드 페이지 열기"
+
+msgid ""
+"即将运行: {mode}\n"
+"\n"
+"此任务会频繁控制鼠标。\n"
+"停止方法: 按热键暂停 ok-nte, 再手动停止任务。\n"
+"\n"
+"当前热键: {hotkey}\n"
+"如不确定热键, 请点击取消, 确认后再运行。"
+msgstr ""
+"⚠️ 실행 예정: {mode}\n"
+"\n"
+"이 작업은 마우스를 자주 제어합니다.\n"
+"중지 방법: 단축키로 ok-nte를 일시 정지한 다음 작업을 수동으로 중지하세요.\n"
+"\n"
+"현재 단축키: {hotkey}\n"
+"단축키를 모르는 경우 취소를 클릭하고 확인한 후 작업을 실행하세요."
+
+msgid "赤龙古堡-残丝长巷篝火"
+msgstr "적룡의 고성 - 잔사 장항 모닥불"
+
+msgid "战斗时长上限"
+msgstr "최대 전투 시간"
+
+msgid "战斗时不切人"
+msgstr "전투 중 캐릭터 교체 안 함"
+
+msgid ""
+"主界面检测失败。建议操作: \n"
+"1. 关闭显卡滤镜与锐化功能；\n"
+"2. 尝试开启 Windows “自动管理应用的颜色”设置。"
+msgstr ""
+"메인 인터페이스 감지에 실패했습니다. 권장 조치: \n"
+"1. 그래픽 카드 필터 및 샤프닝 기능 비활성화;\n"
+"2. Windows \"앱에 대한 색상 자동 관리\" 설정 켜기."
+
+msgid "大世界检测失败: 请检查游戏内 UI 透明度是否已设置为 1.0。"
+msgstr "오픈 월드 감지에 실패했습니다: 게임 내 UI 투명도가 1.0으로 설정되어 있는지 확인하세요."
+
+msgid "当前 CPU 不支持 AVX2, 无法运行 OpenVINO 2026 CPU 推理；自动战斗的目标检测将不可用，交战流畅度将受到影响。"
+msgstr "현재 CPU가 AVX2를 지원하지 않아 OpenVINO 2026 CPU 추론을 실행할 수 없습니다. 자동 전투의 대상 감지를 사용할 수 없으며, 전투 매끄러움에 영향을 미칩니다."
+
+msgid "战斗后等待至时长上限"
+msgstr "전투 후 최대 시간까지 대기"
+
+msgid "羁遇赠礼"
+msgstr "인연 선물"
+
+msgid "新增角色"
+msgstr "캐릭터 추가"
+
+msgid "更新当前角色"
+msgstr "현재 캐릭터 업데이트"
+
+msgid "删除当前角色"
+msgstr "현재 캐릭터 삭제"
+
+msgid "开始赠礼"
+msgstr "선물 시작"
+
+msgid "继续赠礼"
+msgstr "선물 계속하기"
+
+msgid "停止"
+msgstr "중지"
+
+msgid "在游戏赠礼页点击{}。点击礼物卡片可设定优先级，再次点击取消。"
+msgstr "게임 선물 페이지에서 {}을(를) 클릭하세요. 선물 카드를 클릭하여 우선순위를 설정하고, 다시 클릭하면 취소됩니다."
+
+msgid "赠礼状态"
+msgstr "선물 상태"
+
+msgid "已启用"
+msgstr "활성화됨"
+
+msgid "名称"
+msgstr "이름"
+
+msgid "角色显示名称"
+msgstr "캐릭터 표시 이름"
+
+msgid "赠送次数"
+msgstr "선물 횟수"
+
+msgid "角色名称"
+msgstr "캐릭터 이름"
+
+msgid "礼物优先级"
+msgstr "선물 우선순위"
+
+msgid "不赠送"
+msgstr "선물 안 함"
+
+msgid "优先级 {}"
+msgstr "우선순위 {}"
+
+msgid "不可赠送"
+msgstr "선물 불가"
+
+msgid "未命名角色"
+msgstr "이름 없는 캐릭터"
+
+msgid "捕获失败"
+msgstr "캡처 실패"
+
+msgid "保存失败"
+msgstr "저장 실패"
+
+msgid "无法开始"
+msgstr "시작할 수 없음"
+
+msgid "赠礼任务未注册"
+msgstr "선물 작업이 등록되지 않음"
+
+msgid "没有可用的游戏画面"
+msgstr "사용 가능한 게임 화면이 없음"
+
+msgid "请先捕获、选择礼物并启用至少一个角色。"
+msgstr "먼저 캡처하고, 선물을 선택한 후 최소 한 명의 캐릭터를 활성화하세요."
+
+msgid "使用录制功能"
+msgstr "기록 기능 사용"
+
+msgid "启用后录制并回放选择目标关卡的操作"
+msgstr "활성화하면 목표 스테이지 선택 동작을 기록하고 재생합니다"
+
+msgid "异象追猎"
+msgstr "이소 추적"
+
+msgid "追猎目标"
+msgstr "추적 대상"
+
+msgid "自动进行异象追猎任务"
+msgstr "이소 추적 작업을 자동으로 진행합니다"
+
+msgid "领取奖励次数"
+msgstr "보상 수령 횟수"
+
+msgid "设置为0则领取当前体力可领取的全部奖励"
+msgstr "0으로 설정하면 현재 활력으로 받을 수 있는 모든 보상을 수령합니다"
+
+msgid "音霸魔王"
+msgstr "Beat King"
+
+msgid "无首铁驭"
+msgstr "Headless Rider"
+
+msgid "塞润尼缇"
+msgstr "Serenetti"
+
+msgid "黑之书"
+msgstr "Black Tome"
+
+msgid "海囚"
+msgstr "Sea Prisoner"
+
+msgid "围巢鸟"
+msgstr "Nestbound Bird"
+
+msgid "斑蝶"
+msgstr "Swallowtail"
+
+msgid "自动战斗检测诊断"
+msgstr "자동 전투 감지 진단"
+
+msgid "持续检测诊断 Lv, 锁定目标标记(白色菱形)和红色血条; 请手动停止以查看完整报告"
+msgstr "Lv, 고정 대상 표시(흰색 마름모) 및 빨간색 체력 바의 감지 진단을 계속합니다. 전체 보고서를 보려면 수동으로 중지하십시오"
+
+msgid "喷泉签到"
+msgstr "분수 출석 체크"
+
+msgid "防止 NTE 移动鼠标"
+msgstr "NTE의 마우스 커서 이동 방지"
+
+msgid "后台运行时，在 NTE 将鼠标移动到屏幕中心后，自动恢复鼠标位置。"
+msgstr "백그라운드에서 실행 시, NTE가 마우스를 화면 중앙으로 이동시킨 후 마우스 커서 위치를 자동으로 복구합니다."
+
+msgid ""
+"关联角色特征后，即可自动识别角色并使用绑定的出招表；游戏内换人/换队无需手动调整。\n"
+"未关联时，将使用通用脚本。"
+msgstr ""
+"캐릭터 특징을 연결하면 캐릭터가 자동으로 인식되고 연결된 콤보표가 사용되며, 게임 내 캐릭터/팀 전환 시 수동 조정을 할 필요가 없습니다.\n"
+"연결되지 않은 경우 범용 스크립트가 사용됩니다."
+
+msgid ""
+"{fixed_team}会优先使用已填写槽位；未填写的槽位仍会自动识别。\n"
+"如果游戏内切换队伍，已填写槽位需要在软件里手动修改。"
+msgstr ""
+"{fixed_team}은 입력된 슬롯을 우선적으로 사용하며, 입력되지 않은 슬롯은 계속 자동으로 인식됩니다.\n"
+"게임 내에서 팀을 변경할 경우 입력된 슬롯은 소프트웨어에서 수동으로 수정해야 합니다."
+
+msgid "循环模式"
+msgstr "순환 모드"
+
+msgid "循环序列"
+msgstr "순환 시퀀스"
+
+msgid "自动循环序号/目标"
+msgstr "자동 순환 번호/목표"
+
+msgid "自定义循环"
+msgstr "사용자 지정 순환"
+
+msgid "副本类型"
+msgstr "던전 유형"
+
+msgid "签到方式"
+msgstr "체크인 방식"
+
+msgid "签到"
+msgstr "체크인"
+
+msgid "捞币"
+msgstr "코인 건지기"
+
+msgid "资料管理"
+msgstr "데이터 관리"
+
+msgid "关闭"
+msgstr "닫기"
+
+msgid "外置代码"
+msgstr "외장 코드"
+
+msgid "打开外置代码目录"
+msgstr "외부 코드 폴더 열기"
+
+msgid "日常领取"
+msgstr "일일 수령"
+
+msgid "领取每日邮件和奖励"
+msgstr "일일 메일 및 보상 수령"
+
+msgid "模式"
+msgstr "모드"
+
+msgid "邮件"
+msgstr "메일"
+
+msgid "活跃度奖励"
+msgstr "활성도 보상"
+
+msgid "环期任务奖励"
+msgstr "시즌 미션 보상"
+
+msgid "一咖舍"
+msgstr "카페"
+
+msgid "领取/补货"
+msgstr "수령/보충"
+
+msgid "全选"
+msgstr "전체 선택"
+
+msgid "取消全选"
+msgstr "전체 해제"
+
+msgid "全部折叠"
+msgstr "모두 접기"
+
+msgid "全部展开"
+msgstr "모두 펼치기"
+
+msgid "排球之星"
+msgstr "배구의 별"
+
+msgid "刷经验"
+msgstr "경험치 파밍"
+
+msgid "点按G"
+msgstr "G키 탭"
+
+msgid "挑战玛门"
+msgstr "마몬 도전"
+
+msgid "自动闯关"
+msgstr "자동 스테이지 도전"
+
+msgid "{} 个空槽位"
+msgstr "{}개 빈 슬롯"
+
+msgid "固定"
+msgstr "고정"
+
+msgid "已从列表移除"
+msgstr "목록에서 제거됨"
+
+msgid "已删除"
+msgstr "삭제됨"
+
+msgid "已填入"
+msgstr "입력됨"
+
+msgid "已应用"
+msgstr "적용됨"
+
+msgid "已更新 {} 位角色的出招表"
+msgstr "{}명 캐릭터의 스킬 콤보가 업데이트되었습니다"
+
+msgid "应用方案"
+msgstr "프리셋 적용"
+
+msgid "扫描失败"
+msgstr "스캔 실패"
+
+msgid "搜索方案"
+msgstr "프리셋 검색"
+
+msgid "新建方案"
+msgstr "새 프리셋"
+
+msgid "方案中不能重复选择角色"
+msgstr "프리셋에서 중복된 캐릭터를 선택할 수 없습니다"
+
+msgid "方案列表"
+msgstr "프리셋 목록"
+
+msgid "方案名称重复或内容无效"
+msgstr "프리셋 이름이 중복되었거나 내용이 잘못되었습니다"
+
+msgid "无法保存"
+msgstr "저장할 수 없음"
+
+msgid "无法填入"
+msgstr "입력할 수 없음"
+
+msgid "没有可填入的角色"
+msgstr "입력할 수 있는 캐릭터가 없습니다"
+
+msgid "等待扫描..."
+msgstr "스캔 대기 중..."
+
+msgid "输入或选择出招表"
+msgstr "스킬 콤보 입력 또는 선택"
+
+msgid "队伍方案"
+msgstr "파티 프리셋"
+
+msgid "队伍识别"
+msgstr "파티 인식"
+
+msgid "提示"
+msgstr "안내"
+
+msgid "<p><b style=\"color: #d83b01;\">注意：</b>此面板 <b style=\"color: #d83b01;\">不会</b> 在进入战斗或更换阵容时实时自动刷新或同步显示。<br>这是个用于向数据库关联或添加 [角色特征] 的工具面板。<br>点击 [{scan_team}] 后点击 [关联或添加] 特征, 自动战斗时就会识别对应的角色。<br>如果不想管理 [角色特征], 可以直接使用 [{fixed_team}] 功能。</p>"
+msgstr "<p><b style=\"color: #d83b01;\">주의:</b> 이 패널은 전투 진입이나 파티 변경 시 실시간으로 자동 새로고침되거나 동기화되지 않습니다.<br>데이터베이스에 [캐릭터 특징]을 연결하거나 추가하는 도구 패널입니다.<br>[{scan_team}]을 클릭한 후 특징을 [연결 또는 추가]하면 자동 전투 시 해당 캐릭터를 인식합니다.<br>[캐릭터 특징]을 관리하지 않으려면 [{fixed_team}] 기능을 직접 사용할 수 있습니다.</p>"
+
+msgid "<p>用于配置并保存常用的 4 人队伍阵容与出招表, 修改后立即生效。<br>方案中的 1~4 号位仅用于 [{fixed_preset}] 功能; 已绑定特征的角色放在哪个号位都可以, 不影响识别。<br>点击 [{apply_preset}] 可一键更新应用方案中各角色的出招表 (未选择出招表则保持原配置不变)。<br>开启 [{fixed_preset}] 后自动战斗将直接采用此阵容, 无需等待特征识别 (未录入特征的角色亦可直接战斗)。<br>点击 [{fill_scan}] 可将上方特征扫描识别出的队伍角色快速填入当前方案。</p>"
+msgstr "<p>자주 사용하는 4인 파티 구성 및 스킬 콤보를 설정하고 저장하며, 수정 즉시 적용됩니다.<br>프리셋의 1~4번 슬롯은 [{fixed_preset}] 기능에서만 사용됩니다. 특징이 이미 등록된 캐릭터는 어느 슬롯에 배치해도 인식에 영향을 주지 않습니다.<br>[{apply_preset}] 클릭 시 이 프리셋의 각 캐릭터 스킬 콤보를 일괄 적용합니다(콤보를 선택하지 않은 경우 기존 구성 유지).<br>[{fixed_preset}] 활성화 시 특징 인식을 기다리지 않고 이 파티 구성을 자동 전투에 바로 적용합니다(특징이 등록되지 않은 캐릭터도 즉시 전투 가능).<br>[{fill_scan}] 클릭 시 위 특징 스캔에서 인식된 파티 캐릭터를 현재 프리셋에 빠르게 입력합니다.</p>"
+
+msgid "OpenVINO 单次推理超时，已自动关闭目标检测；重启程序后会重新尝试启用。"
+msgstr "OpenVINO 단일 추론이 시간 초과되어 대상 감지가 자동으로 비활성화되었습니다. 프로그램 재시작 후 다시 활성화를 시도합니다."
+
+msgid "批量删除"
+msgstr "일괄 삭제"
+
+msgid "当前未绑定任何{combo}.\n遇到此角色将默认使用基础通用脚本(BaseChar)."
+msgstr "현재 바인딩된 {combo}가 없습니다.\n이 캐릭터를 만날 경우 기본 공용 스크립트(BaseChar)가 사용됩니다."
+
+msgid "显示内置"
+msgstr "내장 표시"
+
+msgid "复制为外置"
+msgstr "외부로 복사"
+
+msgid "复制成功"
+msgstr "복사 성공"
+
+msgid "复制失败"
+msgstr "복사 실패"
+
+msgid "已成功创建外置代码: {}"
+msgstr "외부 코드가 생성되었습니다: {}"
+
+msgid "复制为外置代码"
+msgstr "외부 코드로 복사"
+
+msgid "目录"
+msgstr "디렉터리"
+
+msgid "脚本文件名 (.py)"
+msgstr "스크립트 파일명 (.py)"
+
+msgid "将在 external_chars/ 目录下生成独立的 Python 脚本供您编辑与调试."
+msgstr "편집 및 디버깅을 위해 external_chars/ 디렉터리에 독립적인 Python 스크립트가 생성됩니다."
+
+msgid "无法读取 Python 脚本."
+msgstr "Python 스크립트를 읽을 수 없습니다."
+
+msgid "外置代码应用失败"
+msgstr "외부 코드 적용 실패"
+
+msgid "已应用外置代码: {}"
+msgstr "외부 코드가 적용되었습니다: {}"
+
+msgid "角色"
+msgstr "캐릭터"
+
+msgid "指令"
+msgstr "명령어"
+
+msgid "请先应用外置代码更改后再运行测试."
+msgstr "테스트를 실행하기 전에 외부 코드 변경 사항을 먼저 적용해 주세요."
+
+msgid "角色工具任务未注册"
+msgstr "캐릭터 도구 작업이 등록되지 않았습니다"
+
+msgid "角色工具任务不可用"
+msgstr "캐릭터 도구 작업을 사용할 수 없습니다"
+
+msgid "询问AI"
+msgstr "AI에게 질문"
+
+msgid "AI提示模版已复制。请粘贴到AI聊天机器人中。"
+msgstr "AI 프롬프트 템플릿이 복사되었습니다. AI 챗봇에 붙여넣으세요."
+
+msgid "{SOURCE}\n\n我想实现: \n\n请修改上面完整的 {class_name} 角色自动化代码。\n\n只返回整个文件完整修改后的 Python 代码，不要返回补丁或解释。\n保持类名为 {class_name}。保留仍然需要的 import。\n\n在思考辅助方法、任务 API、状态、切人、冷却和战斗流程时, 请参考: \nBaseChar 角色基类: {BASE_CHAR_URL}\nCombat Planner 开发指南: {COMBAT_PLANNER_URL}"
+msgstr "{SOURCE}\n\n구현하려는 내용: \n\n위의 완전한 {class_name} 캐릭터 자동화 코드를 수정해 주세요.\n\n패치나 설명 없이 전체 파일의 완전히 수정된 Python 코드만 반환해 주세요.\n클래스 이름은 {class_name}로 유지하고, 필요한 import를 유지해 주세요.\n\n보조 메서드, 작업 API, 상태, 캐릭터 교체, 쿨다운 및 전투 흐름을 고려할 때 다음을 참고하세요: \nBaseChar 캐릭터 기본 클래스: {BASE_CHAR_URL}\nCombat Planner 개발 가이드: {COMBAT_PLANNER_URL}"
+
+msgid "OK"
+msgstr "확인"
+
+msgid "设置"
+msgstr "설정"
+
+msgid "上传"
+msgstr "업로드"
+
+msgid "作者"
+msgstr "작성자"
+
+msgid "全部作者"
+msgstr "모든 작성자"
+
+msgid "全部角色"
+msgstr "모든 캐릭터"
+
+msgid "内置"
+msgstr "내장"
+
+msgid "刷新"
+msgstr "새로 고침"
+
+msgid "加载失败: {}"
+msgstr "로드 실패: {}"
+
+msgid "取消"
+msgstr "취소"
+
+msgid "外置"
+msgstr "외부"
+
+msgid "外置代码目录"
+msgstr "외부 코드 디렉터리"
+
+msgid "外置代码目录名称无效"
+msgstr "외부 코드 디렉터리 이름이 올바르지 않습니다"
+
+msgid "外置代码目录“{}”已存在, 请修改目录名称后重试。"
+msgstr "외부 코드 디렉터리 \"{}\"이(가) 이미 있습니다. 이름을 변경한 후 다시 시도하세요."
+
+msgid "大小"
+msgstr "크기"
+
+msgid "导入"
+msgstr "가져오기"
+
+msgid "导入完成"
+msgstr "가져오기 완료"
+
+msgid "导出"
+msgstr "내보내기"
+
+msgid "导出完成"
+msgstr "내보내기 완료"
+
+msgid "导出社区方案"
+msgstr "커뮤니티 프리셋 내보내기"
+
+msgid "导出队伍"
+msgstr "팀 내보내기"
+
+msgid "工坊"
+msgstr "워크숍"
+
+msgid "工坊会显示来自公开仓库的 ZIP 方案."
+msgstr "워크숍에는 공개 저장소의 ZIP 프리셋이 표시됩니다."
+
+msgid "已创建方案: {}"
+msgstr "프리셋이 생성되었습니다: {}"
+
+msgid "已加载 {} 个方案"
+msgstr "{}개의 프리셋을 불러왔습니다"
+
+msgid "当前方案没有可导出的出招表."
+msgstr "현재 프리셋에는 내보낼 콤보표가 없습니다."
+
+msgid "成员"
+msgstr "멤버"
+
+msgid "描述"
+msgstr "설명"
+
+msgid "搜索名称, 说明, 作者或角色"
+msgstr "이름, 설명, 작성자 또는 캐릭터 검색"
+
+msgid "操作失败"
+msgstr "작업 실패"
+
+msgid "方案说明"
+msgstr "프리셋 설명"
+
+msgid "无法导出"
+msgstr "내보낼 수 없음"
+
+msgid "更新时间"
+msgstr "업데이트 시간"
+
+msgid "本地方案名称"
+msgstr "로컬 프리셋 이름"
+
+msgid "正在加载工坊..."
+msgstr "워크숍 로드 중..."
+
+msgid "没有说明."
+msgstr "설명 없음."
+
+msgid "版本"
+msgstr "버전"
+
+msgid "社区方案"
+msgstr "커뮤니티 프리셋"
+
+msgid "社区方案含外置代码; 导入后会以本软件权限运行, 请仅导入可信来源."
+msgstr "커뮤니티 프리셋에는 외부 코드가 포함될 수 있습니다. 가져온 후 이 소프트웨어의 권한으로 실행되므로 신뢰할 수 있는 출처에서만 가져오세요."
+
+msgid "角色阵容"
+msgstr "팀 구성"
+
+msgid "调整筛选条件或稍后刷新工坊."
+msgstr "필터 조건을 조정하거나 나중에 워크숍을 새로 고치세요."
+
+msgid "返回"
+msgstr "돌아가기"
+
+msgid "选择一个方案"
+msgstr "프리셋 선택"
+
+msgid "队伍配置"
+msgstr "팀 구성"
+
+msgid "不是该角色?"
+msgstr "다른 캐릭터인가요?"
+
+msgid "删除方案"
+msgstr "프리셋 삭제"
+
+msgid "检测到该方案包含外置代码，是否同时删除对应的代码文件?"
+msgstr "해당 프리셋에 외부 코드가 포함되어 있습니다. 해당 코드 파일도 함께 삭제하시겠습니까?"
+
+msgid "全部删除"
+msgstr "모두 삭제"
+
+msgid "仅删除方案"
+msgstr "프리셋만 삭제"
+
+msgid "方案已删除"
+msgstr "프리셋이 삭제되었습니다"
+
+msgid "部分外置代码删除失败: {}"
+msgstr "일부 외부 코드 삭제 실패: {}"
+
+msgid "启用开战优先级"
+msgstr "전투 시작 우선순위 활성화"
+
+msgid "关闭时不按角色执行开战首切"
+msgstr "비활성화 시 캐릭터에 따른 전투 시작 초기 전환을 수행하지 않습니다"
+
+msgid "鼠标占用警告"
+msgstr "마우스 조작 경고"
+
+msgid "数据备份"
+msgstr "데이터 백업"
+
+msgid "用户数据"
+msgstr "사용자 데이터"
+
+msgid "ZIP 格式备份; 导入将覆盖当前数据"
+msgstr "ZIP 형식 백업; 가져오기 시 현재 데이터를 덮어씁니다"
+
+msgid "手动修改 Python 代码后, 需点击 [{refresh}] 生效"
+msgstr "Python 코드를 수동으로 수정한 후에는 [{refresh}] 버튼을 눌러 적용해야 합니다."
+
+msgid "编写指南"
+msgstr "작성 가이드"
+
+msgid "噗卡乐园 - 命中幸运星"
+msgstr "푸카랜드 - 행운의 별 명중"
+
+msgid "在可进行NPC交互的位置启动任务"
+msgstr "NPC와 상호작용할 수 있는 위치에서 작업을 시작하세요"
+
+msgid "从工坊填入"
+msgstr "워크숍에서 입력"
+
+msgid "选择方案与版本, 填入名称、描述、作者和版本."
+msgstr "프리셋과 버전을 선택하고 이름, 설명, 작성자 및 버전을 입력하세요."
+
+msgid "填入信息"
+msgstr "정보 입력"
+
+msgid "模型生成的最大Token数量"
+msgstr "모델이 생성하는 최대 토큰 수"
+
+msgid "模型生成Token上限"
+msgstr "모델 생성 토큰 상한"
+
+msgid "存在失败时发送 BOT 通知"
+msgstr "실패 시 BOT 알림 전송"
+
+msgid ""
+"开启仅失败或中断时通知, 关闭每次都通知。\n"
+"需在通知设置中启用接收渠道。"
+msgstr ""
+"활성화 시 실패 또는 중단 시에만 알림, 비활성화 시 매번 알림을 전송합니다.\n"
+"알림 설정에서 수신 채널을 활성화해야 합니다."
+
+msgid "自动周赛"
+msgstr "자동 주간 대회"
+
+msgid "复读接球/传球"
+msgstr "리시브/패스 반복"
+
+msgid "脱战旋转索敌"
+msgstr "비전투 중 회전하며 적 탐색"
+
+msgid "乐器"
+msgstr "악기"
+
+msgid "钢琴"
+msgstr "피아노"
+
+msgid "吉他"
+msgstr "기타"
+
+msgid "选择与游戏当前演奏界面一致的乐器"
+msgstr "게임 연주 화면과 같은 악기를 선택하세요"
+
+msgid "文件列表已变化, 无法自动更新, 请重新导入."
+msgstr "파일 목록이 변경되었습니다. 패키지를 다시 가져오세요."
+
+msgid "本地源码已修改, 已跳过自动更新."
+msgstr "로컬 소스가 수정되어 자동 업데이트를 건너뛰었습니다."
+
+msgid "本地安装文件缺失, 请重新导入."
+msgstr "설치된 파일이 없습니다. 패키지를 다시 가져오세요."
+
+msgid "无法读取工坊安装记录, 请检查 workshop_installs.json."
+msgstr "공방 설치 기록을 읽을 수 없습니다. workshop_installs.json을 확인하세요."
+
+msgid "下载的方案与更新信息不一致, 请刷新工坊后重试."
+msgstr "다운로드한 구성이 업데이트 정보와 다릅니다. 공방을 새로 고침하고 다시 시도하세요."
+
+msgid "一鍵更新"
+msgstr "업데이트"
+
+msgid "更新"
+msgstr "업데이트"
+
+msgid "更新到 {}"
+msgstr "{} 버전으로 업데이트"
+
+msgid "已是最新"
+msgstr "최신 버전"
+
+msgid "正在更新出招表..."
+msgstr "콤보 업데이트 중..."
+
+msgid "已更新 {} 份方案, {} 项失败"
+msgstr "{}개 업데이트, {}개 실패"
+
+msgid "更新失败"
+msgstr "업데이트 실패"
+
+msgid "请等待当前导入或导出完成后再更新."
+msgstr "현재 가져오기 또는 내보내기가 완료된 후 업데이트하세요."
+
+msgid "加载失败"
+msgstr "불러오기 실패"
+
+msgid "方案"
+msgstr "프리셋"
+
+msgid "重命名"
+msgstr "이름 바꾸기"
+
+msgid ""
+"角色: {character}\n"
+"出招表: {combo}\n"
+"出错位置: {location}\n"
+"{error_type}: {detail}\n"
+"可能与接口或依赖不兼容, 请至工坊更新方案或将此信息反馈给方案作者."
+msgstr ""
+"캐릭터: {character}\n"
+"콤보 목록: {combo}\n"
+"오류 위치: {location}\n"
+"{error_type}: {detail}\n"
+"API 또는 의존성 호환성 문제일 수 있습니다. 워크숍에서 프리셋을 업데이트하거나 제작자에게 이 정보를 전달하세요."
+
+msgid "找不到模块加载器"
+msgstr "모듈 로더를 찾을 수 없습니다"
+
+msgid "外置角色模块必须且只能定义一个 BaseChar 子类"
+msgstr "외부 캐릭터 모듈에는 BaseChar 하위 클래스를 정확히 하나 정의해야 합니다"
+
+msgid "角色实现标识重复: {impl_id}"
+msgstr "캐릭터 구현 ID 중복: {impl_id}"
