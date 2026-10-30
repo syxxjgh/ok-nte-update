@@ -51,6 +51,9 @@ RE_ONE_CLICK_SELL = re.compile(r"一键出售|键出售")
 # 一键出售后弹出的「获得物品」提示条, 底部写着这句, 点提示条以外的空白区域即可关闭.
 # 只匹配前半句: 整句较长, 尾部被 OCR 认坏时仍要能命中.
 RE_POPUP_CLOSE_HINT = re.compile(r"点击空白")
+# 藏品详情面板的「出售」按钮文字: 点击目标与「面板是否开着」的判定共用
+# (面板开着必有此按钮, 关闭后该区域是压暗的仓库网格, OCR 不会命中)。
+RE_ITEM_SELL = re.compile(r"出\s*售")
 # 掉线回场路径上的两个标志: 「都市闲趣」MENU 面板标题, 以及拍卖入口卡片「即刻落槌」。
 RE_CITY_FUN = re.compile(r"都市闲趣")
 # 拍卖主界面右侧的会场文字, 形如「当前：海贝场」。回场后用它核对会场有没有被重置。
@@ -137,6 +140,13 @@ class AuctionBoxes:
     instrument_combo_content: Box
     instrument_combo_use: Box
     instrument_combo_close: Box
+    # 出售小红: 仓库藏品网格区, 滚动条与藏品详情弹窗的名称/价格/出售按钮/确认区。
+    warehouse_grid: Box
+    warehouse_scrollbar: Box
+    item_detail_name: Box
+    item_detail_price: Box
+    item_sell_btn: Box
+    item_confirm: Box
     # 出价面板「仪器」入口按钮; 拍卖内「仪器列表」弹窗的标题与五个槽位行.
     instrument_entry: Box
     instrument_list_title: Box
@@ -292,6 +302,35 @@ BOX_SELL_LABEL = (0.673, 0.862, 0.722, 0.895)  # 「出售价值」标签
 # 而 "0" 恰好是「一个品质都没勾上」的判据. 右边界停在圆钮之前, 避免图标被误读成数字.
 BOX_SELL_VALUE = (0.650, 0.830, 0.840, 0.950)  # 「出售价值」整条 (含标签)
 
+# --- 出售小红 (仓库普通视图的红色藏品扫描, 见 auction/sell_red.py) ---
+# 仓库右侧藏品网格区, 换算自参考实现 1080p px(1262,264)-(1828,832);
+# 红色卡片靠颜色识别, 网格边界偏差按日志微调。
+BOX_WAREHOUSE_GRID = (0.657, 0.244, 0.952, 0.770)
+# 网格右侧的滚动条条带 (含轨道与滑块): 滑块是暗轨道上的浅灰竖条
+# (2026-10-28 截图实测 RGB~185, 轨道两端有亮端帽), 「滚到底」用滑块底部
+# 是否贴住轨道底部判定, 见 sell_red.scrollbar_thumb_ratio。条带横向只圈
+# 滚动条 (网格右缘之外), 纵向放宽到仓库主体高度。
+BOX_WAREHOUSE_SCROLLBAR = (0.950, 0.150, 0.995, 0.950)
+# 网格滚动落点 (网格中部), 滚轮只作用于藏品列表。
+POS_WAREHOUSE_GRID_SCROLL = (0.805, 0.507)
+# 藏品详情弹窗 (2026-10-28 用户实机截图 OCR 标定, 2550x1431 窗口): 名称行
+# 「霜铁交响」与价值行「价值80,608」的实测位置; 上方品质标签(「食品」
+# y~0.31-0.35)与「展览收益N/h」行(y~0.43-0.465)按实测行距隔开, 两框都收紧
+# 避免圈进相邻行。行位随藏品类型微移时按日志微调。
+BOX_ITEM_DETAIL_NAME = (0.450, 0.360, 0.600, 0.420)
+BOX_ITEM_DETAIL_PRICE = (0.450, 0.468, 0.590, 0.530)
+# 详情面板底部的「出售」按钮 (按钮文字实测 y~0.66-0.70, 按钮本体更宽):
+# 点击与「弹窗是否开着」的判定都用这个区域 OCR 命中框, 布局微移自适应。
+BOX_ITEM_SELL_BTN = (0.380, 0.640, 0.580, 0.720)
+# 出售按钮兜底点击点 (OCR 找不到按钮文字时): 换算自参考实现 px(960,734),
+# 与实测按钮中心 (0.48,0.695) 吻合。
+POS_ITEM_SELL = (0.480, 0.695)
+# 跳过(保留)藏品时关闭详情面板的点: 弹窗右上角关闭钮, 实测亮块中心
+# px(1364,285), 未经二次确认。
+POS_ITEM_DETAIL_CLOSE = (0.535, 0.200)
+# 出售后确认按钮的搜索区 (确认弹窗位置未实测, 取按钮周边的宽松区域)。
+BOX_ITEM_CONFIRM = (0.300, 0.550, 0.700, 0.800)
+
 # 结算界面: 拍卖成功后的游戏自带「一键出售」圆钮, 以及它触发的「获得物品」提示条.
 # 实测像素、「框必须比文字宽松」的丢字依据见 auction-notes 2.5 与 3。
 BOX_ONE_CLICK_SELL = (0.86198, 0.75463, 0.92708, 0.86574)
@@ -388,6 +427,12 @@ def build_boxes(screen: Callable[..., Box]) -> AuctionBoxes:
         instrument_combo_use=screen(*BOX_INSTRUMENT_COMBO_USE),
         instrument_combo_close=screen(*BOX_INSTRUMENT_COMBO_CLOSE),
         instrument_entry=screen(*BOX_INSTRUMENT_ENTRY),
+        warehouse_grid=screen(*BOX_WAREHOUSE_GRID),
+        warehouse_scrollbar=screen(*BOX_WAREHOUSE_SCROLLBAR),
+        item_detail_name=screen(*BOX_ITEM_DETAIL_NAME),
+        item_detail_price=screen(*BOX_ITEM_DETAIL_PRICE),
+        item_sell_btn=screen(*BOX_ITEM_SELL_BTN),
+        item_confirm=screen(*BOX_ITEM_CONFIRM),
         instrument_list_title=screen(*BOX_INSTRUMENT_LIST_TITLE),
         instrument_list_rows=tuple(screen(*row) for row in BOX_INSTRUMENT_LIST_ROWS),
         info_window=screen(*BOX_INFO_WINDOW),

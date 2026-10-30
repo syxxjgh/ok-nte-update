@@ -8,6 +8,15 @@ config_description 三个构建器装配, 键与值必须与迁移前逐一致�
 # --- 拍卖配置 ---
 CONF_FIXED_PRICE = "基础价"
 
+# 出售小红: 轮次末尾打开藏品仓库, 扫描全部红色藏品(从顶部滚到底部), 单件
+# 价格低于「小红出售价格上限」的逐件出售。开关独立于「出售藏品模式」:
+# 模式走仓库流程(满仓清理/按间隔)时每次开仓都会附带执行; 模式是「不出售」
+# 或「拍卖成功一键出售」时, 打开本开关也会按固定间隔开仓单独执行。
+CONF_SELL_SMALL_RED = "出售小红"
+# 价格读不出的件按「保留」处理(保守方向: 少卖可手动补, 误卖贵重红不可逆)。
+CONF_SELL_SMALL_RED_PRICE = "小红出售价格上限"
+DEFAULT_SELL_SMALL_RED_PRICE = 500000
+
 # 藏品出售: 用一个模式下拉框统一控制, 相关子配置集中显示在它下面。
 # 旧版的「启用自动清理藏品」开关与「出售藏品间隔次数」是互斥的两档, 现在合并进模式:
 #   不出售           -> 完全不碰仓库
@@ -157,6 +166,9 @@ SPECIAL_ROUND_OPTIONS = [str(index) for index in range(1, 7)]
 def default_config() -> dict:
     """任务默认配置, 键为上面的配置键常量, 顺序与面板控件顺序一致。"""
     return {
+        # 出售小红放在最前: 面板里紧跟框架的循环次数, 是独立于出售模式的开关。
+        CONF_SELL_SMALL_RED: False,
+        CONF_SELL_SMALL_RED_PRICE: DEFAULT_SELL_SMALL_RED_PRICE,
         # 出售藏品相关配置集中放在最前面, 由模式下拉框统一控制可见性,
         # 避免「出售间隔 / 出售品质 / 自动清理」散落在面板各处.
         CONF_SELL_MODE: SELL_MODE_ONE_CLICK,
@@ -254,6 +266,12 @@ def config_type() -> dict:
                 RAISE_MODE_PERCENT: [CONF_RAISE_VALUE],
             },
         },
+        # 出售小红: 开关打开才展开价格上限输入框。
+        CONF_SELL_SMALL_RED: {
+            "sub_configs": {
+                True: [CONF_SELL_SMALL_RED_PRICE],
+            }
+        },
         CONF_SELL_QUALITIES: {
             "type": "multi_selection",
             "options": list(QUALITY_KEYS),
@@ -307,6 +325,16 @@ def config_description() -> dict:
     每条只写「标签本身看不出来的信息」: 做什么, 硬约束, 以及读不到时的回退行为。
     """
     descriptions = {
+        # --- 出售小红 ---
+        CONF_SELL_SMALL_RED: "开启后它是仓库出售的唯一动作: 轮次末尾开仓从顶部滚到底部, "
+        "逐个点击红色藏品, 按详情面板价格决定卖不卖 (低于「小红出售价格上限」才卖, "
+        "读不出保留)。品质整批出售(出售藏品模式/出售品质)不再执行; 触发节奏沿用"
+        "出售藏品模式的间隔/满仓, 模式是「不出售」或「一键出售」时每 6 轮(满仓立即)"
+        "开仓一次。注意: 满仓时若没有符合条件的红可卖, 仓库不会自动腾出, "
+        "需调低价格上限或关闭本开关改用品质出售",
+        CONF_SELL_SMALL_RED_PRICE: "红色藏品的单件出售价低于这个数才卖, 不低于或读不出"
+        "都保留; 要正整数, 填错按默认值处理。参考: 保留茶杯填 50 万上下, 想连茶杯一起"
+        "卖只留更贵的心就填 130 万上下",
         # --- 藏品出售 ---
         CONF_SELL_MODE: "包满了就不能再出价, 所以多少得卖点。不出售=仓库碰都不碰; "
         "满仓时清理=弹出库存不足提示才去卖; 按间隔出售=每 N 轮卖一次, 快满会提前卖; "

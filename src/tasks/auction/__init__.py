@@ -2,7 +2,8 @@
 
 只承载拍卖域的纯声明与领域能力 (配置声明, 通用配置读取, 界面契约, 价格,
 OCR 读数, 资产路由, 出价价格决策, 单次出价执行, 键盘输入, 单轮控制, 匹配
-与确认, 结算阶段, 结算后协调, 弹窗关闭, 出售, 低保, 回场, 出价面板辅助),
+与确认, 结算阶段, 结算后协调, 弹窗关闭, 出售, 出售小红, 低保, 回场, 出价面板
+辅助),
 依赖方向: 本包只依赖 stdlib、ok 框架与 src/utils 工具层, 不反向 import 任务
 模块; `AutoBidAuctionTask` 管理任务和轮次生命周期, 直接从这里导入常量与
 纯函数。
@@ -14,7 +15,7 @@ SettleActions / KeypadActions / PostRoundActions) 拿到所需动作, 不持有�
 `_reading_ops()` 装配注入 (读数原语缺省填充为本模块同名函数, 调用时首参
 显式传 ops, 测试覆盖字段注入假读数); 直持任务实例的能力模块
 (`bid.py`/`bid_price.py`/`recovery.py`/
-`routing.py`/`sell.py`/`welfare.py`/`assist.py`/`popup.py`) 已各自
+`routing.py`/`sell.py`/`sell_red.py`/`welfare.py`/`assist.py`/`popup.py`) 已各自
 迁到窄协议 (contracts.AuctionBidOps / AuctionBidPriceOps / AuctionRecoveryOps /
 AuctionRoutingOps / AuctionSellOps / AuctionWelfareOps /
 AuctionAssistOps / AuctionPopupOps, 模块只访问协议声明的成员) —— 新增跨模块

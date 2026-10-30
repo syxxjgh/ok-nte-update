@@ -18,6 +18,7 @@ from ok import TaskDisabledException, WaitFailedException
 
 from src.tasks.auction import config_read as auction_config_read
 from src.tasks.auction import interaction as auction_interaction
+from src.tasks.auction import sell_red as auction_sell_red
 from src.tasks.auction.contracts import AuctionSellOps
 from src.tasks.auction.layout import (
     POS_SETTLE_QUALITY_RED,
@@ -37,6 +38,9 @@ from src.tasks.auction.options import (
     CONF_SELL_MODE,
     CONF_SELL_QUALITIES,
     CONF_SELL_RED_MAX,
+    CONF_SELL_SMALL_RED,
+    CONF_SELL_SMALL_RED_PRICE,
+    DEFAULT_SELL_SMALL_RED_PRICE,
     QUALITY_KEYS,
     SELL_MODE_INTERVAL,
     SELL_MODE_OFF,
@@ -60,6 +64,11 @@ SELL_VALUE_TIMEOUT = 3
 # 满仓检测的本体是本模块的 detect_inventory_full; 低保侧的资产观测用 welfare
 # 自己的 ASSET_OBSERVE_TIMEOUT, 两边预算独立不共享.
 INVENTORY_FULL_TIMEOUT = 3
+
+# 「出售小红」独立开仓时的默认间隔: 出售模式不走仓库流程(不出售/一键出售)
+# 时, 红色藏品扫描按该轮数周期执行, 满仓立即触发 (参考实现的每 6 局出售节奏)。
+# 出售模式走仓库流程时红扫描附带在每次开仓上, 不用这个间隔。
+RED_SCAN_DEFAULT_INTERVAL = 6
 
 # 关闭藏品仓库的重试次数: 关不干净会把「出售模式 + 已勾选品质」留给下一轮,
 # 残留勾选的取反后果见 auction-notes 5.2。
@@ -103,6 +112,24 @@ def read_sell_qualities(config: dict) -> list[str]:
     低保与资产的联动说明见配置项描述与 auction-notes 4。
     """
     return read_quality_list(config, CONF_SELL_QUALITIES)
+
+
+def sell_small_red_enabled(config: dict) -> bool:
+    """「出售小红」开关是否打开; 脏配置按关闭处理。
+
+    开关是框架的 switch 控件, 正常存布尔值; 与其他开关同取宽松 bool 清洗。
+    """
+    return bool(config.get(CONF_SELL_SMALL_RED, False))
+
+
+def read_small_red_limit(config: dict, log_warning) -> int:
+    """读「小红出售价格上限」, 无效值回退默认并告警。"""
+    cfg = auction_config_read.ConfigReader(config, log_warning)
+    return cfg.read_int(
+        CONF_SELL_SMALL_RED_PRICE,
+        DEFAULT_SELL_SMALL_RED_PRICE,
+        warn="「小红出售价格上限」配置无效, 按默认值处理",
+    )
 
 
 def is_selection_confirmed(
@@ -297,12 +324,20 @@ def run_round_end_sell(
     boxes: AuctionBoxes,
     deadline: float | None = None,
     state: PostRoundState | None = None,
+    *,
+    session_start: bool = False,
 ) -> bool | None:
     """按出售模式决定本轮是否出售藏品。
 
     「满仓时清理」只在主界面出现库存不足提示时出售; 「按间隔出售」每 N 轮出售一次,
     且间隔没到就满仓时提前出售(库存不足无法继续出价, 等间隔会卡住拍卖)。
-    「不出售」与「拍卖成功一键出售」不走这里: 后者在结算界面就卖完了。
+    「不出售」与「拍卖成功一键出售」不走品质整批出售: 后者在结算界面就卖完了。
+    「出售小红」打开时它是仓库的唯一动作 —— 只逐件扫描出售低于价格上限的红色
+    藏品, 品质整批出售(出售藏品模式/出售品质)不再执行; 触发时机: 出售模式走
+    仓库流程的, 沿用其间隔/满仓节奏; 不走的, 按 RED_SCAN_DEFAULT_INTERVAL
+    周期(或满仓)独立开仓。
+    session_start 表示会话首轮开跑前的清包调用: 出售小红开启时无视间隔立即
+    扫描 —— 满仓进场第一轮拍卖必废, 清包优先级最高(用户预期)。
 
     仅应在拍卖结束回到主界面后调用, 否则仓库入口 OCR 无法命中。
 
@@ -313,9 +348,11 @@ def run_round_end_sell(
         同样不落账 (误置与误清的代价见 auction-notes 5.2)。
     """
     mode = normalize_mode(str(task.config.get(CONF_SELL_MODE, SELL_MODE_OFF)))
-    if not uses_collection_sell(mode):
+    collection_mode = uses_collection_sell(mode)
+    red_enabled = sell_small_red_enabled(task.config)
+    if not collection_mode and not red_enabled:
         # 「不出售」不碰仓库; 「一键出售」在结算界面就卖完了(见 sell_on_settlement_screen),
-        # 与轮次末尾无关.
+        # 与轮次末尾无关. 「出售小红」关闭时维持原行为。
         return None
 
     sell_interval = 0
@@ -342,11 +379,31 @@ def run_round_end_sell(
         )
 
     reached_interval = sell_interval > 0 and task.current_round % sell_interval == 0
-    if not (reached_interval or inventory_full):
+    red_due = False
+    if red_enabled:
+        if session_start:
+            # 会话首轮清包: 无视间隔立即扫描, 与轮内周期互不影响。
+            red_due = True
+        elif collection_mode:
+            # 出售模式本身会开仓的场合, 红扫描附带在每一次开仓上。
+            red_due = reached_interval or bool(inventory_full)
+        else:
+            red_interval = (
+                sell_interval if sell_interval > 0 else RED_SCAN_DEFAULT_INTERVAL
+            )
+            red_due = bool(inventory_full) or task.current_round % red_interval == 0
+    if not (reached_interval or inventory_full or red_due):
         return None
 
     if reached_interval:
-        task.log_info(f"第 {task.current_round} 轮到达出售间隔 {sell_interval}, 执行定期出售")
+        if qualities:
+            task.log_info(f"第 {task.current_round} 轮到达出售间隔 {sell_interval}, 执行定期出售")
+        else:
+            task.log_info(f"第 {task.current_round} 轮到达出售小红扫描周期, 开仓扫描红色藏品")
+    elif session_start and not inventory_full:
+        task.log_info("会话首轮清包: 先扫描出售红色藏品再进入匹配")
+    elif red_due and not inventory_full:
+        task.log_info("到达出售小红扫描周期, 开仓扫描红色藏品")
     else:
         task.log_info("检测到满仓提示, 提前执行藏品出售")
 
@@ -360,7 +417,13 @@ def run_round_end_sell(
     #   _run_single_round)会用库存提示重新裁决, 不会靠卖掉保留品质脱困。
     # 满仓现状(True/False/None)原样返回: None(未测出)由任务侧按「无新结论」
     # 不落账, 不得压成 False 把「未测出」落账成「已清掉」。
-    qualities = read_sell_qualities(task.config)
+    # 出售小红开启时它是仓库的唯一动作: 不再执行品质整批出售(出售藏品模式 /
+    # 出售品质都不生效, 用户明确要求逐件红色扫描, 见 2026-10-28 反馈);
+    # 关闭时维持原有品质整批行为。
+    qualities: list[str] = []
+    if not red_enabled and collection_mode:
+        qualities = read_sell_qualities(task.config)
+    small_red_limit = read_small_red_limit(task.config, task.log_warning) if red_due else 0
     try:
         sold = run_collections(
             task,
@@ -368,6 +431,7 @@ def run_round_end_sell(
             deadline,
             qualities,
             require_sale=bool(inventory_full),
+            small_red_limit=small_red_limit,
         )
     except WaitFailedException as e:
         # 结果未知: 异常向上传播, 任务侧不落账 (误置的后果见 auction-notes 5.2),
@@ -388,6 +452,7 @@ def run_collections(
     sell_qualities: list[str] | tuple[str, ...] = (),
     *,
     require_sale: bool = False,
+    small_red_limit: int = 0,
 ) -> bool | None:
     """尝试出售藏品, deadline 为空时保持定期清理分支的原有行为。
 
@@ -395,6 +460,10 @@ def run_collections(
 
     require_sale 表示本次出售必须真的清掉藏品(满仓时无法继续出价)。此时「一个品质
     都没勾上」不能再算成功 —— 那会把满仓标记清掉, 之后每轮出价都失败却不再重试清理。
+    出售小红已实际卖掉藏品时该要求视为已满足(腾出了库存), 品质整批出售不再强制。
+
+    small_red_limit > 0 时, 开仓后先在普通视图执行红色藏品扫描出售
+    (见 auction_sell_red.sell_small_red_items), 再进入品质整批流程。
 
     Returns:
         True: 出售确认生效(读到正数), 或没有勾选品质且本次不要求出售。
@@ -431,24 +500,39 @@ def run_collections(
             return None
         task.log_debug("藏品仓库界面加载完成")
 
-        # 上次出售未走完会把仓库留在出售模式, 此时圆钮位置是「取消」,
-        # 再点会退出出售模式 (后果见 auction-notes 5.2)。
-        if is_sell_mode(task, boxes, task._remaining_timeout(deadline, 1)):
-            task.log_warning("藏品仓库已处于出售模式(上次出售未走完), 跳过点击出售")
-        else:
-            task.operate_click(boxes.sell, after_sleep=0)
-            task._bounded_sleep(deadline, 1)
+        # 出售小红: 在普通视图逐件扫描红色藏品 (点击卡片弹详情面板比价),
+        # 必须先于出售圆钮 —— 进入出售模式后点击卡片的交互含义会变。
+        red_sold: int | None = None
+        if small_red_limit > 0:
+            red_sold = auction_sell_red.sell_small_red_items(task, boxes, small_red_limit)
+        # 红扫描已实际卖掉藏品时, 满仓的「必须清掉」要求视为已满足; 结果未知
+        # (None) 不算满足, 保守维持要求。
+        require_sale = require_sale and not red_sold
 
-        selected = select_quality_filters(task, deadline, sell_qualities)
-        # 残留勾选会让这一遍无条件点击全部取反, ensure_sell_value 读到 0 时会重勾一次兜住.
-        sell_value = ensure_sell_value(task, boxes, deadline, selected, sell_qualities)
+        # 出售小红独立开仓(品质清单为空)时跳过品质整批的往返: 进入出售模式
+        # 却一个品质都不勾, 除了白点一圈按钮没有意义; 有品质要卖或没跑红扫描
+        # 时维持原有整批流程(空清单的旧行为不变, 见「出售品质」说明)。
+        selected = 0
+        sell_value = None
+        if sell_qualities or small_red_limit <= 0:
+            # 上次出售未走完会把仓库留在出售模式, 此时圆钮位置是「取消」,
+            # 再点会退出出售模式 (后果见 auction-notes 5.2)。
+            if is_sell_mode(task, boxes, task._remaining_timeout(deadline, 1)):
+                task.log_warning("藏品仓库已处于出售模式(上次出售未走完), 跳过点击出售")
+            else:
+                task.operate_click(boxes.sell, after_sleep=0)
+                task._bounded_sleep(deadline, 1)
+
+            selected = select_quality_filters(task, deadline, sell_qualities)
+            # 残留勾选会让这一遍无条件点击全部取反, ensure_sell_value 读到 0 时会重勾一次兜住.
+            sell_value = ensure_sell_value(task, boxes, deadline, selected, sell_qualities)
+
+            task.operate_click(boxes.confirm_sell, after_sleep=0)
+            task._bounded_sleep(deadline, 1.5)
+            task.log_debug("已点击确认出售")
         # 只有读到正数才算勾选生效: 读到 0 或读不出(界面重绘中的空白态)都不能算成功,
         # 否则会在毫无证据的情况下打印「藏品出售完成」, 掩盖「一个品质都没勾上」.
         selection_ok = is_selection_confirmed(selected, sell_value, require_sale=require_sale)
-
-        task.operate_click(boxes.confirm_sell, after_sleep=0)
-        task._bounded_sleep(deadline, 1.5)
-        task.log_debug("已点击确认出售")
 
         task.operate_click(boxes.blank, after_sleep=0)
         task._bounded_sleep(deadline, 0.5)
@@ -465,13 +549,21 @@ def run_collections(
             task.log_warning("出售价值未读出, 本次出售是否清掉藏品无法确认")
             return None
         if not selection_ok:
-            if selected <= 0:
+            if small_red_limit > 0 and selected <= 0:
+                task.log_warning(
+                    "出售小红未卖出任何藏品, 满仓没有清掉; 可调低「小红出售价格上限」"
+                    "或关闭出售小红改用品质出售"
+                )
+            elif selected <= 0:
                 task.log_warning("没有勾选任何品质, 本次出售没有清掉任何藏品")
             else:
                 task.log_warning("品质勾选未生效, 本次出售没有清掉任何藏品")
             return False
         if selected <= 0:
-            task.log_info("没有需要出售的品质, 本次出售未清掉藏品")
+            if red_sold:
+                task.log_info(f"藏品出售完成 (出售小红卖出 {red_sold} 件, 未执行品质整批出售)")
+            else:
+                task.log_info("没有需要出售的品质, 本次出售未清掉藏品")
             return True
         task.log_info("藏品出售完成")
         return True

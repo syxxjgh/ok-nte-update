@@ -234,6 +234,10 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
                     # 每轮都重新确认一次入口: 上一轮掉线或异常退出时人可能已经
                     # 不在拍卖界面 (见 auction_recovery.ensure_auction_entry)。
                     self._ensure_auction_entry(boxes)
+                    if auction_sell.sell_small_red_enabled(self.config):
+                        # 出售小红开启时会话首轮先清包: 满仓进场第一轮拍卖必废,
+                        # 清包优先级最高, 在资产路由/补充道具/匹配之前执行。
+                        self._try_sell_collections(PostRoundState(), boxes, session_start=True)
                     auction_routing.route_before_first_bid(self, boxes)
                     self._ensure_instrument_group(boxes)
                     self._run_single_round(boxes)
@@ -438,17 +442,19 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
         if expected not in venue:
             self.log_warning(f"当前会场「{venue}」不包含期望的「{expected}」, 请确认会场选择")
 
-    def _try_sell_collections(self, state: PostRoundState, boxes: AuctionBoxes) -> None:
+    def _try_sell_collections(
+        self, state: PostRoundState, boxes: AuctionBoxes, session_start: bool = False
+    ) -> None:
         """轮次末尾的出售入口: 给出售流程一个独立的、有界的预算。
 
         出售域的逐分支等待没有上级预算约束时, 仓库入口读不到会让任务表现为
         「在跑但几乎不出价」且日志看不出时间被谁吃掉, 所以这里授予 SELL_TIMEOUT
         预算 (构成见 auction-notes 5.7)。出售失败不影响本轮已记下的结论,
-        因此兜住 WaitFailedException。
+        因此兜住 WaitFailedException。session_start 语义见 run_round_end_sell。
         """
         sell_deadline = time.monotonic() + self.SELL_TIMEOUT
         try:
-            self._run_round_end_sell(boxes, sell_deadline, state=state)
+            self._run_round_end_sell(boxes, sell_deadline, state=state, session_start=session_start)
         except TaskDisabledException:
             raise
         except WaitFailedException as e:
@@ -1448,14 +1454,19 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
         boxes: AuctionBoxes,
         deadline: float | None = None,
         state: PostRoundState | None = None,
+        session_start: bool = False,
     ) -> None:
         """按出售模式决定本轮是否出售, 实现见 auction_sell.run_round_end_sell。
 
         出售结论在这里落账: _inventory_stuck 是任务侧的跨轮编排状态, 出售模块
         只报告三态结果(True 仍满仓 / False 已清掉 / None 无新结论); 异常路径
         不会走到落账, 标记保持原值 (误置与误清的代价见 auction-notes 5.2)。
+        会话首轮的清包调用(session_start)同样落账: 首轮满仓清不掉时, 后续轮次
+        的满仓复核路径与轮次末尾一致。
         """
-        outcome = auction_sell.run_round_end_sell(self, boxes, deadline, state=state)
+        outcome = auction_sell.run_round_end_sell(
+            self, boxes, deadline, state=state, session_start=session_start
+        )
         if outcome is not None:
             self._inventory_stuck = outcome
 
