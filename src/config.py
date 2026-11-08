@@ -12,7 +12,7 @@ from src.process_feature import process_feature
 if "PATH" not in os.environ:
     os.environ["PATH"] = ""
 
-version = "v1.4.22"
+version = "v1.5.2"
 # 不需要修改version, Github Action打包会自动修改
 
 key_config_option = ConfigOption(
@@ -207,7 +207,6 @@ config = {
         ["src.tasks.AutoBidAuctionTask", "AutoBidAuctionTask"],
         ["src.tasks.VolleyballTask", "VolleyballTask"],
         ["src.tasks.DartTask", "DartTask"],
-        ["src.tasks.GoldenCrunchTask", "GoldenCrunchTask"],
         # 测试相关
         ["src.tasks.CombatDetectionTestTask", "CombatDetectionTestTask"],
         ["src.tasks.DebugCharTask", "DebugCharTask"],
@@ -241,6 +240,7 @@ config = {
     # 需要更新启动器时重装 full 包, 或把 to_version 改为高于当前的版本并填
     # fork 自己 release 的 zip_url 与 sha256.
     "update_pyappify": {
+        # fork 侧 (上游 v1.5.0 把这里改回 1.2.6/官方 zip, 合并时保留中和值):
         "to_version": "0.0.0",
         "zip_url": "",
         "sha256": "",
