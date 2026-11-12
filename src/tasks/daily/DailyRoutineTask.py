@@ -15,6 +15,7 @@ from src.tasks.daily.DailyClaimTask import DailyClaimTask
 from src.tasks.daily.FountainTask import FountainTask
 from src.tasks.daily.FurnitureTask import FurnitureTask
 from src.tasks.daily.GiftTask import GiftTask
+from src.tasks.daily.StoreTask import StoreTask
 from src.tasks.NTEOneTimeTask import NTEOneTimeTask
 
 __all__ = ["DailyRoutineEntry", "DailyRoutineTask", "selection_is_complete"]
@@ -40,6 +41,7 @@ DAILY_ROUTINE_ENTRIES = (
     DailyRoutineEntry("fountain", FountainTask),
     DailyRoutineEntry("furniture", FurnitureTask),
     DailyRoutineEntry("gift", GiftTask),
+    DailyRoutineEntry("store_purchase", StoreTask),
 )
 
 
@@ -208,26 +210,35 @@ class DailyRoutineTask(NTEOneTimeTask, BaseNTETask):
         raw_item_list = raw_items if isinstance(raw_items, list) else []
         normalized = []
         seen = set()
+        enabled_groups = set()
         for item in raw_item_list:
             if not isinstance(item, dict):
                 continue
             task_id = item.get("id")
             if task_id not in entries or task_id in seen:
                 continue
-            normalized.append({"id": task_id, "enabled": bool(item.get("enabled", False))})
+            group = entries[task_id].exclusive_group
+            enabled = bool(item.get("enabled", False)) and group not in enabled_groups
+            if enabled and group:
+                enabled_groups.add(group)
+            normalized.append({"id": task_id, "enabled": enabled})
             seen.add(task_id)
-        for entry in DAILY_ROUTINE_ENTRIES:
-            if entry.task_id not in seen:
-                normalized.append({"id": entry.task_id, "enabled": entry.enabled_by_default})
 
-        enabled_groups = set()
-        for item in normalized:
-            entry = entries[item["id"]]
-            if item["enabled"] and entry.exclusive_group:
-                if entry.exclusive_group in enabled_groups:
-                    item["enabled"] = False
-                else:
-                    enabled_groups.add(entry.exclusive_group)
+        # Insert missing tasks after their default predecessor without moving saved tasks.
+        insert_at = 0
+        for task_id, entry in entries.items():
+            if task_id in seen:
+                insert_at = next(
+                    index + 1 for index, item in enumerate(normalized) if item["id"] == task_id
+                )
+                continue
+            group = entry.exclusive_group
+            enabled = entry.enabled_by_default and group not in enabled_groups
+            if enabled and group:
+                enabled_groups.add(group)
+            normalized.insert(insert_at, {"id": task_id, "enabled": enabled})
+            insert_at += 1
+
         if raw_items != normalized:
             self.config[self.CONF_ITEMS] = deepcopy(normalized)  # pyright: ignore[reportOptionalSubscript]
         return normalized
@@ -383,7 +394,7 @@ class DailyRoutineTask(NTEOneTimeTask, BaseNTETask):
         self.log_info("开始执行日常任务")
         for item in items:
             self._execute_routine_item(item)
-        self.ensure_main()
+        self.ensure_main(check_exit=True)
         self._print_result()
         self.log_info("结束执行日常任务")
         return not self.task_status["failed"]
@@ -421,7 +432,7 @@ class DailyRoutineTask(NTEOneTimeTask, BaseNTETask):
         """Map True, False and None task outcomes to success, failure and skipping."""
         self.info_set("当前任务", task.name)
         self.log_info(f"开始任务: {task.name}")
-        self.ensure_main()
+        self.ensure_main(check_exit=True)
         with self._active_task_context(task_id, task):
             result = task.do_run()
             if hasattr(task, "on_daily_end"):
