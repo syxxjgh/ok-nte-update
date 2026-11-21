@@ -57,6 +57,8 @@ class AuctionBidPriceOps(Protocol):
     current_bid_count: int
     _smart_state: Any
     _heart_present: bool
+    _snipe_triggered: bool
+    _snipe_left_highest: int | None
     # 资产路由的运行时出价模式覆盖(非 None 表示本次运行已路由, 估价模式
     # 据此不继承「基础价」下限, 见 bid_price.estimate_bid_price)。
     _asset_routed_mode: str | None
@@ -224,6 +226,7 @@ class AuctionBidOps(Protocol):
     def _bid_panel_open(self, boxes: AuctionBoxes) -> bool: ...
     def _wait_operate_click(self, *args: Any, **kwargs: Any) -> bool: ...
     def _use_instrument_once(self, boxes: AuctionBoxes, deadline: float) -> None: ...
+    def _check_unknown_red_snipe(self, boxes: AuctionBoxes) -> None: ...
     def _input_fixed_price(
         self, boxes: AuctionBoxes, price: int | None = None, deadline: float | None = None
     ) -> None: ...

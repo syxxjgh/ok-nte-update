@@ -5,9 +5,9 @@ from src.utils import image_utils as iu
 from src.utils.image_utils import HSVRange
 
 dialog_white_color = {
-    "r": (220, 240),  # Red range
-    "g": (220, 240),  # Green range
-    "b": (220, 240),  # Blue range
+    "r": (210, 255),  # Red range
+    "g": (210, 255),  # Green range
+    "b": (210, 255),  # Blue range
 }
 
 lv_white_color = {
@@ -37,8 +37,6 @@ def isolate_text_to_black(cv_image):
 
 def isolate_lv_to_white(cv_image):
     cv_image = iu.restore_world_brightness(cv_image)
-    # mask_white = iu.create_color_mask(cv_image, lv_white_color, to_bgr=False)
-    # mask_red = iu.create_color_mask(cv_image, lv_red_color, to_bgr=False)
     mask_gray = iu.filter_by_hsv(cv_image, lv_gray_hsv, return_mask=True)
     mask_white = iu.filter_by_hsv(cv_image, lv_white_hsv, return_mask=True)
     mask_red = iu.filter_by_hsv(cv_image, lv_red_hsv, return_mask=True)
@@ -47,8 +45,10 @@ def isolate_lv_to_white(cv_image):
     return mask
 
 
-def isolate_dialog_to_white(cv_image):
-    return iu.create_color_mask(cv_image, dialog_white_color, invert=False)
+def isolate_dialog_to_black(cv_image):
+    image = iu.create_color_mask(cv_image, dialog_white_color)
+    image = iu.morphology_mask(image, closing=True)
+    return cv2.bitwise_not(image)
 
 
 def current_char_filter(cv_image):

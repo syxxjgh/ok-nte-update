@@ -73,6 +73,10 @@ def attempt_bid(task: AuctionBidOps, boxes: AuctionBoxes, deadline: float) -> bo
     # 仪器按「每口」消耗, 同一口的重试由任务侧按出价序号去重 (见 _use_instrument_once)。
     task._use_instrument_once(boxes, deadline)
 
+    # 未知红秒仓扫描必须在道具使用完之后、打开数字键盘之前执行(键盘会遮挡界面
+    # 且仪器刚照出的未知红需要立刻计入本回合判定); 同一口的重试按出价序号去重。
+    task._check_unknown_red_snipe(boxes)
+
     # 数字键盘已经弹出时 BOX_BID 被弹窗盖住, 在 boxes.bid 上等 RE_BID 只会
     # 超时 (见 auction-notes 2.7); 面板已就绪时直接跳过出价按钮。
     keypad_open = task._bid_panel_open(boxes)

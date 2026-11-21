@@ -125,7 +125,7 @@ def recover_from_world(
 
     venue = task._read_current_venue()
     task.log_info(f"已回到拍卖主界面, 当前会场: {venue or '未识别'}")
-    # 回场落点不保证就是期望会场, 回场后顺手复核一次(只告警不停止)。
+    # 回场落点不保证就是期望会场, 回场后复核一次(不匹配则直接报错停止任务)。
     task._check_expected_venue(boxes, venue)
     task.info_set("当前阶段", "匹配中")
     return resume_match(boxes, deadline)

@@ -153,6 +153,11 @@ class AuctionBoxes:
     instrument_list_rows: tuple[Box, ...]
     # 拍卖主界面中央情报窗口 (期望价值模式的读数来源).
     info_window: Box
+    # 出价界面右侧展柜网格区与滚动条 (未知红秒仓扫描用).
+    showcase_grid: Box
+    showcase_scrollbar: Box
+    # 出价界面左侧出价者列表区 (读取当前最高出价用).
+    left_bid_panel: Box
 
 
 @dataclass(frozen=True)
@@ -227,6 +232,19 @@ BOX_RESULT_VALUE = (0.7780, 0.1330, 0.9520, 0.1820)
 # 出价面板展柜区域, 换算自参考实现 px(1302,196)-(1891,787): 心形道具出现时
 # 该区域内会有一块深紫色高亮, 用颜色像素占比判定(阈值见 auction/assist.py)。
 BOX_HEART_AREA = (0.678, 0.181, 0.985, 0.729)
+
+# --- 出价界面右侧展柜 (未知红秒仓扫描, 见 auction/sell_red.py) ---
+# 换算自参考实现 1080p px(1315,210)-(1887,778) 并经 2026-11-18 实机截图校验:
+# 右边界停在 0.978 避开右侧滚动条(0.981-0.984), 垂直覆盖展柜可见网格区.
+BOX_SHOWCASE_GRID = (0.684, 0.194, 0.978, 0.720)
+# 展柜右侧滚动条条带 (2026-11-18 1920x1080 实机截图标定 x=0.9807-0.9844, y=0.18-0.73;
+# 左边界从 0.975 收窄到 0.979 避开第 8 列藏品右边框 <=0.9766 避免混淆滑块位置).
+BOX_SHOWCASE_SCROLLBAR = (0.979, 0.180, 0.990, 0.730)
+# 展柜滚动落点 (网格中部, 与参考实现 px(1621,495) 吻合).
+POS_SHOWCASE_SCROLL = (0.844, 0.458)
+# 出价界面左侧出价者面板 (2026-11-18 实机截图标定: 覆盖 4 位竞拍者与 1-5 槽位金额,
+# 上避开左上角 ESC, 右止于 0.320 不碰中央情报窗口, 下避开底部仪器/表情按钮).
+BOX_LEFT_BID_PANEL = (0.000, 0.080, 0.320, 0.880)
 
 # --- 仪器组 (实机截图标定, 来源见 auction-notes 3) ---
 # 主界面右下「当前装备仪器组」卡片的标题行: 至尊仪器组/超级估值仪器组等组名
@@ -440,4 +458,7 @@ def build_boxes(screen: Callable[..., Box]) -> AuctionBoxes:
         instrument_list_title=screen(*BOX_INSTRUMENT_LIST_TITLE),
         instrument_list_rows=tuple(screen(*row) for row in BOX_INSTRUMENT_LIST_ROWS),
         info_window=screen(*BOX_INFO_WINDOW),
+        showcase_grid=screen(*BOX_SHOWCASE_GRID),
+        showcase_scrollbar=screen(*BOX_SHOWCASE_SCROLLBAR),
+        left_bid_panel=screen(*BOX_LEFT_BID_PANEL),
     )

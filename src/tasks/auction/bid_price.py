@@ -30,12 +30,17 @@ from src.tasks.auction.options import (
     CONF_RAISE_ROUND,
     CONF_RAISE_VALUE,
     CONF_RED_POOL_PRICE,
+    CONF_SNIPE_INCREMENT,
+    CONF_SNIPE_PRICE,
+    CONF_SNIPE_UNKNOWN_RED,
     CONF_SPECIAL_ROUND,
     CONF_SPECIAL_ROUND_PRICE,
     CONF_SPECIAL_ROUNDS,
     CONF_TIER_BOUNDS,
     CONF_TIER_RATIOS,
     CONF_TIERED_RATIO,
+    DEFAULT_SNIPE_INCREMENT,
+    DEFAULT_SNIPE_PRICE,
     DEFAULT_TIER_PERCENTS,
     MAX_BID_ROUNDS,
 )
@@ -416,6 +421,11 @@ def _validate_list(task: AuctionBidPriceOps) -> None:
 
 def _validate_estimate(task: AuctionBidPriceOps) -> None:
     validate_tiered_ratio(task)
+    if task.config.get(CONF_SNIPE_UNKNOWN_RED, False):
+        auction_price.validate_snipe_price(task.config.get(CONF_SNIPE_PRICE))
+        auction_price.validate_snipe_increment(
+            task.config.get(CONF_SNIPE_INCREMENT, DEFAULT_SNIPE_INCREMENT)
+        )
     warn_if_fixed_price_invalid(task)
 
 
@@ -470,10 +480,54 @@ def _price_list(
     return listed_bid_price(task, bid_count)
 
 
+def snipe_bid_price(task: AuctionBidPriceOps, bid_count: int) -> int:
+    """未知红秒仓出价: 无视估价/分档/基础价/永恒之心加价, 未拿下时按配置加价递进。"""
+    cfg = auction_config_read.ConfigReader(task.config, task.log_warning)
+    raw_price = cfg.read_int(
+        CONF_SNIPE_PRICE,
+        DEFAULT_SNIPE_PRICE,
+        warn=f"「{CONF_SNIPE_PRICE}」不是整数, 本次秒仓出价按默认值 {DEFAULT_SNIPE_PRICE} 计算",
+    )
+    if raw_price <= 0:
+        task.log_warning(
+            f"「{CONF_SNIPE_PRICE}」必须为正整数({raw_price}), 本次按默认值 {DEFAULT_SNIPE_PRICE} 计算"
+        )
+        raw_price = DEFAULT_SNIPE_PRICE
+    increment = cfg.read_int(
+        CONF_SNIPE_INCREMENT,
+        DEFAULT_SNIPE_INCREMENT,
+        warn=f"「{CONF_SNIPE_INCREMENT}」不是整数, 本次加价按默认值 {DEFAULT_SNIPE_INCREMENT} 计算",
+    )
+    if increment <= 0:
+        task.log_warning(
+            f"「{CONF_SNIPE_INCREMENT}」必须为正整数({increment}), 本次按默认值 {DEFAULT_SNIPE_INCREMENT} 计算"
+        )
+        increment = DEFAULT_SNIPE_INCREMENT
+    left_highest = getattr(task, "_snipe_left_highest", None)
+    price = auction_price.snipe_price_with_floor(
+        raw_price, task.last_bid_price, increment, left_highest=left_highest
+    )
+    if left_highest is not None and left_highest > 0 and price == left_highest + increment:
+        task.log_info(
+            f"未知红秒仓第 {bid_count} 回合: 左侧最高出价 {left_highest}, "
+            f"加价 {increment} 后出价 {price}"
+        )
+    elif price != raw_price:
+        task.log_info(
+            f"未知红秒仓第 {bid_count} 回合(上一回合出价 {task.last_bid_price}), "
+            f"加价 {increment} 后出价 {price}"
+        )
+    else:
+        task.log_info(f"未知红秒仓第 {bid_count} 回合触发固定秒仓出价 {price}")
+    return price
+
+
 def _price_estimate(
     task: AuctionBidPriceOps, boxes: AuctionBoxes | None, deadline: float | None, bid_count: int
 ) -> int:
-    """按系统估价: 读取出价面板上的当前估价并乘以倍率, 低于基础价按基础价出。"""
+    """按系统估价: 触发未知红秒仓时直接出固定秒仓价, 否则读取估价并乘以倍率。"""
+    if getattr(task, "_snipe_triggered", False):
+        return snipe_bid_price(task, bid_count)
     return apply_heart_increment(task, estimate_bid_price(task, boxes, deadline, bid_count))
 
 

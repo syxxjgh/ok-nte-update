@@ -95,6 +95,19 @@ DEFAULT_TIER_BOUNDS = (1_000_000, 2_000_000, 5_000_000, 10_000_000, 20_000_000, 
 # 默认取值即参考攻略的按估价分档: 低价值敢抢, 高价值收紧, 不会低于半价。
 DEFAULT_TIER_PERCENTS = ("109", "103", "90", "80", "70", "50")
 
+# 未知红秒仓: 「按系统估价」模式下, 前 SNIPE_MAX_BID_ROUND 回合使用完道具后,
+# 滚动扫描右侧展柜, 若未知红藏品 >= SNIPE_UNKNOWN_RED_MIN 个, 则无视估价 /
+# 分档 / 基础价 / 永恒之心加价等一切设置, 直接按固定「未知红秒仓价格」出价;
+# 同场秒仓未拿下、下一回合继续出价时在上一回合自身出价上追加「未知红秒仓加价金额」。
+CONF_SNIPE_UNKNOWN_RED = "启用未知红秒仓"
+CONF_SNIPE_PRICE = "未知红秒仓价格"
+CONF_SNIPE_INCREMENT = "未知红秒仓加价金额"
+DEFAULT_SNIPE_PRICE = 1500000
+DEFAULT_SNIPE_INCREMENT = 10000
+SNIPE_MAX_BID_ROUND = 3
+SNIPE_UNKNOWN_RED_MIN = 3
+SNIPE_REPEAT_INCREMENT = DEFAULT_SNIPE_INCREMENT
+
 # 每轮指定价格: 一轮拍卖最多 6 回合出价, 每次出价各自一个价格.
 MAX_BID_ROUNDS = 6
 CONF_BID_PRICES = tuple(f"第{index}次出价价格" for index in range(1, MAX_BID_ROUNDS + 1))
@@ -145,7 +158,7 @@ INSTRUMENT_GROUPS = (
 CONF_INSTRUMENT_SEQUENCE = "仪器槽位序列"
 
 # --- 会场 ---
-# 期望会场名: 启动与回场后读「当前：XXX场」做包含匹配, 不匹配只告警不停止.
+# 期望会场名: 启动、入场与掉线回场后读「当前：XXX场」做包含匹配, 不匹配直接报错停止任务.
 CONF_EXPECTED_VENUE = "期望会场名"
 
 # 结算成交价值达到该值时自动截图留档, 0 表示不截图. 截图存框架的 screenshots 目录
@@ -179,6 +192,10 @@ def default_config() -> dict:
         CONF_AUTO_RAISE: False,
         CONF_FIXED_PRICE: 1,
         CONF_BID_MODE: BID_MODE_ESTIMATE,
+        # 未知红秒仓: 只在「按系统估价」下生效, 默认关闭, 开关与价格紧跟「基础价」后。
+        CONF_SNIPE_UNKNOWN_RED: False,
+        CONF_SNIPE_PRICE: DEFAULT_SNIPE_PRICE,
+        CONF_SNIPE_INCREMENT: DEFAULT_SNIPE_INCREMENT,
         # 估价分档百分比: 默认档位与默认取值都来自参考攻略, 开关默认关闭时 12 个子键全部隐藏.
         CONF_TIERED_RATIO: False,
         # 取值排在上限前面: 上限有现成默认值基本不用改, 取值才是每种玩法必改的
@@ -234,7 +251,7 @@ def config_type() -> dict:
                 # 「基础价」是该模式估价读不出时的回退出价, 用户必须能在面板上改,
                 # 使用指南本就要求按场次填起步价 (auction-notes 4); 排在分档开关
                 # 上方: 每场次该改的是起步价, 分档默认即参考攻略取值基本不用动。
-                BID_MODE_ESTIMATE: [CONF_FIXED_PRICE, CONF_TIERED_RATIO],
+                BID_MODE_ESTIMATE: [CONF_FIXED_PRICE, CONF_SNIPE_UNKNOWN_RED, CONF_TIERED_RATIO],
                 # 「基础价」同时挂在 CUSTOM / ESTIMATE / SMART 三个分支下: 出价模式
                 # 是单选下拉框, 各父条件不会同时激活, 不违反上面的重排约束。
                 BID_MODE_SMART: [CONF_FIXED_PRICE],
@@ -242,6 +259,12 @@ def config_type() -> dict:
                 # 估价口径出价时兜底, 同样要能在面板上改。
                 BID_MODE_EV: [CONF_RED_POOL_PRICE, CONF_FIXED_PRICE],
             },
+        },
+        # 未知红秒仓: 仅在开启时展开固定秒仓价格和加价金额输入框.
+        CONF_SNIPE_UNKNOWN_RED: {
+            "sub_configs": {
+                True: [CONF_SNIPE_PRICE, CONF_SNIPE_INCREMENT],
+            }
         },
         # 分档百分比只在开关打开时展开 12 个子键; 开关本身只在「按系统估价」下显示.
         # 取值排在上限前面: 上限有现成默认值基本不用改, 而取值是每种玩法必改的.
@@ -364,6 +387,12 @@ def config_description() -> dict:
         CONF_RED_POOL_PRICE: "红藏品按这里的单件价折算进期望价值, 数值来自你自己的"
         "红色藏品成交统计(比如达芙计算器的记忆池汇总); 填 0 = 红不计入, 只按紫金"
         "出价, 最保守; 要非负整数, 填错任务不启动",
+        CONF_SNIPE_UNKNOWN_RED: "「按系统估价」模式下生效: 前 3 回合用完道具、出价前从上到下"
+        "扫描右侧展柜, 若未完整展示图案的红色藏品(含纯红盲盒和只显轮廓的红卡)达到 3 个及以上,"
+        "则无视估价、分档、基础价及永恒之心加价, 直接按「未知红秒仓价格」秒仓出价",
+        CONF_SNIPE_PRICE: "触发未知红秒仓时首次输出的固定价格, 需为正整数",
+        CONF_SNIPE_INCREMENT: "秒仓出价未直接拿下、下一回合继续出价时, 在上一回合自身"
+        "出价基础上追加的加价金额, 需为正整数",
         CONF_TIERED_RATIO: "开了就按估价所在的价格段套「分档N百分比」, 分档参考按键精灵"
         "攻略移植: 出价=估价×值/100, 填 109 就是 1.09 倍; 哪一档都没套上就按估价原价出",
         # 生成 12 条: 上限档说明区分末档的 0=无上限, 倍率档统一说明.
@@ -414,8 +443,8 @@ def config_description() -> dict:
         CONF_SELL_RED_MAX: "填正整数才生效: 这件的成交价(当前估价)低于这个数才卖红, "
         "不低于它、或者价读不出来, 都留着不卖; 0=不限, 红的一律卖",
         # --- 会场 ---
-        CONF_EXPECTED_VENUE: "启动和掉线回场后核对会场, 识别出来的会场名不含这里填的"
-        "字就告警(比如填「海贝」); 留空=不核对",
+        CONF_EXPECTED_VENUE: "启动、入场和掉线回场后核对会场, 识别出来的会场名不含这里填的"
+        "字就直接报错停止任务(比如填「真珠」或「真珠场」); 留空=不核对",
         # --- 结算观测 ---
         CONF_RESULT_SCREENSHOT_MIN: "填正整数开启: 识别到「一键出售」(成交)且成交价 ≥ 这个"
         "数的场次自动截图存档, 0=关闭只记日志; 截图在安装目录的 data\\apps\\ok-nte\\working"

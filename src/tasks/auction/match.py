@@ -62,6 +62,7 @@ class MatchActions:
     log_info: Callable[[str], None]
     log_debug: Callable[[str], None]
     log_warning: Callable[[str], None]
+    check_expected_venue: Callable[[AuctionBoxes], None] = lambda boxes: None
 
 
 def run_match(actions: MatchActions, boxes: AuctionBoxes, deadline: float) -> AuctionState:
@@ -130,6 +131,7 @@ def handle_match_click(
     stage_deadline 是匹配阶段的局部截止时间(见 run_match), 不是整轮 deadline;
     所以这里的超时异常要带上阶段名, 不能沿用「单轮拍卖超时」。
     """
+    actions.check_expected_venue(boxes)
     clicked = actions.wait_operate_click(
         boxes.match,
         RE_MATCH,

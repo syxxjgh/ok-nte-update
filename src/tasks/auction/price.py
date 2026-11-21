@@ -20,6 +20,7 @@ from src.tasks.auction.options import (
     MAX_BID_ROUNDS,
     RAISE_MODE_MULTIPLE,
     RAISE_MODE_PERCENT,
+    SNIPE_REPEAT_INCREMENT,
 )
 
 
@@ -171,6 +172,74 @@ def validate_fixed_price(raw_price: object) -> int:
     if base_price <= 0:
         raise ValueError(f"基础价必须为正整数, 当前: {raw_price!r}")
     return base_price
+
+
+_RE_LEFT_BID_KM = re.compile(r"^\s*([0-9]+(?:\.[0-9]+)?)\s*([KkMm])\s*$")
+_RE_LEFT_BID_INT = re.compile(r"^\s*([0-9][0-9,\uff0c]*)\s*$")
+
+
+def parse_left_highest_bid(texts: Iterable[str]) -> int | None:
+    """从左侧出价面板 OCR 文本中提取单个最高出价金额; 天黑了(名次)或全 0 返回 None。
+
+    正常模式下非零金额统一带 K/M 单位(如 888.89K / 1.44M)或为千位以上整数;
+    槽位号 1~5 与天黑了模式名次 1~4 均不含 K/M 且 <1000, 自动忽略。
+    """
+    bids: list[int] = []
+    for raw in texts:
+        text = str(raw or "").translate(FULLWIDTH_NUMERIC).strip()
+        if not text:
+            continue
+        km = _RE_LEFT_BID_KM.fullmatch(text)
+        if km:
+            unit = 1_000 if km.group(2).upper() == "K" else 1_000_000
+            val = int(round(float(km.group(1)) * unit))
+            if val > 0:
+                bids.append(val)
+            continue
+        num = _RE_LEFT_BID_INT.fullmatch(text)
+        if num:
+            val = int(num.group(1).replace(",", ""))
+            if val >= 1000:
+                bids.append(val)
+    return max(bids) if bids else None
+
+
+def validate_snipe_price(raw_price: object) -> int:
+    """校验「未知红秒仓价格」: 必须能解析成正整数, 非法时抛 ValueError。"""
+    try:
+        snipe_price = int(raw_price)
+    except (TypeError, ValueError):
+        raise ValueError(f"未知红秒仓价格配置非法: {raw_price!r}") from None
+    if snipe_price <= 0:
+        raise ValueError(f"未知红秒仓价格必须为正整数, 当前: {raw_price!r}")
+    return snipe_price
+
+
+def validate_snipe_increment(raw_increment: object) -> int:
+    """校验「未知红秒仓加价金额」: 必须能解析成正整数, 非法时抛 ValueError。"""
+    try:
+        increment = int(raw_increment)
+    except (TypeError, ValueError):
+        raise ValueError(f"未知红秒仓加价金额配置非法: {raw_increment!r}") from None
+    if increment <= 0:
+        raise ValueError(f"未知红秒仓加价金额必须为正整数, 当前: {raw_increment!r}")
+    return increment
+
+
+def snipe_price_with_floor(
+    snipe_price: int,
+    last_bid_price: int | None,
+    increment: int = SNIPE_REPEAT_INCREMENT,
+    left_highest: int | None = None,
+) -> int:
+    """秒仓出价: 结合固定秒仓价、左侧最高出价 + 加价与自身上轮出价下界计算最终出价。"""
+    step = increment if increment > 0 else SNIPE_REPEAT_INCREMENT
+    target = snipe_price
+    if left_highest is not None and left_highest > 0:
+        target = max(target, left_highest + step)
+    if last_bid_price is not None and target <= last_bid_price:
+        target = last_bid_price + step
+    return target
 
 
 def validate_raise_value(raw_value: object) -> Decimal:

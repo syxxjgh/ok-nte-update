@@ -24,6 +24,7 @@ from src.tasks.auction import recovery as auction_recovery
 from src.tasks.auction import round as auction_round
 from src.tasks.auction import routing as auction_routing
 from src.tasks.auction import sell as auction_sell
+from src.tasks.auction import sell_red as auction_sell_red
 from src.tasks.auction import settle as auction_settle
 from src.tasks.auction import welfare as auction_welfare
 from src.tasks.auction.layout import (
@@ -44,6 +45,7 @@ from src.tasks.auction.options import (
     ASSIST_INSTRUMENT,
     ASSIST_WELFARE,
     BID_MODE_CUSTOM,
+    BID_MODE_ESTIMATE,
     BID_MODE_EV,
     BID_MODE_SMART,
     CONF_ASSIST_FEATURES,
@@ -57,12 +59,15 @@ from src.tasks.auction.options import (
     CONF_RESULT_SCREENSHOT_MIN,
     CONF_SELL_MODE,
     CONF_SELL_QUALITIES,
+    CONF_SNIPE_UNKNOWN_RED,
     INST,
     INSTRUMENT_GROUP_SUPREME,
     INSTRUMENT_GROUPS,
     RAISE_MODE_MULTIPLE,
     RAISE_MODES,
     SELL_MODE_OFF,
+    SNIPE_MAX_BID_ROUND,
+    SNIPE_UNKNOWN_RED_MIN,
 )
 from src.tasks.BaseNTETask import BaseNTETask
 from src.tasks.NTEOneTimeTask import NTEOneTimeTask
@@ -217,7 +222,7 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
             self._validate_instrument_group()
             self._warn_if_no_sellable_quality()
             boxes = self._build_boxes()
-            # 启动时的期望会场校验与留痕: 只告警不停止, 交给用户改会场或配置.
+            # 启动时的期望会场校验与留痕: 不匹配直接报错停止任务, 防止误进其他会场.
             self._check_expected_venue(boxes)
             while self.has_remaining_rounds():
                 if not self.begin_round():
@@ -234,6 +239,7 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
                     # 每轮都重新确认一次入口: 上一轮掉线或异常退出时人可能已经
                     # 不在拍卖界面 (见 auction_recovery.ensure_auction_entry)。
                     self._ensure_auction_entry(boxes)
+                    self._check_expected_venue(boxes)
                     if auction_sell.sell_small_red_enabled(self.config):
                         # 出售小红开启时会话首轮先清包: 满仓进场第一轮拍卖必废,
                         # 清包优先级最高, 在资产路由/补充道具/匹配之前执行。
@@ -250,6 +256,8 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
                 except TaskDisabledException:
                     raise
                 except Exception as e:
+                    if self._round_state.stop_requested:
+                        raise
                     self.add_failed("拍卖执行异常")
                     self.log_error(f"本轮拍卖失败: {type(e).__name__}: {e}")
                     # 界面被弹窗挡住才会整轮什么都识别不到, 失败后按弹窗特征兜底一次.
@@ -354,6 +362,9 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
         # 含无需补全), 每件拍品从序列第 1 项开始 (见 auction-notes 7)。
         self._heart_checked = False
         self._heart_present = False
+        self._snipe_triggered = False
+        self._snipe_checked_bid = 0
+        self._snipe_left_highest = None
         self._instrument_served_bid = 0
         self._instrument_seq = 0
         # 期望价值模式的情报快照按件重置: 上一件拍品的紫金均价不能泄进这一件,
@@ -427,10 +438,10 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
             self._try_sell_collections(self._post_round_state, boxes)
 
     def _check_expected_venue(self, boxes: AuctionBoxes, venue: str | None = None) -> None:
-        """配置了期望会场时校验当前会场并留痕, 不匹配只告警不停止。
+        """配置了期望会场时校验当前会场并留痕, 不匹配直接报错停止任务。
 
-        包含匹配而不是全等: 会场全集未知, 用户填「海贝」就要能命中「当前：海贝场」。
-        会场读不出时不告警 —— 回场过渡帧里经常读不到, 每轮都报是噪声。
+        包含匹配而不是全等: 会场全集未知, 用户填「真珠」或「真珠场」都要能命中「当前：真珠场」。
+        会场读不出时不拦截 —— 启动于大世界或回场过渡帧里经常读不到, 待入场确认后复核。
         """
         if venue is None:
             venue = self._read_current_venue()
@@ -440,7 +451,10 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
         if not expected or not venue:
             return
         if expected not in venue:
-            self.log_warning(f"当前会场「{venue}」不包含期望的「{expected}」, 请确认会场选择")
+            msg = f"当前会场「{venue}」不包含期望的「{expected}」, 已停止任务, 请切换会场后重试"
+            self.stop_rounds(f"当前会场「{venue}」与期望「{expected}」不符")
+            self.log_error(msg, notify=True)
+            raise ValueError(msg)
 
     def _try_sell_collections(
         self, state: PostRoundState, boxes: AuctionBoxes, session_start: bool = False
@@ -519,6 +533,7 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
             log_info=self.log_info,
             log_debug=self.log_debug,
             log_warning=self.log_warning,
+            check_expected_venue=self._check_expected_venue,
         )
 
     def _stage_bid_loop(self, boxes: AuctionBoxes, deadline: float) -> None:
@@ -759,6 +774,68 @@ class AutoBidAuctionTask(NTEOneTimeTask, BaseNTETask):
         if auction_assist.use_instrument(self, boxes, deadline, row):
             self.log_info(f"第 {ordinal} 回合出价前使用 {slot} 号槽位的竞拍仪器(点击第 {row} 行)")
             self._instrument_remaining.remove(slot)
+
+    def _read_left_highest_bid(self, boxes: AuctionBoxes) -> int | None:
+        """读取左侧竞拍者面板的单个最高出价; 天黑了模式(仅名次)或全 0 返回 None。"""
+        try:
+            self.next_frame()
+            results = self.ocr(box=boxes.left_bid_panel, match=None, log=False)
+        except TaskDisabledException:
+            raise
+        except Exception as e:
+            self._log_aux_error("左侧出价面板识别失败, 按自身出价继续", e, quiet=True)
+            return None
+        texts = [b.name for b in results if getattr(b, "name", None)] if results else []
+        highest = auction_price.parse_left_highest_bid(texts)
+        if highest is not None:
+            self.log_info(f"左侧最高出价识别为 {highest}")
+        else:
+            self.log_info("左侧未识别到有效出价金额(天黑了模式或尚无人出价), 仅按自身秒仓策略出价")
+        return highest
+
+    def _check_unknown_red_snipe(self, boxes: AuctionBoxes) -> None:
+        """前 3 回合用完道具后扫描右侧展柜: 未知红 >= 3 个时触发固定秒仓价。
+
+        同一回合重试(键盘打开失败等)按出价序号去重, 不重复滚动展柜; 同场一旦触发秒仓
+        后若当回合未拿下, 第 2~3 回合延续秒仓状态直接读取左侧最高出价并加价继续出价;
+        天黑了模式或未识别到左侧出价时仅按自身秒仓价/上轮出价加价; 扫描异常按 quiet 降级。
+        """
+        ordinal = self.current_bid_count + 1
+        if self._snipe_checked_bid == ordinal:
+            return
+        self._snipe_checked_bid = ordinal
+        if (
+            self._bid_mode() != BID_MODE_ESTIMATE
+            or not bool(self.config.get(CONF_SNIPE_UNKNOWN_RED, False))
+            or ordinal > SNIPE_MAX_BID_ROUND
+        ):
+            self._snipe_triggered = False
+            self._snipe_left_highest = None
+            return
+        if self._snipe_triggered:
+            self.log_info(
+                f"第 {ordinal} 回合延续秒仓状态(上一回合秒仓未拿下), 读取左侧最高出价并加价继续出价"
+            )
+            self._snipe_left_highest = self._read_left_highest_bid(boxes)
+            return
+        try:
+            count = auction_sell_red.scan_showcase_unknown_reds(self, boxes)
+        except TaskDisabledException:
+            raise
+        except Exception as e:
+            self._log_aux_error("未知红秒仓扫描失败, 本回合按未触发处理", e, quiet=True)
+            return
+        if count >= SNIPE_UNKNOWN_RED_MIN:
+            self._snipe_triggered = True
+            self.log_info(
+                f"第 {ordinal} 回合检测到 {count} 个未知红藏品(>={SNIPE_UNKNOWN_RED_MIN}), 触发秒仓固定出价"
+            )
+            self._snipe_left_highest = self._read_left_highest_bid(boxes)
+        else:
+            self._snipe_left_highest = None
+            self.log_info(
+                f"第 {ordinal} 回合检测到 {count} 个未知红藏品(<{SNIPE_UNKNOWN_RED_MIN}), 按系统估价出价"
+            )
 
     def _ensure_instrument_group(self, boxes: AuctionBoxes) -> None:
         """每轮开始校验并装备「仪器组」选定的组, 就绪结论供 _use_instrument_once 门控。

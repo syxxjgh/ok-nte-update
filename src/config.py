@@ -8,11 +8,12 @@ from src import GAME_EXE
 from src.audio.routing import create_background_audio_routing_config_option
 from src.interaction.NTEInteraction import NTEInteraction
 from src.process_feature import process_feature
+from src.ui.icons import feature_icon
 
 if "PATH" not in os.environ:
     os.environ["PATH"] = ""
 
-version = "v1.5.8"
+version = "v1.5.9"
 # 不需要修改version, Github Action打包会自动修改
 
 key_config_option = ConfigOption(
@@ -76,6 +77,18 @@ config = {
     "plugin": True,
     "gui": {
         "type": "qt",
+    },
+    "task_category_icons": {
+        "all": feature_icon("all-task"),
+        "onetime": feature_icon("onetime-task"),
+        "trigger": feature_icon("trigger-task"),
+    },
+    "task_category_colors": {
+        "all": {"light": "#526174", "dark": "#B5BECF"},
+        "onetime": {"light": "#087C70", "dark": "#72D9CC"},
+        "trigger": {"light": "#AC3652", "dark": "#F09AA8"},
+        "group:体力本": {"light": "#2668AA", "dark": "#8ABCF0"},
+        "group:都市闲趣": {"light": "#8C651A", "dark": "#E8C27C"},
     },
     "debug": False,  # Optional, default: False
     "use_gui": True,  # 目前只支持True
@@ -211,7 +224,7 @@ config = {
         # 测试相关
         ["src.tasks.CombatDetectionTestTask", "CombatDetectionTestTask"],
         ["src.tasks.DebugCharTask", "DebugCharTask"],
-        ["ok", "DiagnosisTask"],
+        # ["ok", "DiagnosisTask"],
         # 日常相关
         ["src.tasks.daily.DailyClaimTask", "DailyClaimTask"],
         ["src.tasks.daily.GiftTask", "GiftTask"],
@@ -242,7 +255,8 @@ config = {
     # 需要更新启动器时重装 full 包, 或把 to_version 改为高于当前的版本并填
     # fork 自己 release 的 zip_url 与 sha256.
     "update_pyappify": {
-        # fork 侧 (上游 v1.5.0 把这里改回 1.2.6/官方 zip, 合并时保留中和值):
+        # fork 侧: 上游每次发版把这里改回官方 zip 与新版本号(v1.5.0 的 1.2.6,
+        # v1.5.9 的 1.2.9), 合并时一律保留 fork 中和值:
         "to_version": "0.0.0",
         "zip_url": "",
         "sha256": "",

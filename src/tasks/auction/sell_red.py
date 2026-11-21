@@ -30,6 +30,7 @@ from src.tasks.auction.contracts import AuctionSellOps
 from src.tasks.auction.layout import (
     POS_ITEM_DETAIL_CLOSE,
     POS_ITEM_SELL,
+    POS_SHOWCASE_SCROLL,
     POS_WAREHOUSE_GRID_SCROLL,
     RE_CONFIRM,
     RE_ITEM_SELL,
@@ -95,6 +96,30 @@ RED_IDENTITY_TOLERANCE = 0.04
 # 单次扫描的兜底处理件数上限: 防详情面板识别失灵时的死循环; 正常仓库
 # (200 格上限)即使全红也到不了这个数。
 RED_SCAN_MAX_ITEMS = 200
+
+# --- 未知红秒仓 (出价界面右侧展柜扫描, 2026-11-18 用户实机截图标定) ---
+# 未知红(含纯红盲盒和只显轮廓的红卡)卡内纯红一致: bbox_fill=0.921-0.968,
+# 内部 70% 核心区红色占比=1.000; 已知红中间有图案: bbox_fill<=0.75, inner<=0.61。
+UNKNOWN_RED_MIN_FILL_RATIO = 0.82
+UNKNOWN_RED_MIN_INNER_RATIO = 0.88
+# 最小宽高按展柜宽比例与像素下限取大, 排除滚动条或右侧墙面透出的细条误检。
+UNKNOWN_RED_MIN_SIDE_FRACTION = 0.055
+UNKNOWN_RED_MIN_SIDE_PX = 25
+UNKNOWN_RED_MIN_AREA_PX = 400
+# 展柜滚动扫描参数: 使用道具后先等动画展示结束再抓帧扫描;
+# 单步 -6 格滚轮(实测 1440p 下 -4 仅推约 0.082 比例且第 6 屏停在 0.82,
+# -6 步幅既保留充足重叠又可在 5 步内扫到 >=0.93 底部),
+# 滚动条读不出或滑块未推进时由 max_passes 与画面差分兜底.
+SHOWCASE_SCAN_PRE_DELAY = 5.0
+SHOWCASE_SCROLL_WHEEL = -6
+SHOWCASE_SCROLLBAR_TOP_MAX_PX = 25
+SHOWCASE_SCROLL_TOP_PASSES = 6
+SHOWCASE_SCAN_MAX_PASSES = 7
+SHOWCASE_SCROLL_SETTLE = 0.4
+SHOWCASE_SHIFT_MIN_DIFF = 2.0
+SHOWCASE_SHIFT_MATCH_THRESHOLD = 0.75
+SHOWCASE_MIN_SCROLL_PX = 3
+SHOWCASE_SCROLL_OVERLAP_FRACTION = 0.55
 
 
 def red_item_clusters(frame, box: Box) -> list[tuple[int, int]]:
@@ -494,3 +519,182 @@ def sell_small_red_items(
     except Exception as e:
         task._log_aux_error("出售小红扫描失败", e)
         return None
+
+
+def unknown_red_clusters(frame, box: Box) -> list[tuple[int, int, int, int]]:
+    """返回展柜区域内「未知红」藏品的 (屏幕中心x, 屏幕中心y, 宽, 高) 列表。
+
+    未知红包括「品质已知为红但轮廓未知(1x1 纯红)」和「品质为红且轮廓已知(纯红矩形)」
+    两种形态; 已知红卡中央有藏品图案, 核心区红色占比显著偏低(<=0.61), 据此区分。
+    """
+    if frame is None:
+        return []
+    cropped = frame[box.y : box.y + box.height, box.x : box.x + box.width]
+    if cropped.size == 0:
+        return []
+    mask = iu.create_color_mask(cropped, RED_CARD_COLOR_RANGE, to_bgr=False)
+    min_side = max(int(box.width * UNKNOWN_RED_MIN_SIDE_FRACTION), UNKNOWN_RED_MIN_SIDE_PX)
+    min_area = max(int(mask.size * RED_CLUSTER_MIN_FRACTION), UNKNOWN_RED_MIN_AREA_PX)
+    count, _, stats, centroids = cv2.connectedComponentsWithStats(mask)
+    clusters: list[tuple[int, int, int, int]] = []
+    for index in range(1, count):
+        x = int(stats[index, cv2.CC_STAT_LEFT])
+        y = int(stats[index, cv2.CC_STAT_TOP])
+        bw = int(stats[index, cv2.CC_STAT_WIDTH])
+        bh = int(stats[index, cv2.CC_STAT_HEIGHT])
+        area = int(stats[index, cv2.CC_STAT_AREA])
+        if bw < min_side or bh < min_side or area < min_area:
+            continue
+        if area / (bw * bh) < UNKNOWN_RED_MIN_FILL_RATIO:
+            continue
+        ix0 = x + int(bw * 0.15)
+        iy0 = y + int(bh * 0.15)
+        ix1 = x + int(bw * 0.85)
+        iy1 = y + int(bh * 0.85)
+        inner_mask = mask[iy0:iy1, ix0:ix1]
+        if inner_mask.size == 0:
+            continue
+        if float(np.count_nonzero(inner_mask)) / inner_mask.size < UNKNOWN_RED_MIN_INNER_RATIO:
+            continue
+        cx, cy = centroids[index]
+        clusters.append((int(box.x + cx), int(box.y + cy), bw, bh))
+    clusters.sort(key=lambda item: (item[1], item[0]))
+    return clusters
+
+
+def estimate_vertical_shift(prev_crop: np.ndarray, curr_crop: np.ndarray) -> int:
+    """估算展柜向下滚动一次后内容的纵向像素位移; 没动或不可比返回 0。
+
+    取 curr_crop 中上部水平带 (12%~42%, 宽留 5% 边距) 在 prev_crop 中模板匹配,
+    覆盖最多 ~58% 视口高度的单步滚动; 匹配度不足或两帧几乎无变化返回 0。
+    """
+    if prev_crop.size == 0 or curr_crop.size == 0 or prev_crop.shape != curr_crop.shape:
+        return 0
+    if float(np.mean(cv2.absdiff(prev_crop, curr_crop))) < SHOWCASE_SHIFT_MIN_DIFF:
+        return 0
+    h, w = curr_crop.shape[:2]
+    y0, y1 = int(h * 0.12), int(h * 0.42)
+    x0, x1 = int(w * 0.05), int(w * 0.95)
+    if y1 - y0 < 10 or x1 - x0 < 10:
+        return 0
+    template = curr_crop[y0:y1, x0:x1]
+    search = prev_crop[:, x0:x1]
+    if template.shape[0] >= search.shape[0] or template.shape[1] > search.shape[1]:
+        return 0
+    result = cv2.matchTemplate(search, template, cv2.TM_CCOEFF_NORMED)
+    _, max_val, _, max_loc = cv2.minMaxLoc(result)
+    if max_val >= SHOWCASE_SHIFT_MATCH_THRESHOLD and max_loc[1] >= y0:
+        return int(max_loc[1] - y0)
+    return 0
+
+
+def merge_unknown_red_cluster(
+    known: list[tuple[int, int, int, int]],
+    candidate: tuple[int, int, int, int],
+    cum_dy: int = 0,
+) -> bool:
+    """按展柜顶部绝对坐标对跨屏候选去重; 新发现追加进 known 并返回 True。"""
+    cx, cy, bw, bh = candidate
+    cy_abs = cy + cum_dy
+    for kx, ky_abs, kw, kh in known:
+        if (
+            abs(cx - kx) <= max(bw, kw) * SHOWCASE_SCROLL_OVERLAP_FRACTION
+            and abs(cy_abs - ky_abs) <= max(bh, kh) * SHOWCASE_SCROLL_OVERLAP_FRACTION
+        ):
+            return False
+    known.append((cx, cy_abs, bw, bh))
+    return True
+
+
+def _scroll_showcase(task: AuctionSellOps, passes: int) -> None:
+    """在展柜中部滚动固定屏数: 负数为向上回顶, 正数为向下翻页。"""
+    wheel = SHOWCASE_SCROLL_WHEEL if passes > 0 else -SHOWCASE_SCROLL_WHEEL
+    for _ in range(abs(passes)):
+        auction_interaction.scroll_screen(task, *POS_SHOWCASE_SCROLL, wheel)
+        task._bounded_sleep(None, SHOWCASE_SCROLL_SETTLE)
+
+
+def scan_showcase_unknown_reds(task: AuctionSellOps, boxes: AuctionBoxes) -> int:
+    """等待道具动画结束后从顶到底滚动扫描右侧整个展柜, 去重统计未知红数量并复原 Y 轴滚动条。"""
+    known: list[tuple[int, int, int, int]] = []
+    cum_dy = 0
+    grid = boxes.showcase_grid
+    scrolls_down = 0
+    aborted = False
+
+    if SHOWCASE_SCAN_PRE_DELAY > 0:
+        task.log_info(f"等待 {SHOWCASE_SCAN_PRE_DELAY:.0f} 秒道具动画结束后开始扫描展柜")
+        task._bounded_sleep(None, SHOWCASE_SCAN_PRE_DELAY)
+
+    task.next_frame()
+    frame = task.frame
+    init_geom = (
+        scrollbar_geometry(frame, boxes.showcase_scrollbar)
+        if frame is not None
+        else None
+    )
+    if init_geom is None or init_geom[0] > SHOWCASE_SCROLLBAR_TOP_MAX_PX:
+        _scroll_showcase(task, -SHOWCASE_SCROLL_TOP_PASSES)
+        task.next_frame()
+        frame = task.frame
+
+    try:
+        for current_pass in range(1, SHOWCASE_SCAN_MAX_PASSES + 1):
+            if frame is None:
+                break
+            clusters = unknown_red_clusters(frame, grid)
+            new_count = 0
+            for cx, cy, bw, bh in clusters:
+                if merge_unknown_red_cluster(known, (cx, cy - grid.y, bw, bh), cum_dy=cum_dy):
+                    new_count += 1
+            ratio = scrollbar_thumb_ratio(frame, boxes.showcase_scrollbar)
+            geom = scrollbar_geometry(frame, boxes.showcase_scrollbar)
+            ratio_str = f"{ratio:.2f}" if ratio is not None else "None"
+            task.log_debug(
+                f"展柜第 {current_pass} 屏: 本屏检出 {len(clusters)} 个未知红"
+                f"(新增 {new_count}, 累计 {len(known)}), 滑块位置={ratio_str}, cum_dy={cum_dy}"
+            )
+            if ratio is not None and ratio >= RED_SCROLLBAR_BOTTOM_RATIO:
+                break
+            if current_pass >= SHOWCASE_SCAN_MAX_PASSES:
+                break
+
+            prev_crop = frame[grid.y : grid.y + grid.height, grid.x : grid.x + grid.width]
+            _scroll_showcase(task, 1)
+            scrolls_down += 1
+            task.next_frame()
+            frame = task.frame
+            if frame is None:
+                break
+            curr_crop = frame[grid.y : grid.y + grid.height, grid.x : grid.x + grid.width]
+            dy = estimate_vertical_shift(prev_crop, curr_crop)
+            next_geom = scrollbar_geometry(frame, boxes.showcase_scrollbar)
+            if (
+                dy <= SHOWCASE_MIN_SCROLL_PX
+                and geom is not None
+                and next_geom is not None
+                and geom[1] > 0
+            ):
+                geo_dy = int(
+                    round((next_geom[0] - geom[0]) / geom[1] * grid.height)
+                )
+                dy = max(geo_dy, 0)
+            if dy <= SHOWCASE_MIN_SCROLL_PX:
+                diff = (
+                    float(np.mean(cv2.absdiff(prev_crop, curr_crop)))
+                    if prev_crop.size > 0 and prev_crop.shape == curr_crop.shape
+                    else 0.0
+                )
+                if current_pass >= 2 and diff < SHOWCASE_SHIFT_MIN_DIFF:
+                    break
+                dy = int(grid.height * 0.45)
+            cum_dy += dy
+    except TaskDisabledException:
+        aborted = True
+        raise
+    finally:
+        if not aborted and scrolls_down > 0:
+            _scroll_showcase(task, -max(scrolls_down, SHOWCASE_SCROLL_TOP_PASSES))
+
+    task.log_info(f"展柜扫描完成: 共识别到 {len(known)} 个未知红藏品")
+    return len(known)
